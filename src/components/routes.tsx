@@ -3,6 +3,7 @@ import React from 'react';
 
 import WelcomeScreen from './welcome/WelcomeScreen';
 import FormScreen from './form/FormScreen';
+import LogInMockUpScreen from './login/LogInMockUpScreen';
 
 export const routes = {
   WelcomeScreen: {
@@ -12,6 +13,13 @@ export const routes = {
   FormScreen: {
     name: 'FormScreen',
     screen: FormScreen,
+    screenNavigationOptions: {
+      gestureEnabled: true,
+    },
+  },
+  LogInMockUpScreen: {
+    name: 'LogInMockUpScreen',
+    screen: LogInMockUpScreen,
     screenNavigationOptions: {
       gestureEnabled: true,
     },

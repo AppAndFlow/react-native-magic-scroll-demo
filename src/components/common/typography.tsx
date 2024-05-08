@@ -2,6 +2,7 @@ import { Text, TextProps, TextStyle } from 'react-native';
 import * as React from 'react';
 
 import colors from '../../constants/colors';
+import fonts from '../../constants/fonts';
 
 interface A {
   children: React.ReactNode;
@@ -16,6 +17,22 @@ type P = A & Partial<TextProps>;
  */
 export const TextNormal = ({ children, style, ...rest }: P) => (
   <BasicText {...rest} style={[{ fontSize: 36, color: colors.white }, style]}>
+    {children}
+  </BasicText>
+);
+
+export const Text40Playfair700 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      {
+        fontSize: 40,
+        fontFamily: fonts.playfairDisplayBold,
+        fontWeight: '700',
+      },
+      style,
+    ]}
+  >
     {children}
   </BasicText>
 );

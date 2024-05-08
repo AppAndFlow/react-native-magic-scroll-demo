@@ -7,7 +7,7 @@ import { Box } from 'react-native-design-utility';
 
 import ErrorHandler from './common/ErrorHandler';
 import images from '../constants/images';
-import { fontsMap } from '../constants/fonts';
+import { fontsMap } from '../constants/fonts/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
 
