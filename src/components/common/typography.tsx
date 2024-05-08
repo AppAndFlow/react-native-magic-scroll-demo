@@ -68,6 +68,37 @@ export const Text16PlayFair400 = ({ children, style, ...rest }: P) => (
     {children}
   </BasicText>
 );
+export const Text40Asap700 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      {
+        fontSize: 40,
+        fontFamily: fonts.asapCondensedExtraBold,
+        fontWeight: '700',
+      },
+      style,
+    ]}
+  >
+    {children}
+  </BasicText>
+);
+
+export const Text18Asap400 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      {
+        fontSize: 18,
+        fontFamily: fonts.asapSemiBold,
+        fontWeight: '400',
+      },
+      style,
+    ]}
+  >
+    {children}
+  </BasicText>
+);
 
 /**
  * Every text created should wrap this basic component.
