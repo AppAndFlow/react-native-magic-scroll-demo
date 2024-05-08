@@ -67,6 +67,7 @@ const LogInMockUpScreen = () => {
               placeholderTextColor: 'black',
               placeholder: 'Email',
               style: {
+                marginBottom: 4,
                 backgroundColor: '#ffffff4a',
                 height: 50,
                 width: '100%',
@@ -87,6 +88,7 @@ const LogInMockUpScreen = () => {
               onSubmitEditing: () => Keyboard.dismiss(),
               style: {
                 backgroundColor: '#ffffff4a',
+                marginBottom: 4,
                 height: 50,
                 width: '100%',
                 borderWidth: 1,
