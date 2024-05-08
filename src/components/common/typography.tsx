@@ -37,6 +37,38 @@ export const Text40Playfair700 = ({ children, style, ...rest }: P) => (
   </BasicText>
 );
 
+export const Text60PlayFair900 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      {
+        fontSize: 60,
+        fontFamily: fonts.playfairDisplayExtraBold,
+        fontWeight: '900',
+      },
+      style,
+    ]}
+  >
+    {children}
+  </BasicText>
+);
+
+export const Text16PlayFair400 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      {
+        fontSize: 16,
+        fontFamily: fonts.playfairDisplayRegular,
+        fontWeight: '400',
+      },
+      style,
+    ]}
+  >
+    {children}
+  </BasicText>
+);
+
 /**
  * Every text created should wrap this basic component.
  * Use it to centralize stuff that you want to apply to any Text
