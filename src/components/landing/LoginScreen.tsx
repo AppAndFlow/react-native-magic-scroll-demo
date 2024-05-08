@@ -11,6 +11,9 @@ const LoginScreen = () => {
   const screenHeight = Dimensions.get('screen').height;
 
   const { chainInput } = MagicScroll.useFormSmartScroll();
+
+  const [isFocused, setIsFocued] = React.useState(false);
+
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
       <View
@@ -38,6 +41,7 @@ const LoginScreen = () => {
       </View>
       <MagicScroll.ScrollView>
         <MagicScroll.TextInput
+          name="Email"
           containerStyle={{
             paddingHorizontal: 20,
             marginBottom: 20,
@@ -47,17 +51,21 @@ const LoginScreen = () => {
             <Text18Asap400 style={{ color: 'white' }}>Username</Text18Asap400>
           )}
           textInputProps={{
+            onFocus: () => setIsFocued(true),
+            keyboardType: 'email-address',
             autoCapitalize: 'none',
             onSubmitEditing: () => chainInput('Password'),
+
             returnKeyType: 'next',
-            selectionColor: '#bc9df5',
-            cursorColor: '#bc9df5',
+            selectionColor: '#874BF6',
             style: {
               marginTop: 4,
               padding: 8,
               height: 50,
               width: '100%',
-              backgroundColor: '#575757',
+              borderWidth: isFocused ? 2 : 0,
+              borderColor: isFocused ? '#874BF6' : 'black',
+              backgroundColor: isFocused ? 'black' : '#474747',
               borderRadius: 6,
             },
           }}
@@ -69,17 +77,21 @@ const LoginScreen = () => {
             <Text18Asap400 style={{ color: 'white' }}>Password</Text18Asap400>
           )}
           textInputProps={{
+            onFocus: () => setIsFocued(true),
+            keyboardType: 'default',
             onSubmitEditing: () => Keyboard.dismiss(),
             returnKeyType: 'done',
             secureTextEntry: true,
             autoCapitalize: 'none',
-            selectionColor: '#bc9df5',
+            selectionColor: '#874BF6',
             style: {
               marginTop: 4,
               padding: 8,
               height: 50,
               width: '100%',
-              backgroundColor: '#575757',
+              borderWidth: isFocused ? 2 : 0,
+              borderColor: isFocused ? '#874BF6' : 'black',
+              backgroundColor: isFocused ? 'black' : '#474747',
               borderRadius: 6,
             },
           }}
@@ -99,7 +111,7 @@ const LoginScreen = () => {
             height: 50,
             width: screenWidth - 40,
             marginHorizontal: 20,
-            backgroundColor: '#575757',
+            backgroundColor: '#474747',
             borderRadius: 6,
             alignItems: 'center',
             justifyContent: 'center',
