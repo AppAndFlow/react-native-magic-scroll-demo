@@ -4,6 +4,7 @@ import React from 'react';
 import WelcomeScreen from './welcome/WelcomeScreen';
 import FormScreen from './form/FormScreen';
 import LogInMockUpScreen from './login/LogInMockUpScreen';
+import LandingScreen from './landing/LandingScreen';
 
 export const routes = {
   WelcomeScreen: {
@@ -20,6 +21,13 @@ export const routes = {
   LogInMockUpScreen: {
     name: 'LogInMockUpScreen',
     screen: LogInMockUpScreen,
+    screenNavigationOptions: {
+      gestureEnabled: true,
+    },
+  },
+  LandingScreen: {
+    name: 'LandingScreen',
+    screen: LandingScreen,
     screenNavigationOptions: {
       gestureEnabled: true,
     },

@@ -15,7 +15,7 @@ const WelcomeScreen = observer(() => {
   const navigation = useNavigation<NavigationProp<any, any>>();
   return (
     <Box f={1} justify="center" align="center" bg="blue">
-      <TextNormal>Welcome</TextNormal>
+      <TextNormal style={{ marginBottom: 36 }}>Welcome</TextNormal>
       <TouchableOpacity
         onPress={() => navigation.navigate('FormScreen')}
         style={{ marginBottom: 16 }}
@@ -33,6 +33,7 @@ const WelcomeScreen = observer(() => {
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.navigate('LogInMockUpScreen')}
+        style={{ marginBottom: 16 }}
       >
         <Text
           style={{
@@ -43,6 +44,18 @@ const WelcomeScreen = observer(() => {
           }}
         >
           Go to mock up Login screen
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('LandingScreen')}>
+        <Text
+          style={{
+            fontSize: 18,
+            textDecorationStyle: 'solid',
+            textDecorationLine: 'underline',
+            textDecorationColor: 'white',
+          }}
+        >
+          Go to mock up Landing screen
         </Text>
       </TouchableOpacity>
     </Box>
