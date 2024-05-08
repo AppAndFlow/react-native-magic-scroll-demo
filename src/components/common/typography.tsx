@@ -99,6 +99,21 @@ export const Text18Asap400 = ({ children, style, ...rest }: P) => (
     {children}
   </BasicText>
 );
+export const Text16Asap400 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      {
+        fontSize: 16,
+        fontFamily: fonts.asapRegular,
+        fontWeight: '400',
+      },
+      style,
+    ]}
+  >
+    {children}
+  </BasicText>
+);
 
 /**
  * Every text created should wrap this basic component.

@@ -9,6 +9,7 @@ export const fontsMap = {
   asapCondensedExtraBold: require('./fonts/Asap_Condensed-ExtraBold.ttf'),
   asapExtraBold: require('./fonts/Asap-ExtraBold.ttf'),
   asapSemiBold: require('./fonts/Asap-SemiBold.ttf'),
+  asapRegular: require('./fonts/Asap-Regular.ttf'),
 };
 
 export default {
@@ -19,4 +20,5 @@ export default {
   asapCondensedExtraBold: 'asapCondensedExtraBold',
   asapExtraBold: 'asapExtraBold',
   asapSemiBold: 'asapSemiBold',
+  asapRegular: 'asapRegular',
 };
