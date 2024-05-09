@@ -4,6 +4,7 @@ import { Dimensions, Keyboard, TouchableOpacity, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import IndependantTI from './IndependantTI';
 
 const LoginScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -11,8 +12,6 @@ const LoginScreen = () => {
   const screenHeight = Dimensions.get('screen').height;
 
   const { chainInput } = MagicScroll.useFormSmartScroll();
-
-  const [isFocused, setIsFocued] = React.useState(false);
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
@@ -40,66 +39,24 @@ const LoginScreen = () => {
         </Text18Asap400>
       </View>
       <MagicScroll.ScrollView>
-        <MagicScroll.TextInput
-          name="Email"
-          containerStyle={{
-            paddingHorizontal: 20,
-            marginBottom: 20,
-            marginTop: screenHeight * 0.35,
-          }}
-          renderTop={() => (
-            <Text18Asap400 style={{ color: 'white' }}>Username</Text18Asap400>
-          )}
-          textInputProps={{
-            onFocus: () => setIsFocued(true),
-            keyboardType: 'email-address',
-            autoCapitalize: 'none',
-            onSubmitEditing: () => chainInput('Password'),
-
-            returnKeyType: 'next',
-            selectionColor: '#874BF6',
-            style: {
-              marginTop: 4,
-              padding: 8,
-              height: 50,
-              width: '100%',
-              borderWidth: isFocused ? 2 : 0,
-              borderColor: isFocused ? '#874BF6' : 'black',
-              backgroundColor: isFocused ? 'black' : '#474747',
-              borderRadius: 6,
-            },
-          }}
+        <IndependantTI
+          onSubmit={() => chainInput('Password')}
+          name="Username"
+          label="Username"
+          returnKeyType="next"
+          style={{ marginTop: screenHeight * 0.33 }}
         />
-        <MagicScroll.TextInput
+        <IndependantTI
           name="Password"
-          containerStyle={{ paddingHorizontal: 20 }}
-          renderTop={() => (
-            <Text18Asap400 style={{ color: 'white' }}>Password</Text18Asap400>
-          )}
-          textInputProps={{
-            onFocus: () => setIsFocued(true),
-            keyboardType: 'default',
-            onSubmitEditing: () => Keyboard.dismiss(),
-            returnKeyType: 'done',
-            secureTextEntry: true,
-            autoCapitalize: 'none',
-            selectionColor: '#874BF6',
-            style: {
-              marginTop: 4,
-              padding: 8,
-              height: 50,
-              width: '100%',
-              borderWidth: isFocused ? 2 : 0,
-              borderColor: isFocused ? '#874BF6' : 'black',
-              backgroundColor: isFocused ? 'black' : '#474747',
-              borderRadius: 6,
-            },
-          }}
+          label="Password"
+          returnKeyType="done"
+          onSubmit={() => Keyboard.dismiss()}
         />
+
         <Text16Asap400
           style={{
             color: '#bc9df5',
-            marginTop: 24,
+
             paddingLeft: 20,
             fontSize: 18,
           }}
