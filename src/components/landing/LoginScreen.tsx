@@ -76,7 +76,7 @@ const LoginScreen = () => {
             bottom: -74,
           }}
         >
-          <Text18Asap400 style={{ color: 'white' }}>Log In</Text18Asap400>
+          <Text18Asap400 style={{ color: '#bdbaba' }}>Log In</Text18Asap400>
         </TouchableOpacity>
       </MagicScroll.ScrollView>
     </View>
