@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { PropsWithChildren } from 'react';
-import Animated, { AnimatedScrollViewProps } from 'react-native-reanimated';
+import Animated from 'react-native-reanimated';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { View, Keyboard, TouchableOpacity, Dimensions } from 'react-native';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
-import { FontAwesome5 } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
-import delay from '../../utils/delay';
+import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 function CustomScrollView() {
+  const navigation = useNavigation<NavigationProp<any, any>>();
   const {
     scrollHandler,
     scrollRef,
@@ -31,7 +31,7 @@ function CustomScrollView() {
           alignItems: 'center',
         }}
       >
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigation.goBack}>
           <Entypo name="chevron-left" size={24} color="white" />
         </TouchableOpacity>
         <Text18Asap400
@@ -58,53 +58,26 @@ function CustomScrollView() {
         // {...props.scollViewProps}
       >
         <Animated.View style={[translateStyle, { flex: 1 }]}>
-          <Text18Asap400
-            style={{
-              color: 'white',
-              // marginTop: screenHeight * 0.2,
-
-              marginBottom: -14,
+          <IndependantTI
+            label="Email"
+            bottomText="You'll need to verify that you own this email account."
+            name="PhoneNumber"
+            returnKeyType="next"
+            onSubmit={() => chainInput('Username')}
+            tiProps={{
+              keyboardType: 'email-address',
             }}
-          >
-            Phone Number
-          </Text18Asap400>
+          />
           <View
             style={{
               flexDirection: 'row',
-              alignItems: 'center',
-            }}
-          >
-            <Text18Asap400 style={{ fontSize: 28, marginRight: 10 }}>
-              🇨🇦
-            </Text18Asap400>
-
-            <IndependantTI
-              // label="Phone Number"
-              bottomText="Include your country code and use a device you trust."
-              name="PhoneNumber"
-              returnKeyType="next"
-              style={{ flex: 1 }}
-              tiProps={{
-                keyboardType: 'phone-pad',
-                // inputAccessoryViewID: 'uniqueID',
-                placeholder: '+1',
-                placeholderTextColor: 'white',
-              }}
-            />
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-
-              alignItems: 'center',
-              gap: 10,
-              marginTop: -5,
               marginBottom: 10,
+              alignItems: 'center',
             }}
           >
-            <FontAwesome5 name="envelope" size={24} color="#bc9df5" />
-            <Text18Asap400 style={{ color: '#bc9df5' }}>
-              Use email instead
+            <Feather name="phone" size={20} color="#bc9df5" />
+            <Text18Asap400 style={{ color: '#bc9df5', marginLeft: 10 }}>
+              Use phone instead
             </Text18Asap400>
           </View>
           <IndependantTI
