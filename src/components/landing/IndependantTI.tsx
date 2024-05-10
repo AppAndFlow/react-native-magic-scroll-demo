@@ -34,7 +34,6 @@ const IndependantTI = ({
     <MagicScroll.TextInput
       name={name}
       containerStyle={{
-        flex: 1,
         marginBottom: 10,
         ...style,
       }}
@@ -43,7 +42,7 @@ const IndependantTI = ({
       )}
       textInputProps={{
         onFocus: () => setIsFocued(true),
-        keyboardType: 'default',
+
         autoCapitalize: 'none',
         onSubmitEditing: onSubmit,
         onBlur: () => setIsFocued(false),

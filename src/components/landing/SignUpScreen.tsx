@@ -14,12 +14,14 @@ import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { Entypo } from '@expo/vector-icons';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { scrollTo, useAnimatedRef } from 'react-native-reanimated';
 
 const SignUpScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
   const screenWidth = Dimensions.get('screen').width;
   const screenHeight = Dimensions.get('screen').height;
-  const { chainInput } = MagicScroll.useFormSmartScroll();
+  const { chainInput, scrollRef } = MagicScroll.useFormSmartScroll();
+
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
       <View
@@ -47,12 +49,17 @@ const SignUpScreen = () => {
       </View>
       <MagicScroll.ScrollView
         additionalPadding={36}
-        scollViewProps={{ contentContainerStyle: { paddingHorizontal: 20 } }}
+        scollViewProps={{
+          contentContainerStyle: {
+            paddingHorizontal: 20,
+            paddingTop: screenHeight * 0.18,
+          },
+        }}
       >
         <Text18Asap400
           style={{
             color: 'white',
-            marginTop: screenHeight * 0.16,
+            // marginTop: screenHeight * 0.2,
 
             marginBottom: -14,
           }}
@@ -76,12 +83,12 @@ const SignUpScreen = () => {
             returnKeyType="next"
             tiProps={{
               keyboardType: 'phone-pad',
-              inputAccessoryViewID: 'uniqueID',
+              // inputAccessoryViewID: 'uniqueID',
               placeholder: '+1',
               placeholderTextColor: 'white',
             }}
           />
-          <InputAccessoryView nativeID={'uniqueID'} backgroundColor={'black'}>
+          {/* <InputAccessoryView nativeID={'uniqueID'} backgroundColor={'black'}>
             <View
               style={{
                 height: 48,
@@ -109,7 +116,7 @@ const SignUpScreen = () => {
                 </Text16Asap400>
               </TouchableOpacity>
             </View>
-          </InputAccessoryView>
+          </InputAccessoryView> */}
         </View>
         <View
           style={{
@@ -138,14 +145,25 @@ const SignUpScreen = () => {
           label="Password"
           name="Password"
           returnKeyType="next"
-          onSubmit={() => chainInput('DateOfBirth')}
+          // onSubmit={() => chainInput('DateOfBirth')}
+          onSubmit={() => {
+            // scrollTo(scrollRef, 0, 500, true);
+            console.log(scrollRef.current);
+            scrollRef.current?.scrollTo({
+              x: 0,
+              y: screenHeight,
+              animated: true,
+            });
+          }}
         />
         <IndependantTI
           label="Date of Birth"
           name="DateOfBirth"
           returnKeyType="done"
           onSubmit={Keyboard.dismiss}
-          tiProps={{ keyboardType: 'numbers-and-punctuation' }}
+          tiProps={{
+            keyboardType: 'numbers-and-punctuation',
+          }}
         />
       </MagicScroll.ScrollView>
       <View
