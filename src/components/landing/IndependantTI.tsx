@@ -2,6 +2,14 @@ import * as React from 'react';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { ReturnKeyTypeOptions, TextInputProps, ViewStyle } from 'react-native';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
+import Animated, {
+  FadeIn,
+  FadeInDown,
+  FadeInUp,
+  FadeOut,
+  FadeOutDown,
+  FadeOutUp,
+} from 'react-native-reanimated';
 
 const IndependantTI = ({
   name,
@@ -14,7 +22,7 @@ const IndependantTI = ({
 }: {
   name: string;
   onSubmit?: () => void;
-  label: string;
+  label?: string;
   returnKeyType: ReturnKeyTypeOptions;
   style?: ViewStyle;
   tiProps?: TextInputProps;
@@ -26,7 +34,7 @@ const IndependantTI = ({
     <MagicScroll.TextInput
       name={name}
       containerStyle={{
-        paddingHorizontal: 20,
+        flex: 1,
         marginBottom: 10,
         ...style,
       }}
@@ -40,15 +48,16 @@ const IndependantTI = ({
         onSubmitEditing: onSubmit,
         onBlur: () => setIsFocued(false),
         returnKeyType: returnKeyType,
-        // selectionColor: '#874BF6',
+        selectionHandleColor: '#874BF6',
+        selectionColor: '#874BF6',
         style: {
           color: 'white',
           fontSize: 18,
           marginTop: 4,
           marginBottom: 8,
           padding: 8,
-          height: 50,
-          width: '100%',
+          height: 46,
+
           borderWidth: isFocused ? 2 : 0,
           borderColor: isFocused ? '#874BF6' : 'black',
           backgroundColor: isFocused ? 'black' : '#474747',
@@ -59,11 +68,11 @@ const IndependantTI = ({
       renderBottom={
         bottomText && isFocused
           ? () => (
-              <Text16Asap400
-                style={{ fontSize: 14, color: 'white', marginBottom: 8 }}
-              >
-                {bottomText}
-              </Text16Asap400>
+              <Animated.View entering={FadeInUp} exiting={FadeOutUp}>
+                <Text16Asap400 style={{ fontSize: 14, color: 'white' }}>
+                  {bottomText}
+                </Text16Asap400>
+              </Animated.View>
             )
           : undefined
       }

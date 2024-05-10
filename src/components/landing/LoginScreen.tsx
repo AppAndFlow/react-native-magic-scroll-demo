@@ -38,7 +38,9 @@ const LoginScreen = () => {
           Log In
         </Text18Asap400>
       </View>
-      <MagicScroll.ScrollView>
+      <MagicScroll.ScrollView
+        scollViewProps={{ contentContainerStyle: { paddingHorizontal: 20 } }}
+      >
         <IndependantTI
           onSubmit={() => chainInput('Password')}
           name="Username"
@@ -65,9 +67,9 @@ const LoginScreen = () => {
         </Text16Asap400>
         <TouchableOpacity
           style={{
-            height: 50,
+            height: 46,
             width: screenWidth - 40,
-            marginHorizontal: 20,
+
             backgroundColor: '#474747',
             borderRadius: 6,
             alignItems: 'center',
