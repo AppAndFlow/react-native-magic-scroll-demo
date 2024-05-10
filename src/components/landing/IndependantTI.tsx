@@ -68,7 +68,10 @@ const IndependantTI = ({
       renderBottom={
         bottomText && isFocused
           ? () => (
-              <Animated.View entering={FadeInUp} exiting={FadeOutUp}>
+              <Animated.View
+                entering={FadeInUp.duration(400)}
+                exiting={FadeOutUp.duration(150)}
+              >
                 <Text16Asap400 style={{ fontSize: 14, color: 'white' }}>
                   {bottomText}
                 </Text16Asap400>

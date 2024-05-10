@@ -46,12 +46,13 @@ const SignUpScreen = () => {
         </Text18Asap400>
       </View>
       <MagicScroll.ScrollView
+        additionalPadding={36}
         scollViewProps={{ contentContainerStyle: { paddingHorizontal: 20 } }}
       >
         <Text18Asap400
           style={{
             color: 'white',
-            marginTop: screenHeight * 0.2,
+            marginTop: screenHeight * 0.16,
 
             marginBottom: -14,
           }}
