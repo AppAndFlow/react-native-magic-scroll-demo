@@ -12,4 +12,13 @@ export default {
   windowHeight,
   isLargeDevice,
   isSmallDevice,
+  safeBottomDistance: definePaddingBottom(),
 };
+
+function definePaddingBottom() {
+  if (Platform.OS === 'ios') {
+    return isLargeDevice ? 24 + 10 : 24;
+  } else {
+    return 24;
+  }
+}

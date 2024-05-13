@@ -7,9 +7,17 @@ import IndependantTI from './IndependantTI';
 import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import { useUiStore } from '../../stores/ui';
+import metrics from '../../constants/metrics';
+import DateTimePicker, {
+  DateTimePickerEvent,
+} from '@react-native-community/datetimepicker';
+import { observer } from 'mobx-react';
+import { format } from 'date-fns';
 
-function CustomScrollView() {
+const CustomScrollView = observer(() => {
   const navigation = useNavigation<NavigationProp<any, any>>();
+  const uiStore = useUiStore();
   const {
     scrollHandler,
     scrollRef,
@@ -20,6 +28,9 @@ function CustomScrollView() {
 
   const screenHeight = Dimensions.get('screen').height;
   const screenWidth = Dimensions.get('screen').width;
+
+  const [birthdate, setBirthdate] = React.useState(new Date() || undefined);
+  const [isFocused, setIsFocused] = React.useState(false);
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
@@ -95,25 +106,84 @@ function CustomScrollView() {
             // onSubmit={() => chainInput('DateOfBirth')}
             onSubmit={() => {
               // scrollTo(scrollRef, 0, 500, true);
-              console.log(screenHeight * 0.65);
+
               Keyboard.dismiss();
 
               scrollRef.current?.scrollTo({
                 x: 0,
-                y: 560,
+                y: 120,
                 animated: true,
+              });
+              setIsFocused(true);
+              uiStore.openBottomSheet({
+                snapPoints: [1, 280 + metrics.safeBottomDistance],
+                renderContent: () => (
+                  <DateTimePickerBottomSheet
+                    birthdate={birthdate}
+                    setBirthdate={setBirthdate}
+                    onPressDone={() => {
+                      uiStore.closeBottomSheet();
+                      scrollRef.current?.scrollTo({
+                        x: 0,
+                        y: 0,
+                        animated: true,
+                      });
+                      setIsFocused(false);
+                    }}
+                  />
+                ),
               });
             }}
           />
-          <IndependantTI
-            label="Date of Birth"
-            name="DateOfBirth"
-            returnKeyType="done"
-            onSubmit={Keyboard.dismiss}
-            tiProps={{
-              keyboardType: 'numbers-and-punctuation',
+
+          <Text18Asap400 style={{ color: 'white', marginBottom: 4 }}>
+            Date of Birth
+          </Text18Asap400>
+          <TouchableOpacity
+            style={{
+              height: 46,
+              width: '100%',
+              paddingHorizontal: 8,
+              alignItems: 'flex-start',
+              justifyContent: 'center',
+              backgroundColor: isFocused ? 'black' : '#474747',
+              borderWidth: isFocused ? 1 : 0,
+              borderColor: isFocused ? '#874BF6' : 'black',
+              borderRadius: 6,
             }}
-          />
+            onPress={() => {
+              setIsFocused(true);
+              scrollRef.current?.scrollTo({
+                x: 0,
+                y: 120,
+                animated: true,
+              });
+              uiStore.openBottomSheet({
+                snapPoints: [1, 280 + metrics.safeBottomDistance],
+                renderContent: () => (
+                  <DateTimePickerBottomSheet
+                    birthdate={birthdate}
+                    setBirthdate={setBirthdate}
+                    onPressDone={() => {
+                      uiStore.closeBottomSheet();
+                      scrollRef.current?.scrollTo({
+                        x: 0,
+                        y: 0,
+                        animated: true,
+                      });
+                      setIsFocused(false);
+                    }}
+                  />
+                ),
+              });
+            }}
+          >
+            {birthdate ? (
+              <Text16Asap400 style={{ color: 'white' }}>
+                {format(new Date(birthdate), 'PPP')}
+              </Text16Asap400>
+            ) : null}
+          </TouchableOpacity>
         </Animated.View>
       </Animated.ScrollView>
       <View
@@ -158,10 +228,68 @@ function CustomScrollView() {
       </View>
     </View>
   );
-}
+});
 
 export default () => (
   <MagicScroll.SmartScrollView>
     <CustomScrollView />
   </MagicScroll.SmartScrollView>
 );
+
+const DateTimePickerBottomSheet = ({
+  birthdate,
+  setBirthdate,
+  onPressDone,
+}: {
+  birthdate: Date;
+  setBirthdate: (date: Date) => void;
+  onPressDone: () => void;
+}) => {
+  return (
+    <View
+      style={{
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingBottom: 20,
+      }}
+    >
+      <View
+        style={{
+          backgroundColor: '#474747',
+          height: 40,
+          width: '100%',
+          paddingHorizontal: 20,
+          alignItems: 'flex-end',
+          justifyContent: 'center',
+        }}
+      >
+        <TouchableOpacity
+          onPress={onPressDone}
+          style={{
+            backgroundColor: '#874BF6',
+            height: 40,
+            width: 76,
+            borderRadius: 6,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
+          <Text18Asap400 style={{ color: 'white' }}>Done</Text18Asap400>
+        </TouchableOpacity>
+      </View>
+      <DateTimePicker
+        display="spinner"
+        textColor="white"
+        accentColor="#bc9df5"
+        value={birthdate}
+        mode="date"
+        onChange={(e: DateTimePickerEvent, date?: Date) => {
+          if (date) {
+            setBirthdate(new Date(date));
+          }
+        }}
+      />
+    </View>
+  );
+};

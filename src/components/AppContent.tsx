@@ -1,9 +1,10 @@
-import * as React from "react";
-import { Box } from "react-native-design-utility";
+import * as React from 'react';
+import { Box } from 'react-native-design-utility';
 
-import NotificationHandler from "./common/NotificationHandler";
-import OTAManager from "./common/OTAManager";
+import NotificationHandler from './common/NotificationHandler';
+import OTAManager from './common/OTAManager';
 import AppNavigator from './AppNavigator';
+import BottomSheet from './common/BottomSheet';
 
 /**
  * This is where we add anything related to the content of the App
@@ -24,6 +25,7 @@ const AppContent = () => {
       <NotificationHandler />
       <OTAManager />
       {!isDataLoading && <AppNavigator />}
+      <BottomSheet />
     </Box>
   );
 };

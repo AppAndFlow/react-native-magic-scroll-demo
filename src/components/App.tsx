@@ -10,6 +10,7 @@ import images from '../constants/images';
 import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 export const StoreContext = React.createContext<typeof rootStore>(rootStore);
 
@@ -39,7 +40,9 @@ const App = () => {
   return ready ? (
     <StoreContext.Provider value={rootStore}>
       <NavigationContainer>
-        <AppContent />
+        <GestureHandlerRootView>
+          <AppContent />
+        </GestureHandlerRootView>
       </NavigationContainer>
     </StoreContext.Provider>
   ) : (
