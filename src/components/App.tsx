@@ -11,6 +11,11 @@ import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { configure } from 'mobx';
+
+configure({
+  enforceActions: 'never',
+});
 
 export const StoreContext = React.createContext<typeof rootStore>(rootStore);
 

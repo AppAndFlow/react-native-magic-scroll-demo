@@ -24,7 +24,7 @@ const CustomScrollView = observer(() => {
     baseScrollViewProps,
     translateStyle,
     chainInput,
-  } = MagicScroll.useFormSmartScroll({ padding: 36 });
+  } = MagicScroll.useFormSmartScroll({ padding: 4 });
 
   const screenHeight = Dimensions.get('screen').height;
   const screenWidth = Dimensions.get('screen').width;
@@ -39,6 +39,7 @@ const CustomScrollView = observer(() => {
           flexDirection: 'row',
           paddingHorizontal: 10,
           paddingTop: 64,
+
           alignItems: 'center',
         }}
       >
@@ -178,7 +179,7 @@ const CustomScrollView = observer(() => {
               });
             }}
           >
-            {birthdate ? (
+            {birthdate < new Date(2012, 0, 1) ? (
               <Text16Asap400 style={{ color: 'white' }}>
                 {format(new Date(birthdate), 'PPP')}
               </Text16Asap400>
@@ -281,6 +282,8 @@ const DateTimePickerBottomSheet = ({
       <DateTimePicker
         display="spinner"
         textColor="white"
+        minimumDate={new Date(1900, 0, 1)}
+        maximumDate={new Date(2012, 0, 1)}
         accentColor="#bc9df5"
         value={birthdate}
         mode="date"

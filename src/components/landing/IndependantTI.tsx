@@ -42,7 +42,7 @@ const IndependantTI = ({
       )}
       textInputProps={{
         onFocus: () => setIsFocued(true),
-
+        keyboardAppearance: 'dark',
         autoCapitalize: 'none',
         onSubmitEditing: onSubmit,
         onBlur: () => setIsFocued(false),
