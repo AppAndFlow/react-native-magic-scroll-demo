@@ -102,6 +102,7 @@ const CustomScrollView = observer(() => {
             tiProps={{
               onChangeText: (val) => setEmail(val),
               keyboardType: 'email-address',
+              textContentType: 'emailAddress',
             }}
           />
           <View
@@ -123,6 +124,9 @@ const CustomScrollView = observer(() => {
             returnKeyType="next"
             onSubmit={() => chainInput('Password')}
             tiProps={{
+              keyboardType: 'default',
+              textContentType: 'username',
+
               onChangeText: (val) => setUsername(val),
             }}
           />
@@ -132,6 +136,8 @@ const CustomScrollView = observer(() => {
             name="Password"
             returnKeyType="next"
             tiProps={{
+              secureTextEntry: true,
+              textContentType: 'password',
               onChangeText: (val) => setPassword(val),
             }}
             onSubmit={() => {
@@ -258,7 +264,11 @@ const CustomScrollView = observer(() => {
             justifyContent: 'center',
           }}
         >
-          <Text18Asap400 style={{ color: '#bdbaba' }}>Sign Up</Text18Asap400>
+          <Text18Asap400
+            style={{ color: buttonEnabled() ? 'white' : '#bdbaba' }}
+          >
+            Sign Up
+          </Text18Asap400>
         </TouchableOpacity>
       </View>
     </View>

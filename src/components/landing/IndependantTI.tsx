@@ -2,14 +2,7 @@ import * as React from 'react';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { ReturnKeyTypeOptions, TextInputProps, ViewStyle } from 'react-native';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
-import Animated, {
-  FadeIn,
-  FadeInDown,
-  FadeInUp,
-  FadeOut,
-  FadeOutDown,
-  FadeOutUp,
-} from 'react-native-reanimated';
+import Animated, { FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
 const IndependantTI = ({
   name,
