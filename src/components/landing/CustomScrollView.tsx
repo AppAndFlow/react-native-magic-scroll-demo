@@ -1,7 +1,13 @@
 import * as React from 'react';
 import Animated from 'react-native-reanimated';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
-import { View, Keyboard, TouchableOpacity, Dimensions } from 'react-native';
+import {
+  View,
+  Keyboard,
+  TouchableOpacity,
+  Dimensions,
+  Alert,
+} from 'react-native';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
 import { Feather } from '@expo/vector-icons';
@@ -29,8 +35,25 @@ const CustomScrollView = observer(() => {
   const screenHeight = Dimensions.get('screen').height;
   const screenWidth = Dimensions.get('screen').width;
 
+  const [email, setEmail] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [password, setPassword] = React.useState('');
   const [birthdate, setBirthdate] = React.useState(new Date() || undefined);
+
   const [isFocused, setIsFocused] = React.useState(false);
+
+  const buttonEnabled = () => {
+    if (
+      email &&
+      username &&
+      password !== '' &&
+      birthdate < new Date(2012, 0, 1)
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  };
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
@@ -77,6 +100,7 @@ const CustomScrollView = observer(() => {
             returnKeyType="next"
             onSubmit={() => chainInput('Username')}
             tiProps={{
+              onChangeText: (val) => setEmail(val),
               keyboardType: 'email-address',
             }}
           />
@@ -98,13 +122,18 @@ const CustomScrollView = observer(() => {
             name="Username"
             returnKeyType="next"
             onSubmit={() => chainInput('Password')}
+            tiProps={{
+              onChangeText: (val) => setUsername(val),
+            }}
           />
           <IndependantTI
             bottomText="Strong passwords include a mix of lower case latters, upper case letters, numbers and special characters."
             label="Password"
             name="Password"
             returnKeyType="next"
-            // onSubmit={() => chainInput('DateOfBirth')}
+            tiProps={{
+              onChangeText: (val) => setPassword(val),
+            }}
             onSubmit={() => {
               // scrollTo(scrollRef, 0, 500, true);
 
@@ -164,7 +193,7 @@ const CustomScrollView = observer(() => {
                 renderContent: () => (
                   <DateTimePickerBottomSheet
                     birthdate={birthdate}
-                    setBirthdate={setBirthdate}
+                    setBirthdate={(e) => setBirthdate(e)}
                     onPressDone={() => {
                       uiStore.closeBottomSheet();
                       scrollRef.current?.scrollTo({
@@ -213,12 +242,17 @@ const CustomScrollView = observer(() => {
           applies.
         </Text16Asap400>
         <TouchableOpacity
+          onPress={
+            buttonEnabled()
+              ? () => Alert.alert('You have successfully signed up!')
+              : () => null
+          }
           style={{
             height: 46,
             width: screenWidth - 40,
             marginTop: 16,
 
-            backgroundColor: '#474747',
+            backgroundColor: buttonEnabled() ? '#874BF6' : '#474747',
             borderRadius: 6,
             alignItems: 'center',
             justifyContent: 'center',
