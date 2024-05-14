@@ -2,7 +2,7 @@ import * as React from 'react';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { ReturnKeyTypeOptions, TextInputProps, ViewStyle } from 'react-native';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
-import Animated, { FadeInUp, FadeOutUp } from 'react-native-reanimated';
+import Animated, { Easing, FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
 const IndependantTI = ({
   name,
@@ -40,7 +40,7 @@ const IndependantTI = ({
         onSubmitEditing: onSubmit,
         onBlur: () => setIsFocued(false),
         returnKeyType: returnKeyType,
-        selectionHandleColor: '#874BF6',
+
         selectionColor: '#874BF6',
         style: {
           color: 'white',
@@ -61,8 +61,13 @@ const IndependantTI = ({
         bottomText && isFocused
           ? () => (
               <Animated.View
-                entering={FadeInUp.duration(400)}
-                exiting={FadeOutUp.duration(150)}
+                entering={FadeInUp.duration(300)
+                  .easing(Easing.ease)
+                  .withInitialValues({
+                    opacity: 0,
+                    transform: [{ translateY: -5 }],
+                  })}
+                exiting={FadeOutUp.duration(200).easing(Easing.ease)}
               >
                 <Text16Asap400 style={{ fontSize: 14, color: 'white' }}>
                   {bottomText}

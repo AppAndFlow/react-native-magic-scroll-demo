@@ -102,6 +102,7 @@ const CustomScrollView = observer(() => {
             tiProps={{
               onChangeText: (val) => setEmail(val),
               keyboardType: 'email-address',
+              autoComplete: 'email',
               textContentType: 'emailAddress',
             }}
           />
@@ -328,7 +329,6 @@ const DateTimePickerBottomSheet = ({
         textColor="white"
         minimumDate={new Date(1900, 0, 1)}
         maximumDate={new Date(2012, 0, 1)}
-        accentColor="#bc9df5"
         value={birthdate}
         mode="date"
         onChange={(e: DateTimePickerEvent, date?: Date) => {
