@@ -22,6 +22,7 @@ import { useUiStore } from '../../stores/ui';
 import IndependantTI from './IndependantTI';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import AppButton from './AppButton';
+import AppHeader from './AppHeader';
 
 const SignUpScreen = observer(() => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -59,30 +60,7 @@ const SignUpScreen = observer(() => {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          paddingHorizontal: 10,
-          paddingTop: 64,
-
-          alignItems: 'center',
-        }}
-      >
-        <TouchableOpacity onPress={navigation.goBack}>
-          <Entypo name="chevron-left" size={24} color="white" />
-        </TouchableOpacity>
-        <Text18Asap400
-          style={{
-            textAlign: 'center',
-            color: 'white',
-            marginLeft: screenWidth * 0.33,
-            fontSize: 20,
-            marginBottom: 4,
-          }}
-        >
-          Sign Up
-        </Text18Asap400>
-      </View>
+      <AppHeader title="Sign Up" />
       <Animated.ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{

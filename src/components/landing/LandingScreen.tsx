@@ -8,14 +8,11 @@ import AppButton from './AppButton';
 
 const LandingScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
-  const screenWidth = Dimensions.get('screen').width;
-  const screenHeight = Dimensions.get('screen').height;
+
   return (
     <View
       style={{
         flex: 1,
-        height: screenHeight,
-        width: screenWidth,
         backgroundColor: '#874BF6',
         paddingTop: 140,
       }}

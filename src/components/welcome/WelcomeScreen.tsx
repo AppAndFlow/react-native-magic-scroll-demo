@@ -7,10 +7,6 @@ import { AntDesign } from '@expo/vector-icons';
 
 import { Text16PlayFair400, Text40Playfair700 } from '../common/typography';
 
-/**
- * You will mostlikely delete this screen.
- * See routes.tsx to add new screens.
- */
 const WelcomeScreen = observer(() => {
   const navigation = useNavigation<NavigationProp<any, any>>();
   return (

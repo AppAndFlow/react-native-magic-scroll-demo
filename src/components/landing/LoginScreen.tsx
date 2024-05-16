@@ -1,21 +1,14 @@
-import { NavigationProp, useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import {
-  Alert,
-  Dimensions,
-  Keyboard,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import { Entypo } from '@expo/vector-icons';
+import { Alert, Dimensions, Keyboard, View } from 'react-native';
+
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
-import { Text16Asap400, Text18Asap400 } from '../common/typography';
+import { Text16Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
 import AppButton from './AppButton';
+import AppHeader from './AppHeader';
 
 const LoginScreen = () => {
-  const navigation = useNavigation<NavigationProp<any, any>>();
   const screenWidth = Dimensions.get('screen').width;
   const screenHeight = Dimensions.get('screen').height;
 
@@ -34,29 +27,8 @@ const LoginScreen = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <View
-        style={{
-          flexDirection: 'row',
-          paddingHorizontal: 10,
-          paddingTop: 64,
-          alignItems: 'center',
-        }}
-      >
-        <TouchableOpacity onPress={() => navigation.goBack()}>
-          <Entypo name="chevron-left" size={24} color="white" />
-        </TouchableOpacity>
-        <Text18Asap400
-          style={{
-            textAlign: 'center',
-            color: 'white',
-            marginLeft: screenWidth * 0.34,
-            fontSize: 20,
-            marginBottom: 4,
-          }}
-        >
-          Log In
-        </Text18Asap400>
-      </View>
+      <AppHeader title="Log In" />
+
       <MagicScroll.ScrollView
         scollViewProps={{ contentContainerStyle: { paddingHorizontal: 20 } }}
       >
@@ -82,7 +54,7 @@ const LoginScreen = () => {
             textContentType: 'password',
           }}
           returnKeyType="done"
-          onSubmit={() => Keyboard.dismiss()}
+          onSubmit={Keyboard.dismiss}
         />
 
         <Text16Asap400
