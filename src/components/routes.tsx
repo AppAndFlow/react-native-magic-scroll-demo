@@ -7,7 +7,6 @@ import LogInMockUpScreen from './login/LogInMockUpScreen';
 import LandingScreen from './landing/LandingScreen';
 import LoginScreen from './landing/LoginScreen';
 import SignUpScreen from './landing/SignUpScreen';
-import CustomScrollView from './landing/CustomScrollView';
 
 export const routes = {
   WelcomeScreen: {
@@ -44,8 +43,7 @@ export const routes = {
   },
   SignUpScreen: {
     name: 'SignUpScreen',
-    // screen: SignUpScreen,
-    screen: CustomScrollView,
+    screen: SignUpScreen,
     screenNavigationOptions: {
       gestureEnabled: true,
     },

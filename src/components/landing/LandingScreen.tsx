@@ -3,6 +3,7 @@ import { Dimensions, TouchableOpacity, View } from 'react-native';
 import { Text18Asap400, Text40Asap700 } from '../common/typography';
 import TextBackground from './TextBackground';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+import AppButton from './AppButton';
 
 const LandingScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -40,32 +41,18 @@ const LandingScreen = () => {
           bottom: 60,
         }}
       >
-        <TouchableOpacity
-          onPress={() => navigation.navigate('LoginScreen')}
-          style={{
-            height: 52,
-            borderRadius: 8,
-            backgroundColor: '#6235b7',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flex: 1,
-          }}
-        >
-          <Text18Asap400 style={{ color: 'white' }}>Login</Text18Asap400>
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('SignUpScreen')}
-          style={{
-            height: 52,
-            borderRadius: 8,
-            backgroundColor: 'white',
-            alignItems: 'center',
-            justifyContent: 'center',
-            flex: 1,
-          }}
-        >
-          <Text18Asap400 style={{ color: '#6235b7' }}>Sign Up</Text18Asap400>
-        </TouchableOpacity>
+        <AppButton
+          buttonLabel="Login"
+          bgColor="#6235b7"
+          labelColor="white"
+          onPressButton={() => navigation.navigate('LoginScreen')}
+        />
+        <AppButton
+          buttonLabel="Sign Up"
+          labelColor="#6235b7"
+          bgColor="white"
+          onPressButton={() => navigation.navigate('SignUpScreen')}
+        />
       </View>
     </View>
   );
