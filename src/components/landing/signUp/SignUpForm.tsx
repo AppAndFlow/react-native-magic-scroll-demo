@@ -1,66 +1,54 @@
 import * as React from 'react';
 import Animated from 'react-native-reanimated';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
-import {
-  View,
-  Keyboard,
-  TouchableOpacity,
-  Dimensions,
-  Alert,
-} from 'react-native';
-import { Feather } from '@expo/vector-icons';
-import { Entypo } from '@expo/vector-icons';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
-import DateTimePicker, {
-  DateTimePickerEvent,
-} from '@react-native-community/datetimepicker';
-import { observer } from 'mobx-react';
+import IndependantTI from '../IndependantTI';
 import { format } from 'date-fns';
+import { observer } from 'mobx-react';
+import { useUiStore } from '../../../stores/ui';
+import metrics from '../../../constants/metrics';
+import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { Dimensions, Keyboard, TouchableOpacity, View } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { Text16Asap400, Text18Asap400 } from '../../common/typography';
+import DateTimePickerBottomSheet from './DateTimePickerBottomSheet';
 
-import metrics from '../../constants/metrics';
-import { useUiStore } from '../../stores/ui';
-import IndependantTI from './IndependantTI';
-import { Text16Asap400, Text18Asap400 } from '../common/typography';
-import AppButton from './AppButton';
-import AppHeader from './AppHeader';
+const SignUpForm = observer(
+  ({ setIsButtonEnabled }: { setIsButtonEnabled: (val: boolean) => void }) => {
+    const uiStore = useUiStore();
+    const {
+      scrollHandler,
+      scrollRef,
+      baseScrollViewProps,
+      translateStyle,
+      chainInput,
+    } = MagicScroll.useFormSmartScroll({ padding: 4 });
 
-const SignUpScreen = observer(() => {
-  const navigation = useNavigation<NavigationProp<any, any>>();
-  const uiStore = useUiStore();
-  const {
-    scrollHandler,
-    scrollRef,
-    baseScrollViewProps,
-    translateStyle,
-    chainInput,
-  } = MagicScroll.useFormSmartScroll({ padding: 4 });
+    const screenHeight = Dimensions.get('screen').height;
 
-  const screenHeight = Dimensions.get('screen').height;
-  const screenWidth = Dimensions.get('screen').width;
+    const [email, setEmail] = React.useState('');
+    const [username, setUsername] = React.useState('');
+    const [password, setPassword] = React.useState('');
+    const [birthdate, setBirthdate] = React.useState(new Date() || undefined);
 
-  const [email, setEmail] = React.useState('');
-  const [username, setUsername] = React.useState('');
-  const [password, setPassword] = React.useState('');
-  const [birthdate, setBirthdate] = React.useState(new Date() || undefined);
+    const [isFocused, setIsFocused] = React.useState(false);
 
-  const [isFocused, setIsFocused] = React.useState(false);
+    const buttonEnabled = () => {
+      if (
+        email &&
+        username &&
+        password !== '' &&
+        birthdate < new Date(2012, 0, 1)
+      ) {
+        return true;
+      } else {
+        return false;
+      }
+    };
 
-  const buttonEnabled = () => {
-    if (
-      email &&
-      username &&
-      password !== '' &&
-      birthdate < new Date(2012, 0, 1)
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+    React.useEffect(() => {
+      setIsButtonEnabled(buttonEnabled());
+    }, [email, username, password, birthdate]);
 
-  return (
-    <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <AppHeader title="Sign Up" />
+    return (
       <Animated.ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{
@@ -80,6 +68,7 @@ const SignUpScreen = observer(() => {
             returnKeyType="next"
             onSubmit={() => chainInput('Username')}
             tiProps={{
+              value: email,
               onChangeText: (val) => setEmail(val),
               keyboardType: 'email-address',
               autoComplete: 'email',
@@ -107,7 +96,7 @@ const SignUpScreen = observer(() => {
             tiProps={{
               keyboardType: 'default',
               textContentType: 'username',
-
+              value: username,
               onChangeText: (val) => setUsername(val),
             }}
           />
@@ -117,15 +106,13 @@ const SignUpScreen = observer(() => {
             name="Password"
             returnKeyType="next"
             tiProps={{
+              value: password,
               secureTextEntry: true,
               textContentType: 'password',
               onChangeText: (val) => setPassword(val),
             }}
             onSubmit={() => {
-              // scrollTo(scrollRef, 0, 500, true);
-
               Keyboard.dismiss();
-
               scrollRef.current?.scrollTo({
                 x: 0,
                 y: 120,
@@ -203,124 +190,8 @@ const SignUpScreen = observer(() => {
           </TouchableOpacity>
         </Animated.View>
       </Animated.ScrollView>
-      <View
-        style={{
-          paddingHorizontal: 20,
-          marginBottom: screenHeight * 0.16,
-        }}
-      >
-        <TOSSection />
-        <AppButton
-          style={{
-            position: 'absolute',
-            left: 20,
-            top: 46,
-            width: screenWidth - 40,
-          }}
-          onPressButton={
-            buttonEnabled()
-              ? () => Alert.alert('You have successfully signed up!')
-              : () => null
-          }
-          buttonLabel="Sign Up"
-          labelColor={buttonEnabled() ? 'white' : '#bdbaba'}
-          bgColor={buttonEnabled() ? '#874BF6' : '#474747'}
-        />
-      </View>
-    </View>
-  );
-});
-
-export default () => (
-  <MagicScroll.SmartScrollView>
-    <SignUpScreen />
-  </MagicScroll.SmartScrollView>
+    );
+  },
 );
 
-const TOSSection = () => {
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
-      }}
-    >
-      <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
-        By clicking Sign Up, you are agreeing to this App's{' '}
-      </Text16Asap400>
-      <Text16Asap400 style={{ fontSize: 12, color: '#bc9df5' }}>
-        Terms of Service{' '}
-      </Text16Asap400>
-      <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
-        and are acknowledging our{' '}
-      </Text16Asap400>
-      <Text16Asap400 style={{ fontSize: 12, color: '#bc9df5' }}>
-        Privacy Notice{' '}
-      </Text16Asap400>
-      <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
-        applies.
-      </Text16Asap400>
-    </View>
-  );
-};
-
-const DateTimePickerBottomSheet = ({
-  birthdate,
-  setBirthdate,
-  onPressDone,
-}: {
-  birthdate: Date;
-  setBirthdate: (date: Date) => void;
-  onPressDone: () => void;
-}) => {
-  return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-        paddingBottom: 20,
-      }}
-    >
-      <View
-        style={{
-          backgroundColor: '#474747',
-          height: 40,
-          width: '100%',
-          paddingHorizontal: 20,
-          alignItems: 'flex-end',
-          justifyContent: 'center',
-        }}
-      >
-        <TouchableOpacity
-          onPress={onPressDone}
-          style={{
-            backgroundColor: '#874BF6',
-            height: 40,
-            width: 76,
-            borderRadius: 6,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Text18Asap400 style={{ color: 'white' }}>Done</Text18Asap400>
-        </TouchableOpacity>
-      </View>
-      <DateTimePicker
-        display="spinner"
-        textColor="white"
-        minimumDate={new Date(1900, 0, 1)}
-        maximumDate={new Date(2012, 0, 1)}
-        value={birthdate}
-        mode="date"
-        onChange={(e: DateTimePickerEvent, date?: Date) => {
-          if (date) {
-            setBirthdate(new Date(date));
-          }
-        }}
-      />
-    </View>
-  );
-};
+export default SignUpForm;

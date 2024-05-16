@@ -6,7 +6,7 @@ import FormScreen from './form/FormScreen';
 import LogInMockUpScreen from './login/LogInMockUpScreen';
 import LandingScreen from './landing/LandingScreen';
 import LoginScreen from './landing/LoginScreen';
-import SignUpScreen from './landing/SignUpScreen';
+import SignUpScreen from './landing/signUp/SignUpScreen';
 
 export const routes = {
   WelcomeScreen: {
