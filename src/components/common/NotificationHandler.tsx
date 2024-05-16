@@ -1,7 +1,7 @@
-import * as React from "react";
-import * as Notifications from "expo-notifications";
+import * as React from 'react';
+import * as Notifications from 'expo-notifications';
 
-import delay from "../../utils/delay";
+import delay from '../../utils/delay';
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -21,7 +21,7 @@ const NotificationHandler = () => {
         .data as unknown; // You can type this once you know how your payload will look
       onTapNotification({ notification: notificationPayload });
     },
-    []
+    [],
   );
 
   React.useEffect(() => {
@@ -40,7 +40,7 @@ const NotificationHandler = () => {
 
   React.useEffect(() => {
     const subscription = Notifications.addNotificationResponseReceivedListener(
-      handleNotificationResponse
+      handleNotificationResponse,
     );
     return () => subscription.remove();
   }, []);

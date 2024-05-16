@@ -1,20 +1,12 @@
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import * as React from 'react';
-import {
-  Button,
-  Dimensions,
-  InputAccessoryView,
-  Keyboard,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-import IndependantTI from './IndependantTI';
+import { Dimensions, Keyboard, TouchableOpacity, View } from 'react-native';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { Entypo } from '@expo/vector-icons';
-import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import { FontAwesome5 } from '@expo/vector-icons';
-import { scrollTo, useAnimatedRef } from 'react-native-reanimated';
+
+import { Text16Asap400, Text18Asap400 } from '../common/typography';
+import IndependantTI from './IndependantTI';
 
 const ObsoleteSignUpScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();

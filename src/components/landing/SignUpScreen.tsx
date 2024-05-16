@@ -8,18 +8,19 @@ import {
   Dimensions,
   Alert,
 } from 'react-native';
-import { Text16Asap400, Text18Asap400 } from '../common/typography';
-import IndependantTI from './IndependantTI';
 import { Feather } from '@expo/vector-icons';
 import { Entypo } from '@expo/vector-icons';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
-import { useUiStore } from '../../stores/ui';
-import metrics from '../../constants/metrics';
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
 import { observer } from 'mobx-react';
 import { format } from 'date-fns';
+
+import metrics from '../../constants/metrics';
+import { useUiStore } from '../../stores/ui';
+import IndependantTI from './IndependantTI';
+import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import AppButton from './AppButton';
 
 const SignUpScreen = observer(() => {

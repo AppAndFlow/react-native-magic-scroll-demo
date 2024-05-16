@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { Dimensions, TouchableOpacity, View } from 'react-native';
-import { Text18Asap400, Text40Asap700 } from '../common/typography';
-import TextBackground from './TextBackground';
+import { Dimensions, View } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+
+import { Text40Asap700 } from '../common/typography';
+import TextBackground from './TextBackground';
 import AppButton from './AppButton';
 
 const LandingScreen = () => {
@@ -29,7 +30,7 @@ const LandingScreen = () => {
           textAlign: 'left',
         }}
       >
-        There's something for everyone here
+        There is something for everyone here
       </Text40Asap700>
       <View
         style={{

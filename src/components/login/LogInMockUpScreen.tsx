@@ -6,12 +6,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {
-  Text16PlayFair400,
-  Text40Playfair700,
-  Text60PlayFair900,
-} from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
+
+import { Text16PlayFair400, Text60PlayFair900 } from '../common/typography';
 
 const LogInMockUpScreen = () => {
   const screenWidth = Dimensions.get('screen').width;

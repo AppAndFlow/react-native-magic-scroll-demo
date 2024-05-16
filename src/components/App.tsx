@@ -4,14 +4,14 @@ import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { Box } from 'react-native-design-utility';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { configure } from 'mobx';
 
 import ErrorHandler from './common/ErrorHandler';
 import images from '../constants/images';
 import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { configure } from 'mobx';
 
 configure({
   enforceActions: 'never',

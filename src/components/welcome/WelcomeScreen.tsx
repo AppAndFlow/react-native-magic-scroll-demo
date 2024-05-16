@@ -1,17 +1,11 @@
 import React from 'react';
-import { Box } from 'react-native-design-utility';
 import { observer } from 'mobx-react-lite';
-
-import {
-  Text16PlayFair400,
-  Text40Asap700,
-  Text40Playfair700,
-  TextNormal,
-} from '../common/typography';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
+
+import { Text16PlayFair400, Text40Playfair700 } from '../common/typography';
 
 /**
  * You will mostlikely delete this screen.

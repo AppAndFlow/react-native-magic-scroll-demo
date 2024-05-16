@@ -8,8 +8,9 @@ import {
   View,
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
+
+import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
 import AppButton from './AppButton';
 

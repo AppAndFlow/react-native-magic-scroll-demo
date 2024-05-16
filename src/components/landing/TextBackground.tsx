@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
+
 import { Text40Asap700 } from '../common/typography';
 
 const firstRowTexts = [

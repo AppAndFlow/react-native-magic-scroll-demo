@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { TouchableOpacity, ViewStyle } from 'react-native';
+
 import { Text18Asap400 } from '../common/typography';
 
 const AppButton = ({
