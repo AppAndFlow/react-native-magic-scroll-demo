@@ -7,7 +7,6 @@ import { Box } from 'react-native-design-utility';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { configure } from 'mobx';
 
-import ErrorHandler from './common/ErrorHandler';
 import images from '../constants/images';
 import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
@@ -55,8 +54,4 @@ const App = () => {
   );
 };
 
-export default () => (
-  <ErrorHandler>
-    <App />
-  </ErrorHandler>
-);
+export default () => <App />;

@@ -1,13 +1,14 @@
 import * as React from 'react';
 import Animated from 'react-native-reanimated';
-import IndependantTI from '../IndependantTI';
 import { format } from 'date-fns';
 import { observer } from 'mobx-react';
-import { useUiStore } from '../../../stores/ui';
-import metrics from '../../../constants/metrics';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { Dimensions, Keyboard, TouchableOpacity, View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
+
+import metrics from '../../../constants/metrics';
+import { useUiStore } from '../../../stores/ui';
+import IndependantTI from '../IndependantTI';
 import { Text16Asap400, Text18Asap400 } from '../../common/typography';
 import DateTimePickerBottomSheet from './DateTimePickerBottomSheet';
 

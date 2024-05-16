@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Alert, Dimensions, Keyboard, View } from 'react-native';
-
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
 import { Text16Asap400 } from '../common/typography';

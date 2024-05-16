@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Box } from 'react-native-design-utility';
 
-import NotificationHandler from './common/NotificationHandler';
-import OTAManager from './common/OTAManager';
 import AppNavigator from './AppNavigator';
 import BottomSheet from './common/BottomSheet';
 
@@ -22,8 +20,6 @@ const AppContent = () => {
 
   return (
     <Box flex={1}>
-      <NotificationHandler />
-      <OTAManager />
       {!isDataLoading && <AppNavigator />}
       <BottomSheet />
     </Box>

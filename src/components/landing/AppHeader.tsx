@@ -2,6 +2,7 @@ import * as React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
+
 import { Text18Asap400 } from '../common/typography';
 
 const AppHeader = ({ title }: { title: string }) => {

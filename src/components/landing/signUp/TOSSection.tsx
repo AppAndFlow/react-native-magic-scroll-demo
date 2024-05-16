@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
+
 import { Text16Asap400 } from '../../common/typography';
 
 const TOSSection = () => {

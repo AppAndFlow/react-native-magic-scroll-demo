@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import { Text18Asap400 } from '../../common/typography';
 import DateTimePicker, {
   DateTimePickerEvent,
 } from '@react-native-community/datetimepicker';
+
+import { Text18Asap400 } from '../../common/typography';
 
 const DateTimePickerBottomSheet = ({
   birthdate,

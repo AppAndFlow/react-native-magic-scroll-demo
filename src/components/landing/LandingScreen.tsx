@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dimensions, View } from 'react-native';
+import { View } from 'react-native';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { Text40Asap700 } from '../common/typography';
