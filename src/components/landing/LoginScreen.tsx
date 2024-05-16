@@ -63,13 +63,22 @@ const LoginScreen = () => {
           name="Username"
           label="Username"
           returnKeyType="next"
-          tiProps={{ value: username, onChangeText: (val) => setUsername(val) }}
+          tiProps={{
+            value: username,
+            onChangeText: (val) => setUsername(val),
+            textContentType: 'username',
+          }}
           style={{ marginTop: screenHeight * 0.33 }}
         />
         <IndependantTI
           name="Password"
           label="Password"
-          tiProps={{ value: password, onChangeText: (val) => setPassword(val) }}
+          tiProps={{
+            value: password,
+            onChangeText: (val) => setPassword(val),
+            secureTextEntry: true,
+            textContentType: 'password',
+          }}
           returnKeyType="done"
           onSubmit={() => Keyboard.dismiss()}
         />
