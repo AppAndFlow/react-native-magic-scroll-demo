@@ -20,6 +20,7 @@ import DateTimePicker, {
 } from '@react-native-community/datetimepicker';
 import { observer } from 'mobx-react';
 import { format } from 'date-fns';
+import AppButton from './AppButton';
 
 const SignUpScreen = observer(() => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -82,6 +83,7 @@ const SignUpScreen = observer(() => {
         </Text18Asap400>
       </View>
       <Animated.ScrollView
+        showsVerticalScrollIndicator={false}
         contentContainerStyle={{
           height: 553 + screenHeight * 0.2,
           paddingHorizontal: 20,
@@ -90,7 +92,6 @@ const SignUpScreen = observer(() => {
         onScroll={scrollHandler}
         ref={scrollRef}
         {...baseScrollViewProps}
-        // {...props.scollViewProps}
       >
         <Animated.View style={[translateStyle, { flex: 1 }]}>
           <IndependantTI
@@ -225,52 +226,27 @@ const SignUpScreen = observer(() => {
       </Animated.ScrollView>
       <View
         style={{
-          flexDirection: 'row',
-          flexWrap: 'wrap',
           paddingHorizontal: 20,
-          alignItems: 'center',
-          justifyContent: 'flex-start',
-          marginBottom: screenHeight * 0.1,
+          marginBottom: screenHeight * 0.16,
         }}
       >
-        <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
-          By clicking Sign Up, you are agreeing to this App's{' '}
-        </Text16Asap400>
-        <Text16Asap400 style={{ fontSize: 12, color: '#bc9df5' }}>
-          Terms of Service{' '}
-        </Text16Asap400>
-        <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
-          and are acknowledging our{' '}
-        </Text16Asap400>
-        <Text16Asap400 style={{ fontSize: 12, color: '#bc9df5' }}>
-          Privacy Notice{' '}
-        </Text16Asap400>
-        <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
-          applies.
-        </Text16Asap400>
-        <TouchableOpacity
-          onPress={
+        <TOSSection />
+        <AppButton
+          style={{
+            position: 'absolute',
+            left: 20,
+            top: 46,
+            width: screenWidth - 40,
+          }}
+          onPressButton={
             buttonEnabled()
               ? () => Alert.alert('You have successfully signed up!')
               : () => null
           }
-          style={{
-            height: 46,
-            width: screenWidth - 40,
-            marginTop: 16,
-
-            backgroundColor: buttonEnabled() ? '#874BF6' : '#474747',
-            borderRadius: 6,
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <Text18Asap400
-            style={{ color: buttonEnabled() ? 'white' : '#bdbaba' }}
-          >
-            Sign Up
-          </Text18Asap400>
-        </TouchableOpacity>
+          buttonLabel="Sign Up"
+          labelColor={buttonEnabled() ? 'white' : '#bdbaba'}
+          bgColor={buttonEnabled() ? '#874BF6' : '#474747'}
+        />
       </View>
     </View>
   );
@@ -281,6 +257,35 @@ export default () => (
     <SignUpScreen />
   </MagicScroll.SmartScrollView>
 );
+
+const TOSSection = () => {
+  return (
+    <View
+      style={{
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+      }}
+    >
+      <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
+        By clicking Sign Up, you are agreeing to this App's{' '}
+      </Text16Asap400>
+      <Text16Asap400 style={{ fontSize: 12, color: '#bc9df5' }}>
+        Terms of Service{' '}
+      </Text16Asap400>
+      <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
+        and are acknowledging our{' '}
+      </Text16Asap400>
+      <Text16Asap400 style={{ fontSize: 12, color: '#bc9df5' }}>
+        Privacy Notice{' '}
+      </Text16Asap400>
+      <Text16Asap400 style={{ fontSize: 12, color: 'white' }}>
+        applies.
+      </Text16Asap400>
+    </View>
+  );
+};
 
 const DateTimePickerBottomSheet = ({
   birthdate,

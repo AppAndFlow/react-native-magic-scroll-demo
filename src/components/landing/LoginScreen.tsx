@@ -11,6 +11,7 @@ import { Entypo } from '@expo/vector-icons';
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import IndependantTI from './IndependantTI';
+import AppButton from './AppButton';
 
 const LoginScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -93,28 +94,22 @@ const LoginScreen = () => {
           Trouble logging in?
         </Text16Asap400>
       </MagicScroll.ScrollView>
-      <TouchableOpacity
-        onPress={
+      <AppButton
+        style={{
+          width: screenWidth - 40,
+          alignSelf: 'center',
+          position: 'absolute',
+          bottom: screenHeight * 0.11,
+        }}
+        onPressButton={
           buttonEnabled()
             ? () => Alert.alert('You have successfully logged in!')
             : () => null
         }
-        style={{
-          height: 46,
-          width: screenWidth - 40,
-          backgroundColor: buttonEnabled() ? '#874BF6' : '#474747',
-          borderRadius: 6,
-          alignItems: 'center',
-          justifyContent: 'center',
-          position: 'absolute',
-          bottom: screenHeight * 0.11,
-          left: 20,
-        }}
-      >
-        <Text18Asap400 style={{ color: buttonEnabled() ? 'white' : '#bdbaba' }}>
-          Log In
-        </Text18Asap400>
-      </TouchableOpacity>
+        buttonLabel="Log In"
+        labelColor={buttonEnabled() ? 'white' : '#bdbaba'}
+        bgColor={buttonEnabled() ? '#874BF6' : '#474747'}
+      />
     </View>
   );
 };
