@@ -1,34 +1,38 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import { routes } from './routes';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import LandingScreen from './landing/LandingScreen';
+import WelcomeScreen from './welcome/WelcomeScreen';
+import LoginScreen from './landing/LoginScreen';
+import SignUpScreen from './landing/signUp/SignUpScreen';
 
-const RootStack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const AppNavigator = () => {
-  const initialRouteName = routes.WelcomeScreen.name;
-
   return (
-    <RootStack.Navigator
-      initialRouteName={initialRouteName}
-      screenOptions={{
-        headerShown: false,
-        gestureEnabled: false,
-      }}
+    <Drawer.Navigator
+      initialRouteName="Welcome"
+      screenOptions={{ headerShown: false }}
     >
-      {Object.keys(routes).map((key) => {
-        const { name, screen, screenNavigationOptions } =
-          routes[key as keyof typeof routes];
-        return (
-          <RootStack.Screen
-            name={name}
-            component={screen}
-            options={screenNavigationOptions}
-            key={name}
-          />
-        );
-      })}
-    </RootStack.Navigator>
+      <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+      <Drawer.Screen name="Twitch" component={TwitchExample} />
+    </Drawer.Navigator>
+  );
+};
+
+const TwitchExampleStack = createStackNavigator();
+
+const TwitchExample = () => {
+  return (
+    <TwitchExampleStack.Navigator screenOptions={{ headerShown: false }}>
+      <TwitchExampleStack.Screen
+        name="LandingScreen"
+        component={LandingScreen}
+      />
+      <TwitchExampleStack.Screen name="LoginScreen" component={LoginScreen} />
+      <TwitchExampleStack.Screen name="SignUpScreen" component={SignUpScreen} />
+    </TwitchExampleStack.Navigator>
   );
 };
 

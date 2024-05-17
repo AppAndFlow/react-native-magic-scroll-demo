@@ -9,18 +9,9 @@ import BottomSheet from './common/BottomSheet';
  * SplashScreen, Modal views etc...
  */
 const AppContent = () => {
-  const [isDataLoading, setIsDataLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    const maybeAuthUser = async () => {
-      setIsDataLoading(false);
-    };
-    maybeAuthUser();
-  }, []);
-
   return (
     <Box flex={1}>
-      {!isDataLoading && <AppNavigator />}
+      <AppNavigator />
       <BottomSheet />
     </Box>
   );
