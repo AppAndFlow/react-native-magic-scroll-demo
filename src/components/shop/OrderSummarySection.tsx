@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Image, View } from 'react-native';
-import { TextNormal } from '../common/typography';
 import { Ionicons } from '@expo/vector-icons';
+
+import { TextNormal } from '../common/typography';
 
 const OrderSummarySection = () => {
   return (
