@@ -6,6 +6,7 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+
 import { TextNormal } from '../common/typography';
 import { useUiStore } from '../../stores/ui';
 import ShopAddressView from './ShopAddressView';
