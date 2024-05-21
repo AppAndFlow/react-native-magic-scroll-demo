@@ -12,6 +12,8 @@ import ShopAddressView from './ShopAddressView';
 import metrics from '../../constants/metrics';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
+import { observer } from 'mobx-react';
+import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (
@@ -27,7 +29,7 @@ const Separator = ({ style }: { style?: ViewStyle }) => {
   );
 };
 
-const ShopCheckOutScreen = () => {
+const ShopCheckOutScreen = observer(() => {
   const screenHeight = Dimensions.get('screen').height;
   const screenWidth = Dimensions.get('screen').width;
 
@@ -37,12 +39,12 @@ const ShopCheckOutScreen = () => {
     <View style={{ flex: 1, backgroundColor: 'black' }}>
       <View
         style={{
-          height: screenHeight * 0.13,
+          height: screenHeight * 0.12,
           width: screenWidth,
 
           alignItems: 'center',
           justifyContent: 'flex-end',
-          paddingBottom: 6,
+          paddingBottom: 18,
           position: 'absolute',
           zIndex: 99,
         }}
@@ -55,7 +57,7 @@ const ShopCheckOutScreen = () => {
         style={{
           height: screenHeight * 2,
           marginTop: screenHeight * 0.13,
-          padding: 20,
+          paddingHorizontal: 20,
         }}
       >
         <TextNormal style={{ color: 'white', fontSize: 18 }}>
@@ -70,7 +72,7 @@ const ShopCheckOutScreen = () => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              snapPoints: [1, screenHeight * 0.87 + metrics.safeBottomDistance],
+              snapPoints: [1, screenHeight + 30],
               renderContent: () => <ShopAddressView />,
             })
           }
@@ -87,6 +89,18 @@ const ShopCheckOutScreen = () => {
         >
           Shipping method
         </TextNormal>
+        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+          <TextNormal
+            style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+          >
+            Priority shipping (2-5 Business Days)
+          </TextNormal>
+          <TextNormal
+            style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+          >
+            $ 5.00
+          </TextNormal>
+        </View>
         <Separator />
         <TextNormal
           style={{ color: '#868585', fontSize: 20, fontWeight: '600' }}
@@ -96,7 +110,7 @@ const ShopCheckOutScreen = () => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              snapPoints: [1, screenHeight * 0.87 + metrics.safeBottomDistance],
+              snapPoints: [1, screenHeight * 0.85 + metrics.safeBottomDistance],
               renderContent: () => <ShopPaymentView />,
             })
           }
@@ -107,11 +121,62 @@ const ShopCheckOutScreen = () => {
             + Add a payment method
           </TextNormal>
         </TouchableOpacity>
-        <Separator />
+        <Separator
+          style={{
+            width: screenWidth,
+            height: 8,
+            backgroundColor: '#272727',
+            marginLeft: -20,
+          }}
+        />
         <OrderSummarySection />
       </ScrollView>
+      <View
+        style={{
+          height: screenHeight * 0.14,
+          width: screenWidth,
+          backgroundColor: 'black',
+          borderTopWidth: 1,
+          borderTopColor: '#545353',
+          padding: 20,
+        }}
+      >
+        <TouchableOpacity
+          style={{
+            height: 48,
+            width: '100%',
+            backgroundColor: '#874BF6',
+            borderRadius: 12,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: 14,
+          }}
+        >
+          <TextNormal
+            style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+          >
+            Pay Now
+          </TextNormal>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View
+              style={{
+                width: 1,
+                height: 28,
+                backgroundColor: 'black',
+                marginRight: 12,
+              }}
+            />
+            <TextNormal
+              style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+            >
+              $10.75
+            </TextNormal>
+          </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
-};
+});
 
 export default ShopCheckOutScreen;

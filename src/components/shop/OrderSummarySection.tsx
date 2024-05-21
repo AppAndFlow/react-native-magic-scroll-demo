@@ -5,7 +5,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 const OrderSummarySection = () => {
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, marginBottom: 26 }}>
       <TextNormal
         style={{
           color: 'white',
