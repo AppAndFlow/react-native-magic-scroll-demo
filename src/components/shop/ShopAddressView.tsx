@@ -38,58 +38,80 @@ const ShopAddressView = () => {
         name="FirstName"
         returnKeyType="next"
         onSubmit={() => chainInput('LastName')}
-        tiProps={{ placeholder: 'First name' }}
+        tiProps={{ placeholder: 'First name', autoComplete: 'name' }}
       />
       <ShopTextInput
         name="LastName"
         returnKeyType="next"
         onSubmit={() => chainInput('Address')}
-        tiProps={{ placeholder: 'Last name' }}
+        tiProps={{ placeholder: 'Last name', autoComplete: 'family-name' }}
       />
       <ShopTextInput
         name="Address"
         returnKeyType="next"
+        rightExpoVectorIcon={{
+          family: 'Ionicons',
+          name: 'search-sharp',
+          size: 20,
+        }}
         onSubmit={() => chainInput('Appt')}
-        tiProps={{ placeholder: 'Address' }}
+        tiProps={{ placeholder: 'Address', autoComplete: 'address-line1' }}
       />
       <ShopTextInput
         name="Appt"
         returnKeyType="next"
         onSubmit={() => chainInput('City')}
-        tiProps={{ placeholder: 'Appartment, suite, etc. (optional)' }}
+        tiProps={{
+          placeholder: 'Appartment, suite, etc. (optional)',
+          autoComplete: 'address-line2',
+        }}
       />
       <ShopTextInput
         name="City"
         returnKeyType="next"
         onSubmit={() => chainInput('Province')}
-        tiProps={{ placeholder: 'City' }}
+        tiProps={{
+          placeholder: 'City',
+          autoComplete: 'postal-address-locality',
+        }}
       />
       <ShopTextInput
         name="Province"
         returnKeyType="next"
         onSubmit={() => chainInput('PostalCode')}
-        tiProps={{ placeholder: 'Province' }}
+        tiProps={{
+          placeholder: 'Province',
+          autoComplete: 'postal-address-region',
+        }}
       />
       <ShopTextInput
         name="PostalCode"
         returnKeyType="next"
         onSubmit={() => chainInput('Country')}
-        tiProps={{ placeholder: 'Postal code' }}
+        tiProps={{ placeholder: 'Postal code', autoComplete: 'postal-code' }}
       />
       <ShopTextInput
         name="Country"
         returnKeyType="next"
         onSubmit={() => chainInput('Phone')}
-        tiProps={{ placeholder: 'Country/Region' }}
+        tiProps={{
+          placeholder: 'Country/Region',
+          autoComplete: 'postal-address-country',
+        }}
       />
       <ShopTextInput
         name="Phone"
         returnKeyType="done"
         onSubmit={Keyboard.dismiss}
+        rightExpoVectorIcon={{
+          family: 'SimpleLineIcons',
+          name: 'question',
+          size: 18,
+        }}
         tiProps={{
           placeholder: 'Phone (optional)',
           keyboardType: 'phone-pad',
-          textContentType: 'telephoneNumber',
+          autoComplete: 'tel',
         }}
       />
       <TouchableOpacity

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {
+  Alert,
   Dimensions,
   ScrollView,
   TouchableOpacity,
@@ -10,7 +11,6 @@ import {
 import { TextNormal } from '../common/typography';
 import { useUiStore } from '../../stores/ui';
 import ShopAddressView from './ShopAddressView';
-import metrics from '../../constants/metrics';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
 import { observer } from 'mobx-react';
@@ -21,7 +21,7 @@ const Separator = ({ style }: { style?: ViewStyle }) => {
       style={{
         width: '100%',
         height: 1,
-        backgroundColor: '#545353',
+        backgroundColor: '#353434',
         marginVertical: 12,
         ...style,
       }}
@@ -36,7 +36,7 @@ const ShopCheckOutScreen = observer(() => {
   const uiStore = useUiStore();
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'black' }}>
+    <View style={{ flex: 1, backgroundColor: '#111111' }}>
       <View
         style={{
           height: screenHeight * 0.12,
@@ -49,22 +49,29 @@ const ShopCheckOutScreen = observer(() => {
           zIndex: 99,
         }}
       >
-        <TextNormal style={{ color: 'white', fontSize: 26, fontWeight: '600' }}>
+        <TextNormal style={{ color: 'white', fontSize: 22, fontWeight: '600' }}>
           Review & Pay
         </TextNormal>
       </View>
       <ScrollView
+        showsVerticalScrollIndicator={false}
         style={{
           marginTop: screenHeight * 0.13,
           paddingHorizontal: 20,
+          paddingTop: 16,
         }}
       >
-        <TextNormal style={{ color: 'white', fontSize: 18 }}>
-          test@email.com
+        <TextNormal style={{ color: 'white', fontSize: 16 }}>
+          marjorie@appandflow.com
         </TextNormal>
         <Separator />
         <TextNormal
-          style={{ color: '#868585', fontSize: 20, fontWeight: '600' }}
+          style={{
+            color: '#868585',
+            fontSize: 16,
+            fontWeight: '600',
+            marginBottom: 6,
+          }}
         >
           Ship to
         </TextNormal>
@@ -77,45 +84,55 @@ const ShopCheckOutScreen = observer(() => {
           }
         >
           <TextNormal
-            style={{ fontSize: 20, fontWeight: '500', color: '#dbaff9' }}
+            style={{ fontSize: 18, fontWeight: '500', color: '#9273f1' }}
           >
             + Add an address
           </TextNormal>
         </TouchableOpacity>
         <Separator />
         <TextNormal
-          style={{ color: '#868585', fontSize: 20, fontWeight: '600' }}
+          style={{
+            color: '#868585',
+            fontSize: 16,
+            fontWeight: '600',
+            marginBottom: 6,
+          }}
         >
           Shipping method
         </TextNormal>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
           <TextNormal
-            style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+            style={{ color: 'white', fontSize: 16, fontWeight: '500' }}
           >
             Priority shipping (2-5 Business Days)
           </TextNormal>
           <TextNormal
-            style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+            style={{ color: 'white', fontSize: 16, fontWeight: '500' }}
           >
             $ 5.00
           </TextNormal>
         </View>
         <Separator />
         <TextNormal
-          style={{ color: '#868585', fontSize: 20, fontWeight: '600' }}
+          style={{
+            color: '#868585',
+            fontSize: 16,
+            fontWeight: '600',
+            marginBottom: 6,
+          }}
         >
           Payment method
         </TextNormal>
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              snapPoints: [1, screenHeight * 0.82],
+              snapPoints: [1, screenHeight * 0.78],
               renderContent: () => <ShopPaymentView />,
             })
           }
         >
           <TextNormal
-            style={{ fontSize: 20, fontWeight: '500', color: '#dbaff9' }}
+            style={{ fontSize: 18, fontWeight: '500', color: '#9273f1' }}
           >
             + Add a payment method
           </TextNormal>
@@ -124,6 +141,7 @@ const ShopCheckOutScreen = observer(() => {
           style={{
             width: screenWidth,
             height: 8,
+            marginVertical: 16,
             backgroundColor: '#272727',
             marginLeft: -20,
           }}
@@ -134,17 +152,18 @@ const ShopCheckOutScreen = observer(() => {
         style={{
           height: screenHeight * 0.14,
           width: screenWidth,
-          backgroundColor: 'black',
+          backgroundColor: '#111111',
           borderTopWidth: 1,
-          borderTopColor: '#545353',
+          borderTopColor: '#353434',
           padding: 20,
         }}
       >
         <TouchableOpacity
+          onPress={() => Alert.alert('Payment successful!')}
           style={{
             height: 48,
             width: '100%',
-            backgroundColor: '#874BF6',
+            backgroundColor: '#562bcd',
             borderRadius: 12,
             flexDirection: 'row',
             alignItems: 'center',
@@ -153,7 +172,7 @@ const ShopCheckOutScreen = observer(() => {
           }}
         >
           <TextNormal
-            style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+            style={{ color: 'white', fontSize: 16, fontWeight: '700' }}
           >
             Pay Now
           </TextNormal>
@@ -167,7 +186,7 @@ const ShopCheckOutScreen = observer(() => {
               }}
             />
             <TextNormal
-              style={{ color: 'white', fontSize: 16, fontWeight: '600' }}
+              style={{ color: 'white', fontSize: 16, fontWeight: '700' }}
             >
               $10.75
             </TextNormal>

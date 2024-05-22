@@ -12,6 +12,7 @@ const ShopPaymentView = () => {
   return (
     <MagicScroll.ScrollView
       scollViewProps={{
+        bounces: false,
         style: {
           backgroundColor: '#474747',
           paddingHorizontal: 20,
@@ -35,7 +36,15 @@ const ShopPaymentView = () => {
         name="CardNumber"
         returnKeyType="done"
         onSubmit={() => chainInput('ExpirationDate')}
-        tiProps={{ keyboardType: 'decimal-pad', placeholder: 'Card number' }}
+        rightExpoVectorIcon={{
+          family: 'Feather',
+          name: 'lock',
+          size: 20,
+        }}
+        tiProps={{
+          keyboardType: 'decimal-pad',
+          placeholder: 'Card number',
+        }}
       />
       <ShopTextInput
         name="ExpirationDate"
@@ -44,22 +53,33 @@ const ShopPaymentView = () => {
         tiProps={{
           keyboardType: 'decimal-pad',
           placeholder: 'Expiration date (MM/YY)',
+          autoComplete: 'cc-exp',
         }}
       />
       <ShopTextInput
         name="SecurityCode"
         returnKeyType="done"
+        rightExpoVectorIcon={{
+          family: 'SimpleLineIcons',
+          name: 'question',
+          size: 18,
+        }}
         onSubmit={() => chainInput('NameOnCard')}
         tiProps={{
           keyboardType: 'decimal-pad',
           placeholder: 'Security code',
+          autoComplete: 'cc-csc',
         }}
       />
       <ShopTextInput
         name="NameOnCard"
         returnKeyType="next"
         onSubmit={() => chainInput('Nickname')}
-        tiProps={{ keyboardType: 'default', placeholder: 'Name on card' }}
+        tiProps={{
+          keyboardType: 'default',
+          placeholder: 'Name on card',
+          autoComplete: 'cc-name',
+        }}
       />
       <ShopTextInput
         name="Nickname"
@@ -68,6 +88,7 @@ const ShopPaymentView = () => {
         tiProps={{
           keyboardType: 'default',
           placeholder: 'Nickname (optional)',
+          autoComplete: 'nickname',
         }}
       />
       <View style={{ marginVertical: 16 }}>
