@@ -2,11 +2,15 @@ import * as React from 'react';
 import ShopTextInput from './ShopTextInput';
 import { TextNormal } from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
-import { TouchableOpacity } from 'react-native';
+import { Dimensions, Keyboard, TouchableOpacity } from 'react-native';
 import metrics from '../../constants/metrics';
+import { useUiStore } from '../../stores/ui';
 
 const ShopAddressView = () => {
+  const uiStore = useUiStore();
   const { chainInput } = MagicScroll.useFormSmartScroll();
+
+  const screenHeight = Dimensions.get('screen').height;
 
   return (
     <MagicScroll.ScrollView
@@ -80,8 +84,13 @@ const ShopAddressView = () => {
       />
       <ShopTextInput
         name="Phone"
-        returnKeyType="next"
-        tiProps={{ placeholder: 'Phone (optional)', inputMode: 'tel' }}
+        returnKeyType="done"
+        onSubmit={Keyboard.dismiss}
+        tiProps={{
+          placeholder: 'Phone (optional)',
+          keyboardType: 'phone-pad',
+          textContentType: 'telephoneNumber',
+        }}
       />
       <TouchableOpacity
         style={{
@@ -100,6 +109,7 @@ const ShopAddressView = () => {
         </TextNormal>
       </TouchableOpacity>
       <TouchableOpacity
+        onPress={uiStore.closeBottomSheet}
         style={{
           height: 48,
           width: '100%',

@@ -29,7 +29,10 @@ const LoginScreen = () => {
       <AppHeader title="Log In" />
 
       <MagicScroll.ScrollView
-        scollViewProps={{ contentContainerStyle: { paddingHorizontal: 20 } }}
+        scollViewProps={{
+          contentContainerStyle: { paddingHorizontal: 20 },
+          style: { paddingTop: screenHeight * 0.33 },
+        }}
       >
         <IndependantTI
           onSubmit={() => chainInput('Password')}
@@ -41,7 +44,6 @@ const LoginScreen = () => {
             onChangeText: (val) => setUsername(val),
             textContentType: 'username',
           }}
-          style={{ marginTop: screenHeight * 0.33 }}
         />
         <IndependantTI
           name="Password"

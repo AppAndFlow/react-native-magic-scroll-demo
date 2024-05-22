@@ -14,7 +14,6 @@ import metrics from '../../constants/metrics';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
 import { observer } from 'mobx-react';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (
@@ -56,7 +55,6 @@ const ShopCheckOutScreen = observer(() => {
       </View>
       <ScrollView
         style={{
-          height: screenHeight * 2,
           marginTop: screenHeight * 0.13,
           paddingHorizontal: 20,
         }}
@@ -73,7 +71,7 @@ const ShopCheckOutScreen = observer(() => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              snapPoints: [1, screenHeight + 30],
+              snapPoints: [1, screenHeight * 0.85],
               renderContent: () => <ShopAddressView />,
             })
           }
@@ -111,7 +109,7 @@ const ShopCheckOutScreen = observer(() => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              snapPoints: [1, screenHeight * 0.85 + metrics.safeBottomDistance],
+              snapPoints: [1, screenHeight * 0.82],
               renderContent: () => <ShopPaymentView />,
             })
           }
