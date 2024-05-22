@@ -14,11 +14,10 @@ const ShopPaymentView = () => {
       scollViewProps={{
         bounces: false,
         style: {
-          backgroundColor: '#474747',
+          backgroundColor: '#1c1c1c',
           paddingHorizontal: 20,
           flex: 1,
           paddingTop: 8,
-          marginBottom: metrics.safeBottomDistance,
         },
       }}
     >
@@ -128,7 +127,7 @@ const ShopPaymentView = () => {
         style={{
           height: 48,
           width: '100%',
-          backgroundColor: '#474747',
+          backgroundColor: '#1c1c1c',
           borderRadius: 12,
           marginTop: 12,
           alignItems: 'center',

@@ -40,7 +40,7 @@ const OrderSummarySection = () => {
           </TextNormal>
         </View>
 
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 4,99</TextNormal>
+        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 4.99</TextNormal>
       </View>
       <View
         style={{
@@ -138,13 +138,13 @@ const OrderSummarySection = () => {
         <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 8 }}>
           Subtotal
         </TextNormal>
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 4,99</TextNormal>
+        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 4.99</TextNormal>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 8 }}>
           Shipping
         </TextNormal>
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 5,00</TextNormal>
+        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 5.00</TextNormal>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 12 }}>

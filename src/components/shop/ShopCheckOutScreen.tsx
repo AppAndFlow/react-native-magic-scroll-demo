@@ -78,7 +78,8 @@ const ShopCheckOutScreen = observer(() => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              snapPoints: [1, screenHeight * 0.85],
+              bottomSheetStyle: { backgroundColor: '#1c1c1c' },
+              snapPoints: [1, screenHeight * 0.88],
               renderContent: () => <ShopAddressView />,
             })
           }
@@ -126,6 +127,7 @@ const ShopCheckOutScreen = observer(() => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
+              bottomSheetStyle: { backgroundColor: '#1c1c1c' },
               snapPoints: [1, screenHeight * 0.78],
               renderContent: () => <ShopPaymentView />,
             })

@@ -127,6 +127,7 @@ const BottomSheet = observer(() => {
           borderRadius: 18,
           overflow: 'hidden',
           backgroundColor: '#474747',
+          ...uiStore.bottomSheetStyle,
         }}
         animatedIndex={animatedBottomSheetNode}
         onChange={(index) => {

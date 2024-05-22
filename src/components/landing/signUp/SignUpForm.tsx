@@ -121,6 +121,7 @@ const SignUpForm = observer(
               });
               setIsFocused(true);
               uiStore.openBottomSheet({
+                bottomSheetStyle: { backgroundColor: '#474747' },
                 snapPoints: [1, 280 + metrics.safeBottomDistance],
                 renderContent: () => (
                   <DateTimePickerBottomSheet

@@ -6,10 +6,8 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import Animated, { Easing, FadeInUp, FadeOutUp } from 'react-native-reanimated';
-import * as ExpoVectorIcon from '@expo/vector-icons';
 
-import { Text16Asap400, TextNormal } from '../common/typography';
+import * as ExpoVectorIcon from '@expo/vector-icons';
 
 const { ...expoVectorIconFamilies } = ExpoVectorIcon;
 
@@ -33,20 +31,20 @@ type LeftExpoVectorIconFamiliesNameKeys =
 const ShopTextInput = ({
   name,
   onSubmit,
-  label,
+
   returnKeyType,
   style,
   tiProps,
-  bottomText,
+
   rightExpoVectorIcon,
 }: {
   name: string;
   onSubmit?: () => void;
-  label?: string;
+
   returnKeyType: ReturnKeyTypeOptions;
   style?: ViewStyle;
   tiProps?: TextInputProps;
-  bottomText?: string;
+
   rightExpoVectorIcon?: {
     family: LeftExpoVectorIconFamiliesKeys;
     name: LeftExpoVectorIconFamiliesNameKeys;
@@ -82,7 +80,7 @@ const ShopTextInput = ({
         alignItems: 'center',
         borderWidth: isFocused ? 2 : 1,
         borderColor: isFocused ? 'white' : '#888686',
-        backgroundColor: '#474747',
+        backgroundColor: '#1c1c1c',
         borderRadius: 6,
       }}
     >
