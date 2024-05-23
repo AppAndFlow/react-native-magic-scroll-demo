@@ -1,8 +1,9 @@
 import * as React from 'react';
-import ShopTextInput from './ShopTextInput';
-import { TextNormal } from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { Keyboard, TouchableOpacity, View } from 'react-native';
+
+import ShopTextInput from './ShopTextInput';
+import { TextNormal } from '../common/typography';
 import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';

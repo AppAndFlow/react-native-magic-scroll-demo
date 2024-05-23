@@ -7,13 +7,13 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
+import { observer } from 'mobx-react';
 
 import { TextNormal } from '../common/typography';
 import { useUiStore } from '../../stores/ui';
 import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
-import { observer } from 'mobx-react';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (
