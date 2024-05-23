@@ -130,7 +130,8 @@ const ShopCheckOutScreen = observer(() => {
           style={{
             height: 48,
             width: '100%',
-            backgroundColor: '#562bcd',
+            backgroundColor: colors.shopPurple,
+
             borderRadius: 12,
             flexDirection: 'row',
             alignItems: 'center',

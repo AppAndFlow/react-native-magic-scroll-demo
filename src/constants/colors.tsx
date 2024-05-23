@@ -5,8 +5,8 @@ export default {
   darkGrey: '#353434',
   lightGrey: '#bebebe',
   grey: '#868585',
-  shopPurple: '#9273f1',
-  shopLightPurple: '#dbaff9',
+  shopPurple: '#562bcd',
+  shopLightPurple: '#b88cf9',
 
   twitchGrey: '#474747',
   twitchLightPurple: '#bc9df5',

@@ -52,7 +52,7 @@ export const Text18Normal500 = ({ children, style, ...rest }: P) => (
   <BasicText
     {...rest}
     style={[
-      { fontSize: 18, color: colors.shopPurple, fontWeight: '500' },
+      { fontSize: 18, color: colors.shopLightPurple, fontWeight: '500' },
       style,
     ]}
   >
