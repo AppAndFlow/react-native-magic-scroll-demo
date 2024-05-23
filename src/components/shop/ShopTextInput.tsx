@@ -6,7 +6,6 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-
 import * as ExpoVectorIcon from '@expo/vector-icons';
 import colors from '../../constants/colors';
 
