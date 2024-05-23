@@ -14,7 +14,6 @@ import { useUiStore } from '../../stores/ui';
 import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
-
 import colors from '../../constants/colors';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
