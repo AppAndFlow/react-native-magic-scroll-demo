@@ -2,22 +2,26 @@ import * as React from 'react';
 import { Image, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
-import { TextNormal } from '../common/typography';
+import {
+  Text14Normal600,
+  Text16Normal400,
+  Text18Normal500,
+  Text20Normal600,
+  Text22Normal600,
+} from '../common/typography';
 import colors from '../../constants/colors';
 
 const OrderSummarySection = () => {
   return (
     <View style={{ flex: 1, marginBottom: 26 }}>
-      <TextNormal
+      <Text22Normal600
         style={{
-          color: 'white',
           fontSize: 24,
-          fontWeight: '600',
           marginBottom: 26,
         }}
       >
         Order summary (1)
-      </TextNormal>
+      </Text22Normal600>
       <View
         style={{
           flexDirection: 'row',
@@ -33,15 +37,15 @@ const OrderSummarySection = () => {
           }}
         />
         <View style={{ marginLeft: -70 }}>
-          <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 4 }}>
+          <Text16Normal400 style={{ marginBottom: 4 }}>
             Item to purchase
-          </TextNormal>
-          <TextNormal style={{ color: colors.lightGrey, fontSize: 12 }}>
+          </Text16Normal400>
+          <Text16Normal400 style={{ color: colors.lightGrey, fontSize: 12 }}>
             Details about item
-          </TextNormal>
+          </Text16Normal400>
         </View>
 
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 4.99</TextNormal>
+        <Text16Normal400>$ 4.99</Text16Normal400>
       </View>
       <View
         style={{
@@ -66,41 +70,40 @@ const OrderSummarySection = () => {
             alignItems: 'center',
           }}
         >
-          <TextNormal
+          <Text14Normal600
             style={{
               color: 'black',
-              fontSize: 14,
+              fontWeight: '500',
             }}
           >
             Don't miss out!
-          </TextNormal>
-          <TextNormal
+          </Text14Normal600>
+          <Text14Normal600
             style={{
               color: colors.shopPurple,
-              fontSize: 14,
               fontWeight: '500',
             }}
           >
             {' '}
             Log in{' '}
-          </TextNormal>
-          <TextNormal
+          </Text14Normal600>
+          <Text14Normal600
             style={{
               color: 'black',
-              fontSize: 14,
+              fontWeight: '500',
             }}
           >
             to earn and redeem
-          </TextNormal>
-          <TextNormal
+          </Text14Normal600>
+          <Text14Normal600
             style={{
               color: 'black',
-              fontSize: 14,
+              fontWeight: '500',
               flexWrap: 'wrap',
             }}
           >
             rewards.
-          </TextNormal>
+          </Text14Normal600>
         </View>
       </View>
       <View
@@ -119,9 +122,9 @@ const OrderSummarySection = () => {
             width: '76%',
           }}
         >
-          <TextNormal style={{ color: colors.lightGrey, fontSize: 16 }}>
+          <Text16Normal400 style={{ color: colors.lightGrey }}>
             Discount code or gift card
-          </TextNormal>
+          </Text16Normal400>
         </View>
         <View
           style={{
@@ -132,52 +135,42 @@ const OrderSummarySection = () => {
             padding: 12,
           }}
         >
-          <TextNormal
-            style={{ color: colors.lightGrey, fontSize: 18, fontWeight: '500' }}
-          >
+          <Text18Normal500 style={{ color: colors.lightGrey }}>
             Apply
-          </TextNormal>
+          </Text18Normal500>
         </View>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 8 }}>
-          Subtotal
-        </TextNormal>
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 4.99</TextNormal>
+        <Text16Normal400 style={{ marginBottom: 8 }}>Subtotal</Text16Normal400>
+        <Text16Normal400 style={{ color: 'white' }}>$ 4.99</Text16Normal400>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginBottom: 8,
+        }}
+      >
+        <Text16Normal400>Shipping</Text16Normal400>
+        <Text16Normal400>$ 5.00</Text16Normal400>
+      </View>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          marginBottom: 12,
+        }}
+      >
+        <Text16Normal400>Estimated taxes</Text16Normal400>
+        <Text16Normal400>$ 0.76</Text16Normal400>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 8 }}>
-          Shipping
-        </TextNormal>
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 5.00</TextNormal>
-      </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 12 }}>
-          Estimated taxes
-        </TextNormal>
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>$ 0.76</TextNormal>
-      </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <TextNormal
-          style={{
-            color: 'white',
-            fontSize: 20,
-            fontWeight: '600',
-          }}
-        >
-          Total
-        </TextNormal>
+        <Text20Normal600>Total</Text20Normal600>
         <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-          <TextNormal
-            style={{ color: colors.grey, fontSize: 14, marginRight: 6 }}
-          >
+          <Text14Normal600 style={{ color: colors.grey, marginRight: 6 }}>
             CAD
-          </TextNormal>
-          <TextNormal
-            style={{ color: 'white', fontSize: 20, fontWeight: '600' }}
-          >
-            $ 10.75
-          </TextNormal>
+          </Text14Normal600>
+          <Text20Normal600>$ 10.75</Text20Normal600>
         </View>
       </View>
     </View>

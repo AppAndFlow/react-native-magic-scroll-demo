@@ -2,7 +2,11 @@ import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import * as React from 'react';
 import { Keyboard, TouchableOpacity, View } from 'react-native';
 
-import { TextNormal } from '../common/typography';
+import {
+  Text14Normal600,
+  Text16Normal600,
+  Text22Normal600,
+} from '../common/typography';
 import ShopTextInput from './ShopTextInput';
 import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
@@ -20,15 +24,7 @@ const ShopPaymentView = () => {
       }}
     >
       <View style={{ height: 32 }}>
-        <TextNormal
-          style={{
-            color: 'white',
-            fontSize: 22,
-            fontWeight: '600',
-          }}
-        >
-          Add card
-        </TextNormal>
+        <Text22Normal600>Add card</Text22Normal600>
       </View>
       <HeaderFade style={{ position: 'absolute', top: 32, zIndex: 99 }} />
       <MagicScroll.ScrollView
@@ -99,26 +95,14 @@ const ShopPaymentView = () => {
           }}
         />
         <View style={{ marginVertical: 16 }}>
-          <TextNormal
-            style={{ color: colors.lightGrey, fontSize: 14, marginBottom: 6 }}
-          >
+          <Text14Normal600 style={{ color: colors.lightGrey, marginBottom: 6 }}>
             Bill to
-          </TextNormal>
-          <TextNormal
-            style={{ color: 'white', fontSize: 14, fontWeight: '600' }}
-          >
-            Marjorie Maillé
-          </TextNormal>
-          <TextNormal
-            style={{ color: 'white', fontSize: 14, fontWeight: '600' }}
-          >
-            1234, street Name
-          </TextNormal>
-          <TextNormal
-            style={{ color: colors.lightGrey, fontSize: 14, fontWeight: '600' }}
-          >
+          </Text14Normal600>
+          <Text14Normal600>Marjorie Maillé</Text14Normal600>
+          <Text14Normal600>1234, street Name</Text14Normal600>
+          <Text14Normal600 style={{ color: colors.lightGrey }}>
             Montréal, Qc H1X 2L7
-          </TextNormal>
+          </Text14Normal600>
         </View>
         <TouchableOpacity
           style={{
@@ -132,15 +116,13 @@ const ShopPaymentView = () => {
             padding: 14,
           }}
         >
-          <TextNormal
+          <Text16Normal600
             style={{
               color: colors.bottomSheetShopBG,
-              fontSize: 16,
-              fontWeight: '500',
             }}
           >
             Save
-          </TextNormal>
+          </Text16Normal600>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={uiStore.closeBottomSheet}
@@ -155,15 +137,13 @@ const ShopPaymentView = () => {
             padding: 14,
           }}
         >
-          <TextNormal
+          <Text16Normal600
             style={{
               color: colors.shopLightPurple,
-              fontSize: 16,
-              fontWeight: '500',
             }}
           >
             Cancel
-          </TextNormal>
+          </Text16Normal600>
         </TouchableOpacity>
       </MagicScroll.ScrollView>
     </View>

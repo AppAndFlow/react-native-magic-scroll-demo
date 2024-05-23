@@ -3,7 +3,7 @@ import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { Keyboard, TouchableOpacity, View } from 'react-native';
 
 import ShopTextInput from './ShopTextInput';
-import { TextNormal } from '../common/typography';
+import { Text16Normal600, Text22Normal600 } from '../common/typography';
 import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';
@@ -20,17 +20,14 @@ const ShopAddressView = () => {
       }}
     >
       <View style={{ height: 32 }}>
-        <TextNormal
+        <Text22Normal600
           style={{
-            color: 'white',
-            fontSize: 22,
-            fontWeight: '600',
             marginBottom: 6,
             marginHorizontal: 20,
           }}
         >
           Add address
-        </TextNormal>
+        </Text22Normal600>
       </View>
       <HeaderFade style={{ position: 'absolute', top: 32, zIndex: 99 }} />
       <MagicScroll.ScrollView
@@ -135,15 +132,13 @@ const ShopAddressView = () => {
             padding: 14,
           }}
         >
-          <TextNormal
+          <Text16Normal600
             style={{
               color: colors.bottomSheetShopBG,
-              fontSize: 16,
-              fontWeight: '500',
             }}
           >
             Save
-          </TextNormal>
+          </Text16Normal600>
         </TouchableOpacity>
         <TouchableOpacity
           onPress={uiStore.closeBottomSheet}
@@ -158,15 +153,13 @@ const ShopAddressView = () => {
             padding: 14,
           }}
         >
-          <TextNormal
+          <Text16Normal600
             style={{
               color: colors.shopLightPurple,
-              fontSize: 16,
-              fontWeight: '500',
             }}
           >
             Cancel
-          </TextNormal>
+          </Text16Normal600>
         </TouchableOpacity>
       </MagicScroll.ScrollView>
     </View>

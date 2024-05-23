@@ -21,6 +21,62 @@ export const TextNormal = ({ children, style, ...rest }: P) => (
   </BasicText>
 );
 
+export const Text14Normal600 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[{ fontSize: 14, color: colors.white, fontWeight: '600' }, style]}
+  >
+    {children}
+  </BasicText>
+);
+
+export const Text16Normal400 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[{ fontSize: 16, color: colors.white, fontWeight: '400' }, style]}
+  >
+    {children}
+  </BasicText>
+);
+
+export const Text16Normal600 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[{ fontSize: 16, color: colors.grey, fontWeight: '600' }, style]}
+  >
+    {children}
+  </BasicText>
+);
+
+export const Text18Normal500 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[
+      { fontSize: 18, color: colors.shopPurple, fontWeight: '500' },
+      style,
+    ]}
+  >
+    {children}
+  </BasicText>
+);
+export const Text20Normal600 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[{ fontSize: 20, color: colors.white, fontWeight: '600' }, style]}
+  >
+    {children}
+  </BasicText>
+);
+
+export const Text22Normal600 = ({ children, style, ...rest }: P) => (
+  <BasicText
+    {...rest}
+    style={[{ fontSize: 22, color: colors.white, fontWeight: '600' }, style]}
+  >
+    {children}
+  </BasicText>
+);
+
 export const Text40Playfair700 = ({ children, style, ...rest }: P) => (
   <BasicText
     {...rest}

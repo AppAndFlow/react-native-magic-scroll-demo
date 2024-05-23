@@ -9,7 +9,12 @@ import {
 } from 'react-native';
 import { observer } from 'mobx-react';
 
-import { TextNormal } from '../common/typography';
+import {
+  Text16Normal400,
+  Text16Normal600,
+  Text18Normal500,
+  Text22Normal600,
+} from '../common/typography';
 import { useUiStore } from '../../stores/ui';
 import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
@@ -51,9 +56,7 @@ const ShopCheckOutScreen = observer(() => {
           zIndex: 99,
         }}
       >
-        <TextNormal style={{ color: 'white', fontSize: 22, fontWeight: '600' }}>
-          Review & Pay
-        </TextNormal>
+        <Text22Normal600>Review & Pay</Text22Normal600>
       </View>
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -63,20 +66,9 @@ const ShopCheckOutScreen = observer(() => {
           paddingTop: 16,
         }}
       >
-        <TextNormal style={{ color: 'white', fontSize: 16 }}>
-          marjorie@appandflow.com
-        </TextNormal>
+        <Text16Normal400>marjorie@appandflow.com</Text16Normal400>
         <Separator />
-        <TextNormal
-          style={{
-            color: colors.grey,
-            fontSize: 16,
-            fontWeight: '600',
-            marginBottom: 6,
-          }}
-        >
-          Ship to
-        </TextNormal>
+        <Text16Normal600 style={{ marginBottom: 6 }}>Ship to</Text16Normal600>
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
@@ -86,50 +78,22 @@ const ShopCheckOutScreen = observer(() => {
             })
           }
         >
-          <TextNormal
-            style={{
-              fontSize: 18,
-              fontWeight: '500',
-              color: colors.shopPurple,
-            }}
-          >
-            + Add an address
-          </TextNormal>
+          <Text18Normal500>+ Add an address</Text18Normal500>
         </TouchableOpacity>
         <Separator />
-        <TextNormal
-          style={{
-            color: colors.grey,
-            fontSize: 16,
-            fontWeight: '600',
-            marginBottom: 6,
-          }}
-        >
+        <Text16Normal600 style={{ marginBottom: 6 }}>
           Shipping method
-        </TextNormal>
+        </Text16Normal600>
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <TextNormal
-            style={{ color: 'white', fontSize: 16, fontWeight: '500' }}
-          >
+          <Text16Normal400>
             Priority shipping (2-5 Business Days)
-          </TextNormal>
-          <TextNormal
-            style={{ color: 'white', fontSize: 16, fontWeight: '500' }}
-          >
-            $ 5.00
-          </TextNormal>
+          </Text16Normal400>
+          <Text16Normal400>$ 5.00</Text16Normal400>
         </View>
         <Separator />
-        <TextNormal
-          style={{
-            color: colors.grey,
-            fontSize: 16,
-            fontWeight: '600',
-            marginBottom: 6,
-          }}
-        >
+        <Text16Normal600 style={{ marginBottom: 6 }}>
           Payment method
-        </TextNormal>
+        </Text16Normal600>
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
@@ -139,15 +103,7 @@ const ShopCheckOutScreen = observer(() => {
             })
           }
         >
-          <TextNormal
-            style={{
-              fontSize: 18,
-              fontWeight: '500',
-              color: colors.shopPurple,
-            }}
-          >
-            + Add a payment method
-          </TextNormal>
+          <Text18Normal500>+ Add a payment method</Text18Normal500>
         </TouchableOpacity>
         <Separator
           style={{
@@ -183,11 +139,9 @@ const ShopCheckOutScreen = observer(() => {
             padding: 14,
           }}
         >
-          <TextNormal
-            style={{ color: 'white', fontSize: 16, fontWeight: '700' }}
-          >
+          <Text16Normal600 style={{ color: colors.white }}>
             Pay Now
-          </TextNormal>
+          </Text16Normal600>
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             <View
               style={{
@@ -197,11 +151,9 @@ const ShopCheckOutScreen = observer(() => {
                 marginRight: 12,
               }}
             />
-            <TextNormal
-              style={{ color: 'white', fontSize: 16, fontWeight: '700' }}
-            >
+            <Text16Normal600 style={{ color: colors.white }}>
               $10.75
-            </TextNormal>
+            </Text16Normal600>
           </View>
         </TouchableOpacity>
       </View>
