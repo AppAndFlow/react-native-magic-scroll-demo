@@ -4,6 +4,8 @@ import { TextNormal } from '../common/typography';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { Keyboard, TouchableOpacity, View } from 'react-native';
 import { useUiStore } from '../../stores/ui';
+import HeaderFade from '../common/HeaderFade';
+import colors from '../../constants/colors';
 
 const ShopAddressView = () => {
   const uiStore = useUiStore();
@@ -13,20 +15,23 @@ const ShopAddressView = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#1c1c1c',
+        backgroundColor: colors.bottomSheetBG,
       }}
     >
-      <TextNormal
-        style={{
-          color: 'white',
-          fontSize: 22,
-          fontWeight: '600',
-          marginBottom: 6,
-          marginHorizontal: 20,
-        }}
-      >
-        Add address
-      </TextNormal>
+      <View style={{ height: 32 }}>
+        <TextNormal
+          style={{
+            color: 'white',
+            fontSize: 22,
+            fontWeight: '600',
+            marginBottom: 6,
+            marginHorizontal: 20,
+          }}
+        >
+          Add address
+        </TextNormal>
+      </View>
+      <HeaderFade style={{ position: 'absolute', top: 32, zIndex: 99 }} />
       <MagicScroll.ScrollView
         scollViewProps={{
           showsVerticalScrollIndicator: false,
