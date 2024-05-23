@@ -11,6 +11,7 @@ import ShopTextInput from './ShopTextInput';
 import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';
+import ShopButton from './ShopButton';
 
 const ShopPaymentView = () => {
   const uiStore = useUiStore();
@@ -138,48 +139,21 @@ const ShopPaymentView = () => {
             Montréal, Qc H1X 2L7
           </Text14Normal600>
         </View>
-        <TouchableOpacity
+
+        <ShopButton
+          label="Save"
+          bgColor="white"
+          labelColor={colors.bottomSheetShopBG}
           onPress={onPressSave}
-          style={{
-            height: 48,
-            width: '100%',
-            backgroundColor: 'white',
-            borderRadius: 12,
-            marginTop: 12,
-            alignItems: 'center',
+          style={{ marginVertical: 12 }}
+        />
 
-            padding: 14,
-          }}
-        >
-          <Text16Normal600
-            style={{
-              color: colors.bottomSheetShopBG,
-            }}
-          >
-            Save
-          </Text16Normal600>
-        </TouchableOpacity>
-        <TouchableOpacity
+        <ShopButton
+          label="Cancel"
+          bgColor={colors.bottomSheetShopBG}
           onPress={onPressCancel}
-          style={{
-            height: 48,
-            width: '100%',
-            backgroundColor: colors.bottomSheetShopBG,
-            borderRadius: 12,
-            marginTop: 12,
-            alignItems: 'center',
-
-            padding: 14,
-          }}
-        >
-          <Text16Normal600
-            style={{
-              color: colors.shopLightPurple,
-            }}
-          >
-            Cancel
-          </Text16Normal600>
-        </TouchableOpacity>
+          labelColor={colors.shopLightPurple}
+        />
       </MagicScroll.ScrollView>
     </View>
   );
