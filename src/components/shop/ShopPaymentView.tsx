@@ -1,6 +1,6 @@
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import * as React from 'react';
-import { Keyboard, TouchableOpacity, View } from 'react-native';
+import { Alert, Keyboard, TouchableOpacity, View } from 'react-native';
 
 import {
   Text14Normal600,
@@ -15,6 +15,30 @@ import colors from '../../constants/colors';
 const ShopPaymentView = () => {
   const uiStore = useUiStore();
   const { chainInput } = MagicScroll.useFormSmartScroll();
+
+  const [cardNumber, setCardNumber] = React.useState('');
+  const [expirationDate, setExpirationDate] = React.useState('');
+  const [securityCode, setSecurityCode] = React.useState('');
+  const [name, setName] = React.useState('');
+  const [nickname, setNickname] = React.useState('');
+
+  const onPressSave = () => {
+    if (cardNumber && expirationDate && securityCode && name !== '') {
+      Alert.alert('Card saved successfully!');
+    } else {
+      Alert.alert('Information missing.');
+    }
+  };
+
+  const onPressCancel = () => {
+    uiStore.closeBottomSheet();
+    setCardNumber('');
+    setExpirationDate('');
+    setSecurityCode('');
+    setName('');
+    setNickname('');
+  };
+
   return (
     <View
       style={{
@@ -47,6 +71,8 @@ const ShopPaymentView = () => {
           tiProps={{
             keyboardType: 'decimal-pad',
             placeholder: 'Card number',
+            value: cardNumber,
+            onChangeText: (val) => setCardNumber(val),
           }}
         />
         <ShopTextInput
@@ -57,6 +83,8 @@ const ShopPaymentView = () => {
             keyboardType: 'decimal-pad',
             placeholder: 'Expiration date (MM/YY)',
             autoComplete: 'cc-exp',
+            value: expirationDate,
+            onChangeText: (val) => setExpirationDate(val),
           }}
         />
         <ShopTextInput
@@ -72,6 +100,8 @@ const ShopPaymentView = () => {
             keyboardType: 'decimal-pad',
             placeholder: 'Security code',
             autoComplete: 'cc-csc',
+            value: securityCode,
+            onChangeText: (val) => setSecurityCode(val),
           }}
         />
         <ShopTextInput
@@ -82,6 +112,8 @@ const ShopPaymentView = () => {
             keyboardType: 'default',
             placeholder: 'Name on card',
             autoComplete: 'cc-name',
+            value: name,
+            onChangeText: (val) => setName(val),
           }}
         />
         <ShopTextInput
@@ -92,6 +124,8 @@ const ShopPaymentView = () => {
             keyboardType: 'default',
             placeholder: 'Nickname (optional)',
             autoComplete: 'nickname',
+            value: nickname,
+            onChangeText: (val) => setNickname(val),
           }}
         />
         <View style={{ marginVertical: 16 }}>
@@ -105,6 +139,7 @@ const ShopPaymentView = () => {
           </Text14Normal600>
         </View>
         <TouchableOpacity
+          onPress={onPressSave}
           style={{
             height: 48,
             width: '100%',
@@ -125,7 +160,7 @@ const ShopPaymentView = () => {
           </Text16Normal600>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={uiStore.closeBottomSheet}
+          onPress={onPressCancel}
           style={{
             height: 48,
             width: '100%',
