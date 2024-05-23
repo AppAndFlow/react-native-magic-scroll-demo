@@ -16,9 +16,9 @@ const HeaderFade = ({
     <LinearGradient
       colors={
         colors || [
-          localColors.bottomSheetBG,
+          localColors.bottomSheetShopBG,
 
-          addOpacityToColor(localColors.bottomSheetBG, 0),
+          addOpacityToColor(localColors.bottomSheetShopBG, 0),
         ]
       }
       style={[

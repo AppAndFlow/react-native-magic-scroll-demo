@@ -5,6 +5,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native';
 import { Text40Asap700 } from '../common/typography';
 import TextBackground from './TextBackground';
 import AppButton from './AppButton';
+import colors from '../../constants/colors';
 
 const LandingScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -13,7 +14,7 @@ const LandingScreen = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#874BF6',
+        backgroundColor: colors.twitchPurple,
         paddingTop: 140,
       }}
     >
@@ -41,13 +42,13 @@ const LandingScreen = () => {
       >
         <AppButton
           buttonLabel="Login"
-          bgColor="#6235b7"
+          bgColor={colors.twitchDarkPurple}
           labelColor="white"
           onPressButton={() => navigation.navigate('LoginScreen')}
         />
         <AppButton
           buttonLabel="Sign Up"
-          labelColor="#6235b7"
+          labelColor={colors.twitchDarkPurple}
           bgColor="white"
           onPressButton={() => navigation.navigate('SignUpScreen')}
         />

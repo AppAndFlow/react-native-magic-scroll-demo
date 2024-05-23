@@ -14,7 +14,7 @@ const ShopPaymentView = () => {
   return (
     <View
       style={{
-        backgroundColor: colors.bottomSheetBG,
+        backgroundColor: colors.bottomSheetShopBG,
         paddingHorizontal: 20,
         flex: 1,
       }}
@@ -100,7 +100,7 @@ const ShopPaymentView = () => {
         />
         <View style={{ marginVertical: 16 }}>
           <TextNormal
-            style={{ color: '#bebebe', fontSize: 14, marginBottom: 6 }}
+            style={{ color: colors.lightGrey, fontSize: 14, marginBottom: 6 }}
           >
             Bill to
           </TextNormal>
@@ -115,7 +115,7 @@ const ShopPaymentView = () => {
             1234, street Name
           </TextNormal>
           <TextNormal
-            style={{ color: '#bebebe', fontSize: 14, fontWeight: '600' }}
+            style={{ color: colors.lightGrey, fontSize: 14, fontWeight: '600' }}
           >
             Montréal, Qc H1X 2L7
           </TextNormal>
@@ -133,7 +133,11 @@ const ShopPaymentView = () => {
           }}
         >
           <TextNormal
-            style={{ color: 'black', fontSize: 16, fontWeight: '500' }}
+            style={{
+              color: colors.bottomSheetShopBG,
+              fontSize: 16,
+              fontWeight: '500',
+            }}
           >
             Save
           </TextNormal>
@@ -143,7 +147,7 @@ const ShopPaymentView = () => {
           style={{
             height: 48,
             width: '100%',
-            backgroundColor: '#1c1c1c',
+            backgroundColor: colors.bottomSheetShopBG,
             borderRadius: 12,
             marginTop: 12,
             alignItems: 'center',
@@ -153,7 +157,7 @@ const ShopPaymentView = () => {
         >
           <TextNormal
             style={{
-              color: '#dbaff9',
+              color: colors.shopLightPurple,
               fontSize: 16,
               fontWeight: '500',
             }}

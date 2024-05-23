@@ -4,6 +4,7 @@ import { ReturnKeyTypeOptions, TextInputProps, ViewStyle } from 'react-native';
 import Animated, { Easing, FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
+import colors from '../../constants/colors';
 
 const IndependantTI = ({
   name,
@@ -42,7 +43,7 @@ const IndependantTI = ({
         onBlur: () => setIsFocued(false),
         returnKeyType: returnKeyType,
 
-        selectionColor: '#874BF6',
+        selectionColor: colors.twitchPurple,
         style: {
           color: 'white',
           fontSize: 18,
@@ -52,8 +53,8 @@ const IndependantTI = ({
           height: 46,
 
           borderWidth: isFocused ? 2 : 0,
-          borderColor: isFocused ? '#874BF6' : 'black',
-          backgroundColor: isFocused ? 'black' : '#474747',
+          borderColor: isFocused ? colors.twitchPurple : 'black',
+          backgroundColor: isFocused ? 'black' : colors.twitchGrey,
           borderRadius: 6,
         },
         ...tiProps,

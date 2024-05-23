@@ -15,7 +15,7 @@ const ShopAddressView = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor: colors.bottomSheetBG,
+        backgroundColor: colors.bottomSheetShopBG,
       }}
     >
       <View style={{ height: 32 }}>
@@ -135,7 +135,11 @@ const ShopAddressView = () => {
           }}
         >
           <TextNormal
-            style={{ color: 'black', fontSize: 16, fontWeight: '500' }}
+            style={{
+              color: colors.bottomSheetShopBG,
+              fontSize: 16,
+              fontWeight: '500',
+            }}
           >
             Save
           </TextNormal>
@@ -155,7 +159,7 @@ const ShopAddressView = () => {
         >
           <TextNormal
             style={{
-              color: '#dbaff9',
+              color: colors.shopLightPurple,
               fontSize: 16,
               fontWeight: '500',
             }}

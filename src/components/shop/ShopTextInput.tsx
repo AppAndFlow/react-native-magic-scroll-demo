@@ -8,6 +8,7 @@ import {
 } from 'react-native';
 
 import * as ExpoVectorIcon from '@expo/vector-icons';
+import colors from '../../constants/colors';
 
 const { ...expoVectorIconFamilies } = ExpoVectorIcon;
 
@@ -79,8 +80,8 @@ const ShopTextInput = ({
         justifyContent: 'space-between',
         alignItems: 'center',
         borderWidth: isFocused ? 2 : 1,
-        borderColor: isFocused ? 'white' : '#888686',
-        backgroundColor: '#1c1c1c',
+        borderColor: isFocused ? 'white' : colors.grey,
+        backgroundColor: colors.bottomSheetShopBG,
         borderRadius: 6,
       }}
     >
@@ -96,9 +97,8 @@ const ShopTextInput = ({
           onSubmitEditing: onSubmit,
           onBlur: () => setIsFocued(false),
           returnKeyType: returnKeyType,
-          placeholderTextColor: '#bebebe',
+          placeholderTextColor: colors.lightGrey,
 
-          selectionColor: '#874BF6',
           style: {
             color: 'white',
             fontSize: 16,

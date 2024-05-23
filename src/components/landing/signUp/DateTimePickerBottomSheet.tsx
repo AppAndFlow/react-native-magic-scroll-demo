@@ -5,6 +5,7 @@ import DateTimePicker, {
 } from '@react-native-community/datetimepicker';
 
 import { Text18Asap400 } from '../../common/typography';
+import colors from '../../../constants/colors';
 
 const DateTimePickerBottomSheet = ({
   birthdate,
@@ -26,7 +27,7 @@ const DateTimePickerBottomSheet = ({
     >
       <View
         style={{
-          backgroundColor: '#474747',
+          backgroundColor: colors.twitchGrey,
           height: 40,
           width: '100%',
           paddingHorizontal: 20,
@@ -37,7 +38,7 @@ const DateTimePickerBottomSheet = ({
         <TouchableOpacity
           onPress={onPressDone}
           style={{
-            backgroundColor: '#874BF6',
+            backgroundColor: colors.twitchPurple,
             height: 40,
             width: 76,
             borderRadius: 6,

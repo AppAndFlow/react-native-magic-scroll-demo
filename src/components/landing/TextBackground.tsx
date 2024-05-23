@@ -2,11 +2,12 @@ import * as React from 'react';
 import { View } from 'react-native';
 
 import { Text40Asap700 } from '../common/typography';
+import colors from '../../constants/colors';
 
 const firstRowTexts = [
   {
     text: 'FortNite',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Games',
@@ -14,18 +15,18 @@ const firstRowTexts = [
   },
   {
     text: 'Half Life',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Baldurs Gate',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const secondRowTexts = [
   {
     text: 'Hip Hop',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Music',
@@ -33,18 +34,18 @@ const secondRowTexts = [
   },
   {
     text: 'Classic',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Rock N Roll',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const thirdRowTexts = [
   {
     text: 'Biology',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Talk Shows',
@@ -52,18 +53,18 @@ const thirdRowTexts = [
   },
   {
     text: 'History',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Education',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const fourthRowTexts = [
   {
     text: 'Basketball',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Sports',
@@ -71,18 +72,18 @@ const fourthRowTexts = [
   },
   {
     text: 'Football',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Hockey',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const fifthRowTexts = [
   {
     text: 'Something',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Travel & Outdoors',
@@ -90,14 +91,14 @@ const fifthRowTexts = [
   },
   {
     text: 'Exploration',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const sixthRowTexts = [
   {
     text: 'Chatting',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Just Chatting',
@@ -105,18 +106,18 @@ const sixthRowTexts = [
   },
   {
     text: 'News',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Meditation',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const seventhRowTexts = [
   {
     text: 'Mukbang',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Food & Drink',
@@ -124,18 +125,18 @@ const seventhRowTexts = [
   },
   {
     text: 'Social',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Eating',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 
 const eighthRowTexts = [
   {
     text: 'Socials',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Special Events',
@@ -143,11 +144,11 @@ const eighthRowTexts = [
   },
   {
     text: 'Sports',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
   {
     text: 'Gala',
-    color: '#6235b7',
+    color: colors.twitchDarkPurple,
   },
 ];
 

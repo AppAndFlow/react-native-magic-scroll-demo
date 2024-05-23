@@ -14,6 +14,7 @@ import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
 import { observer } from 'mobx-react';
+import colors from '../../constants/colors';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (
@@ -21,7 +22,7 @@ const Separator = ({ style }: { style?: ViewStyle }) => {
       style={{
         width: '100%',
         height: 1,
-        backgroundColor: '#353434',
+        backgroundColor: colors.darkGrey,
         marginVertical: 12,
         ...style,
       }}
@@ -36,7 +37,7 @@ const ShopCheckOutScreen = observer(() => {
   const uiStore = useUiStore();
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#111111' }}>
+    <View style={{ flex: 1, backgroundColor: colors.black }}>
       <View
         style={{
           height: screenHeight * 0.12,
@@ -67,7 +68,7 @@ const ShopCheckOutScreen = observer(() => {
         <Separator />
         <TextNormal
           style={{
-            color: '#868585',
+            color: colors.grey,
             fontSize: 16,
             fontWeight: '600',
             marginBottom: 6,
@@ -78,14 +79,18 @@ const ShopCheckOutScreen = observer(() => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              bottomSheetStyle: { backgroundColor: '#1c1c1c' },
+              bottomSheetStyle: { backgroundColor: colors.bottomSheetShopBG },
               snapPoints: [1, screenHeight * 0.88],
               renderContent: () => <ShopAddressView />,
             })
           }
         >
           <TextNormal
-            style={{ fontSize: 18, fontWeight: '500', color: '#9273f1' }}
+            style={{
+              fontSize: 18,
+              fontWeight: '500',
+              color: colors.shopPurple,
+            }}
           >
             + Add an address
           </TextNormal>
@@ -93,7 +98,7 @@ const ShopCheckOutScreen = observer(() => {
         <Separator />
         <TextNormal
           style={{
-            color: '#868585',
+            color: colors.grey,
             fontSize: 16,
             fontWeight: '600',
             marginBottom: 6,
@@ -116,7 +121,7 @@ const ShopCheckOutScreen = observer(() => {
         <Separator />
         <TextNormal
           style={{
-            color: '#868585',
+            color: colors.grey,
             fontSize: 16,
             fontWeight: '600',
             marginBottom: 6,
@@ -127,14 +132,18 @@ const ShopCheckOutScreen = observer(() => {
         <TouchableOpacity
           onPress={() =>
             uiStore.openBottomSheet({
-              bottomSheetStyle: { backgroundColor: '#1c1c1c' },
+              bottomSheetStyle: { backgroundColor: colors.bottomSheetShopBG },
               snapPoints: [1, screenHeight * 0.78],
               renderContent: () => <ShopPaymentView />,
             })
           }
         >
           <TextNormal
-            style={{ fontSize: 18, fontWeight: '500', color: '#9273f1' }}
+            style={{
+              fontSize: 18,
+              fontWeight: '500',
+              color: colors.shopPurple,
+            }}
           >
             + Add a payment method
           </TextNormal>
@@ -144,7 +153,7 @@ const ShopCheckOutScreen = observer(() => {
             width: screenWidth,
             height: 8,
             marginVertical: 16,
-            backgroundColor: '#272727',
+            backgroundColor: colors.darkGrey,
             marginLeft: -20,
           }}
         />
@@ -154,9 +163,9 @@ const ShopCheckOutScreen = observer(() => {
         style={{
           height: screenHeight * 0.14,
           width: screenWidth,
-          backgroundColor: '#111111',
+          backgroundColor: colors.black,
           borderTopWidth: 1,
-          borderTopColor: '#353434',
+          borderTopColor: colors.darkGrey,
           padding: 20,
         }}
       >

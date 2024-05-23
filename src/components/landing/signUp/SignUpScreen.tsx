@@ -7,6 +7,7 @@ import AppButton from '../AppButton';
 import AppHeader from '../AppHeader';
 import SignUpForm from './SignUpForm';
 import TOSSection from './TOSSection';
+import colors from '../../../constants/colors';
 
 const SignUpScreen = observer(() => {
   const screenHeight = Dimensions.get('screen').height;
@@ -39,7 +40,7 @@ const SignUpScreen = observer(() => {
           }
           buttonLabel="Sign Up"
           labelColor={isButtonEnabled ? 'white' : '#bdbaba'}
-          bgColor={isButtonEnabled ? '#874BF6' : '#474747'}
+          bgColor={isButtonEnabled ? colors.twitchPurple : colors.twitchGrey}
         />
       </View>
     </View>

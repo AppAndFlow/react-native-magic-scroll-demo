@@ -7,6 +7,7 @@ import { FontAwesome5 } from '@expo/vector-icons';
 
 import { Text16Asap400, Text18Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
+import colors from '../../constants/colors';
 
 const ObsoleteSignUpScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
@@ -87,13 +88,13 @@ const ObsoleteSignUpScreen = () => {
                 alignItems: 'flex-end',
                 justifyContent: 'center',
                 paddingHorizontal: 8,
-                borderTopColor: '#474747',
+                borderTopColor: colors.twitchGrey,
                 borderTopWidth: 0.5,
               }}
             >
               <TouchableOpacity
                 style={{
-                  backgroundColor: '#874BF6',
+                  backgroundColor: colors.twitchPurple,
 
                   height: 36,
                   width: 72,
@@ -190,7 +191,7 @@ const ObsoleteSignUpScreen = () => {
             width: screenWidth - 40,
             marginTop: 16,
 
-            backgroundColor: '#474747',
+            backgroundColor: colors.twitchGrey,
             borderRadius: 6,
             alignItems: 'center',
             justifyContent: 'center',

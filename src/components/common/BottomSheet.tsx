@@ -11,6 +11,7 @@ import { Dimensions, Platform, View } from 'react-native';
 import { toJS } from 'mobx';
 
 import { useUiStore } from '../../stores/ui';
+import colors from '../../constants/colors';
 
 export const BOTTOM_SHEET_POPUP_ANIMATION_TIME = 250;
 
@@ -104,7 +105,7 @@ const BottomSheet = observer(() => {
         index={0}
         bottomInset={bottomInset}
         handleStyle={{
-          backgroundColor: '#474747',
+          backgroundColor: colors.twitchGrey,
         }}
         handleComponent={() => (
           <Box
@@ -115,18 +116,18 @@ const BottomSheet = observer(() => {
               height: 6,
               width: 50,
               borderRadius: 3,
-              backgroundColor: 'rgb(190,190,190)',
+              backgroundColor: colors.lightGrey,
             }}
           />
         )}
         backgroundComponent={() => (
-          <View style={{ flex: 1, backgroundColor: '#474747' }} />
+          <View style={{ flex: 1, backgroundColor: colors.twitchGrey }} />
         )}
-        handleIndicatorStyle={{ backgroundColor: '#474747' }}
+        handleIndicatorStyle={{ backgroundColor: colors.twitchGrey }}
         style={{
           borderRadius: 18,
           overflow: 'hidden',
-          backgroundColor: '#474747',
+          backgroundColor: colors.twitchGrey,
           ...uiStore.bottomSheetStyle,
         }}
         animatedIndex={animatedBottomSheetNode}
@@ -143,7 +144,7 @@ const BottomSheet = observer(() => {
         }}
         {...bottomSheetGorhomProps}
       >
-        <Box flex={1} opacity={1} bg={'#474747'}>
+        <Box flex={1} opacity={1} bg={colors.twitchGrey}>
           {uiStore.bottomSheetContentRenderer?.()}
         </Box>
       </BottomSheetGorhom>

@@ -3,6 +3,7 @@ import { Image, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import { TextNormal } from '../common/typography';
+import colors from '../../constants/colors';
 
 const OrderSummarySection = () => {
   return (
@@ -35,7 +36,7 @@ const OrderSummarySection = () => {
           <TextNormal style={{ color: 'white', fontSize: 16, marginBottom: 4 }}>
             Item to purchase
           </TextNormal>
-          <TextNormal style={{ color: '#bfbfbf', fontSize: 12 }}>
+          <TextNormal style={{ color: colors.lightGrey, fontSize: 12 }}>
             Details about item
           </TextNormal>
         </View>
@@ -52,7 +53,11 @@ const OrderSummarySection = () => {
           borderRadius: 12,
         }}
       >
-        <Ionicons name="information-circle-outline" size={24} color="#545353" />
+        <Ionicons
+          name="information-circle-outline"
+          size={24}
+          color={colors.darkGrey}
+        />
         <View
           style={{
             flexDirection: 'row',
@@ -71,7 +76,7 @@ const OrderSummarySection = () => {
           </TextNormal>
           <TextNormal
             style={{
-              color: '#9273f1',
+              color: colors.shopPurple,
               fontSize: 14,
               fontWeight: '500',
             }}
@@ -108,13 +113,13 @@ const OrderSummarySection = () => {
         <View
           style={{
             borderWidth: 1,
-            borderColor: '#878686',
+            borderColor: colors.grey,
             borderRadius: 8,
             padding: 12,
             width: '76%',
           }}
         >
-          <TextNormal style={{ color: '#bfbfbf', fontSize: 16 }}>
+          <TextNormal style={{ color: colors.lightGrey, fontSize: 16 }}>
             Discount code or gift card
           </TextNormal>
         </View>
@@ -122,13 +127,13 @@ const OrderSummarySection = () => {
           style={{
             backgroundColor: '#232323',
             borderWidth: 1,
-            borderColor: '#878686',
+            borderColor: colors.grey,
             borderRadius: 8,
             padding: 12,
           }}
         >
           <TextNormal
-            style={{ color: '#bfbfbf', fontSize: 18, fontWeight: '500' }}
+            style={{ color: colors.lightGrey, fontSize: 18, fontWeight: '500' }}
           >
             Apply
           </TextNormal>
@@ -164,7 +169,7 @@ const OrderSummarySection = () => {
         </TextNormal>
         <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
           <TextNormal
-            style={{ color: '#bfbfbf', fontSize: 14, marginRight: 6 }}
+            style={{ color: colors.grey, fontSize: 14, marginRight: 6 }}
           >
             CAD
           </TextNormal>

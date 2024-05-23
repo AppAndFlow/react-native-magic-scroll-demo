@@ -6,6 +6,7 @@ import { Text16Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
 import AppButton from './AppButton';
 import AppHeader from './AppHeader';
+import colors from '../../constants/colors';
 
 const LoginScreen = () => {
   const screenWidth = Dimensions.get('screen').width;
@@ -60,7 +61,7 @@ const LoginScreen = () => {
 
         <Text16Asap400
           style={{
-            color: '#bc9df5',
+            color: colors.twitchLightPurple,
 
             fontSize: 18,
           }}
@@ -82,7 +83,7 @@ const LoginScreen = () => {
         }
         buttonLabel="Log In"
         labelColor={buttonEnabled() ? 'white' : '#bdbaba'}
-        bgColor={buttonEnabled() ? '#874BF6' : '#474747'}
+        bgColor={buttonEnabled() ? colors.twitchPurple : colors.twitchGrey}
       />
     </View>
   );

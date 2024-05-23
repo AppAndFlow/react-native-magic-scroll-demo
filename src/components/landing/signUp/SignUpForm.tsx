@@ -11,6 +11,7 @@ import { useUiStore } from '../../../stores/ui';
 import IndependantTI from '../IndependantTI';
 import { Text16Asap400, Text18Asap400 } from '../../common/typography';
 import DateTimePickerBottomSheet from './DateTimePickerBottomSheet';
+import colors from '../../../constants/colors';
 
 const SignUpForm = observer(
   ({ setIsButtonEnabled }: { setIsButtonEnabled: (val: boolean) => void }) => {
@@ -83,8 +84,10 @@ const SignUpForm = observer(
               alignItems: 'center',
             }}
           >
-            <Feather name="phone" size={20} color="#bc9df5" />
-            <Text18Asap400 style={{ color: '#bc9df5', marginLeft: 10 }}>
+            <Feather name="phone" size={20} color={colors.twitchLightPurple} />
+            <Text18Asap400
+              style={{ color: colors.twitchLightPurple, marginLeft: 10 }}
+            >
               Use phone instead
             </Text18Asap400>
           </View>
@@ -121,7 +124,7 @@ const SignUpForm = observer(
               });
               setIsFocused(true);
               uiStore.openBottomSheet({
-                bottomSheetStyle: { backgroundColor: '#474747' },
+                bottomSheetStyle: { backgroundColor: colors.twitchGrey },
                 snapPoints: [1, 280 + metrics.safeBottomDistance],
                 renderContent: () => (
                   <DateTimePickerBottomSheet
@@ -152,9 +155,9 @@ const SignUpForm = observer(
               paddingHorizontal: 8,
               alignItems: 'flex-start',
               justifyContent: 'center',
-              backgroundColor: isFocused ? 'black' : '#474747',
+              backgroundColor: isFocused ? 'black' : colors.twitchGrey,
               borderWidth: isFocused ? 1 : 0,
-              borderColor: isFocused ? '#874BF6' : 'black',
+              borderColor: isFocused ? colors.twitchPurple : 'black',
               borderRadius: 6,
             }}
             onPress={() => {
