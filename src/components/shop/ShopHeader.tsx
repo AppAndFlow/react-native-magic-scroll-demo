@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Dimensions, View } from 'react-native';
+
 import { Text22Normal600 } from '../common/typography';
 import HeaderFade from '../common/HeaderFade';
 import { addOpacityToColor } from '../../utils/color';

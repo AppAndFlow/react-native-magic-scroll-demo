@@ -1,5 +1,7 @@
 import * as React from 'react';
 import { Dimensions, TouchableOpacity, View, ViewStyle } from 'react-native';
+import { observer } from 'mobx-react';
+
 import {
   Text16Normal400,
   Text16Normal600,
@@ -9,7 +11,6 @@ import colors from '../../constants/colors';
 import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
 import { useUiStore } from '../../stores/ui';
-import { observer } from 'mobx-react';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (

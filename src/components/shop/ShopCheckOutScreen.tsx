@@ -5,7 +5,6 @@ import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
 import OrderSummarySection from './OrderSummarySection';
 import colors from '../../constants/colors';
-
 import ShopBottomButton from './ShopBottomButton';
 import ShopHeader from './ShopHeader';
 import ShopTopSection from './ShopTopSection';

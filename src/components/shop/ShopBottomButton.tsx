@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Alert, Dimensions, TouchableOpacity, View } from 'react-native';
+
 import colors from '../../constants/colors';
 import { Text16Normal600 } from '../common/typography';
 
