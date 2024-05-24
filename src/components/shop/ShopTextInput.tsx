@@ -15,19 +15,9 @@ const { ...expoVectorIconFamilies } = ExpoVectorIcon;
 type LeftExpoVectorIconFamiliesKeys = keyof typeof expoVectorIconFamilies;
 
 type LeftExpoVectorIconFamiliesNameKeys =
-  | keyof typeof ExpoVectorIcon.AntDesign.glyphMap
-  | keyof typeof ExpoVectorIcon.Entypo.glyphMap
-  | keyof typeof ExpoVectorIcon.EvilIcons.glyphMap
   | keyof typeof ExpoVectorIcon.Feather.glyphMap
-  | keyof typeof ExpoVectorIcon.FontAwesome.glyphMap
-  | keyof typeof ExpoVectorIcon.Fontisto.glyphMap
-  | keyof typeof ExpoVectorIcon.Foundation.glyphMap
   | keyof typeof ExpoVectorIcon.Ionicons.glyphMap
-  | keyof typeof ExpoVectorIcon.MaterialCommunityIcons.glyphMap
-  | keyof typeof ExpoVectorIcon.MaterialIcons.glyphMap
-  | keyof typeof ExpoVectorIcon.Octicons.glyphMap
-  | keyof typeof ExpoVectorIcon.SimpleLineIcons.glyphMap
-  | keyof typeof ExpoVectorIcon.Zocial.glyphMap;
+  | keyof typeof ExpoVectorIcon.SimpleLineIcons.glyphMap;
 
 const ShopTextInput = ({
   name,
@@ -98,7 +88,6 @@ const ShopTextInput = ({
           onBlur: () => setIsFocued(false),
           returnKeyType: returnKeyType,
           placeholderTextColor: colors.lightGrey,
-
           style: {
             color: 'white',
             fontSize: 16,

@@ -24,7 +24,6 @@ const ShopBottomButton = () => {
           height: 48,
           width: '100%',
           backgroundColor: colors.shopPurple,
-
           borderRadius: 12,
           flexDirection: 'row',
           alignItems: 'center',

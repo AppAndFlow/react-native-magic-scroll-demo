@@ -14,10 +14,8 @@ const ShopHeader = () => {
       style={{
         height: screenHeight * 0.12,
         width: screenWidth,
-
         alignItems: 'center',
         justifyContent: 'flex-end',
-
         position: 'absolute',
         zIndex: 99,
       }}

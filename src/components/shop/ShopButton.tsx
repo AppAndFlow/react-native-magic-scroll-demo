@@ -24,7 +24,6 @@ const ShopButton = ({
         backgroundColor: bgColor,
         width: '100%',
         borderRadius: 12,
-
         alignItems: 'center',
         padding: 14,
         ...style,

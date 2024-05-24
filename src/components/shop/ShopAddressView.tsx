@@ -76,7 +76,6 @@ const ShopAddressView = () => {
           showsVerticalScrollIndicator: false,
           style: {
             paddingHorizontal: 20,
-
             paddingTop: 8,
           },
         }}
