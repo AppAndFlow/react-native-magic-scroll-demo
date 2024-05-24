@@ -33,7 +33,7 @@ const OrderSummarySection = () => {
   };
 
   return (
-    <View style={{ paddingBottom: 26 }}>
+    <View style={{ paddingBottom: 46 }}>
       <Text22Normal600
         style={{
           fontSize: 24,
@@ -150,8 +150,8 @@ const OrderSummarySection = () => {
         <TouchableOpacity
           onPress={onPressApply}
           style={{
-            backgroundColor: '#232323',
-            borderWidth: 1,
+            backgroundColor: discountCode !== '' ? 'white' : '#232323',
+            borderWidth: discountCode !== '' ? 0 : 1,
             borderColor: colors.grey,
             borderRadius: 8,
             padding: 10,
@@ -159,7 +159,14 @@ const OrderSummarySection = () => {
             alignItems: 'center',
           }}
         >
-          <Text18Normal500 style={{ color: colors.lightGrey }}>
+          <Text18Normal500
+            style={{
+              color:
+                discountCode !== ''
+                  ? colors.bottomSheetShopBG
+                  : colors.lightGrey,
+            }}
+          >
             Apply
           </Text18Normal500>
         </TouchableOpacity>
