@@ -7,6 +7,7 @@ import {
   ViewStyle,
 } from 'react-native';
 import { observer } from 'mobx-react';
+import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
 import {
   Text16Normal400,
@@ -19,7 +20,6 @@ import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
 import colors from '../../constants/colors';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import HeaderFade from '../common/HeaderFade';
 import { addOpacityToColor } from '../../utils/color';
 
