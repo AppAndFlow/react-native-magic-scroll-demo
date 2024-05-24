@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { Image, View } from 'react-native';
+import {
+  Alert,
+  Dimensions,
+  Image,
+  Keyboard,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 import {
@@ -10,10 +17,23 @@ import {
   Text22Normal600,
 } from '../common/typography';
 import colors from '../../constants/colors';
+import ShopTextInput from './ShopTextInput';
 
 const OrderSummarySection = () => {
+  const screenWidth = Dimensions.get('screen').width;
+
+  const [discountCode, setDiscountCode] = React.useState('');
+
+  const onPressApply = () => {
+    if (discountCode !== '') {
+      Alert.alert('Discount code successfully applied!');
+    } else {
+      Alert.alert('No code entered.');
+    }
+  };
+
   return (
-    <View style={{ flex: 1, marginBottom: 26 }}>
+    <View style={{ paddingBottom: 26 }}>
       <Text22Normal600
         style={{
           fontSize: 24,
@@ -110,35 +130,39 @@ const OrderSummarySection = () => {
         style={{
           flexDirection: 'row',
           justifyContent: 'space-between',
+          alignItems: 'center',
           marginBottom: 26,
         }}
       >
-        <View
-          style={{
-            borderWidth: 1,
-            borderColor: colors.grey,
-            borderRadius: 8,
-            padding: 12,
-            width: '76%',
+        <ShopTextInput
+          name="Discount"
+          returnKeyType="done"
+          onSubmit={Keyboard.dismiss}
+          style={{ width: screenWidth * 0.62 }}
+          tiProps={{
+            value: discountCode,
+            keyboardType: 'default',
+            onChangeText: (val) => setDiscountCode(val),
+            placeholder: 'Discount or gift card',
+            style: { color: 'white' },
           }}
-        >
-          <Text16Normal400 style={{ color: colors.lightGrey }}>
-            Discount code or gift card
-          </Text16Normal400>
-        </View>
-        <View
+        />
+        <TouchableOpacity
+          onPress={onPressApply}
           style={{
             backgroundColor: '#232323',
             borderWidth: 1,
             borderColor: colors.grey,
             borderRadius: 8,
-            padding: 12,
+            padding: 10,
+            height: 46,
+            alignItems: 'center',
           }}
         >
           <Text18Normal500 style={{ color: colors.lightGrey }}>
             Apply
           </Text18Normal500>
-        </View>
+        </TouchableOpacity>
       </View>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <Text16Normal400 style={{ marginBottom: 8 }}>Subtotal</Text16Normal400>

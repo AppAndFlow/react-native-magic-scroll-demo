@@ -1,12 +1,8 @@
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import * as React from 'react';
-import { Alert, Keyboard, TouchableOpacity, View } from 'react-native';
+import { Alert, Keyboard, View } from 'react-native';
 
-import {
-  Text14Normal600,
-  Text16Normal600,
-  Text22Normal600,
-} from '../common/typography';
+import { Text14Normal600, Text22Normal600 } from '../common/typography';
 import ShopTextInput from './ShopTextInput';
 import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
@@ -129,6 +125,7 @@ const ShopPaymentView = () => {
             onChangeText: (val) => setNickname(val),
           }}
         />
+
         <View style={{ marginVertical: 16 }}>
           <Text14Normal600 style={{ color: colors.lightGrey, marginBottom: 6 }}>
             Bill to
@@ -159,4 +156,8 @@ const ShopPaymentView = () => {
   );
 };
 
-export default ShopPaymentView;
+export default () => (
+  <MagicScroll.SmartScrollView>
+    <ShopPaymentView />
+  </MagicScroll.SmartScrollView>
+);

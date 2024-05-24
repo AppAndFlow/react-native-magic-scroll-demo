@@ -2,7 +2,6 @@ import * as React from 'react';
 import {
   Alert,
   Dimensions,
-  ScrollView,
   TouchableOpacity,
   View,
   ViewStyle,
@@ -20,6 +19,9 @@ import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
 import OrderSummarySection from './OrderSummarySection';
 import colors from '../../constants/colors';
+import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import HeaderFade from '../common/HeaderFade';
+import { addOpacityToColor } from '../../utils/color';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (
@@ -42,7 +44,12 @@ const ShopCheckOutScreen = observer(() => {
   const uiStore = useUiStore();
 
   return (
-    <View style={{ flex: 1, backgroundColor: colors.black }}>
+    <View
+      style={{
+        flex: 1,
+        backgroundColor: colors.black,
+      }}
+    >
       <View
         style={{
           height: screenHeight * 0.12,
@@ -50,19 +57,31 @@ const ShopCheckOutScreen = observer(() => {
 
           alignItems: 'center',
           justifyContent: 'flex-end',
-          paddingBottom: 18,
+
           position: 'absolute',
           zIndex: 99,
         }}
       >
-        <Text22Normal600>Review & Pay</Text22Normal600>
+        <Text22Normal600 style={{ paddingBottom: 4 }}>
+          Review & Pay
+        </Text22Normal600>
+        <HeaderFade
+          style={{
+            position: 'absolute',
+            top: screenHeight * 0.13,
+          }}
+          colors={[colors.black, addOpacityToColor(colors.black, 0)]}
+        />
       </View>
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        style={{
-          marginTop: screenHeight * 0.13,
-          paddingHorizontal: 20,
-          paddingTop: 16,
+
+      <MagicScroll.ScrollView
+        scollViewProps={{
+          showsVerticalScrollIndicator: false,
+          style: {
+            marginTop: screenHeight * 0.13,
+            paddingHorizontal: 20,
+            paddingTop: 12,
+          },
         }}
       >
         <Text16Normal400>marjorie@appandflow.com</Text16Normal400>
@@ -114,7 +133,7 @@ const ShopCheckOutScreen = observer(() => {
           }}
         />
         <OrderSummarySection />
-      </ScrollView>
+      </MagicScroll.ScrollView>
       <View
         style={{
           height: screenHeight * 0.14,
@@ -161,4 +180,8 @@ const ShopCheckOutScreen = observer(() => {
   );
 });
 
-export default ShopCheckOutScreen;
+export default () => (
+  <MagicScroll.SmartScrollView>
+    <ShopCheckOutScreen />
+  </MagicScroll.SmartScrollView>
+);

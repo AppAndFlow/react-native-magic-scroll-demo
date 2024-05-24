@@ -32,20 +32,16 @@ type LeftExpoVectorIconFamiliesNameKeys =
 const ShopTextInput = ({
   name,
   onSubmit,
-
   returnKeyType,
   style,
   tiProps,
-
   rightExpoVectorIcon,
 }: {
   name: string;
   onSubmit?: () => void;
-
   returnKeyType: ReturnKeyTypeOptions;
   style?: ViewStyle;
   tiProps?: TextInputProps;
-
   rightExpoVectorIcon?: {
     family: LeftExpoVectorIconFamiliesKeys;
     name: LeftExpoVectorIconFamiliesNameKeys;
@@ -88,6 +84,10 @@ const ShopTextInput = ({
       <MagicScroll.TextInput
         name={name}
         containerStyle={{
+          height: 46,
+          width: rightExpoVectorIcon ? '86%' : '100%',
+          padding: 8,
+          justifyContent: 'center',
           ...style,
         }}
         textInputProps={{
