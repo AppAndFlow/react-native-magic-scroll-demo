@@ -1,10 +1,9 @@
 import React from 'react';
-import { observer } from 'mobx-react-lite';
 import { View } from 'react-native';
 
 import { Text40Playfair700 } from '../common/typography';
 
-const WelcomeScreen = observer(() => {
+const WelcomeScreen = () => {
   return (
     <View
       style={{
@@ -25,6 +24,6 @@ const WelcomeScreen = observer(() => {
       </Text40Playfair700>
     </View>
   );
-});
+};
 
 export default WelcomeScreen;

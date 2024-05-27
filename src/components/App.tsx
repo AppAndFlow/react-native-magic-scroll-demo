@@ -1,5 +1,4 @@
 import React from 'react';
-import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
@@ -7,7 +6,6 @@ import { Box } from 'react-native-design-utility';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { configure } from 'mobx';
 
-import images from '../constants/images';
 import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
@@ -29,10 +27,7 @@ const App = () => {
   }, []);
 
   const loadResources = async () => {
-    const { icons, ...rest } = images;
     await Promise.all([
-      Asset.loadAsync(Object.values(icons)),
-      Asset.loadAsync(Object.values(rest as any) as any),
       Font.loadAsync({
         ...fontsMap,
       }),

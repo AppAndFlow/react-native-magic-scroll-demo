@@ -22,7 +22,7 @@ const ShopButton = ({
       style={{
         height: 48,
         backgroundColor: bgColor,
-        width: '100%',
+
         borderRadius: 12,
         alignItems: 'center',
         padding: 14,

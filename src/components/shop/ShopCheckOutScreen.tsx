@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Dimensions, View } from 'react-native';
-import { observer } from 'mobx-react';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
 
 import OrderSummarySection from './OrderSummarySection';
@@ -9,7 +8,7 @@ import ShopBottomButton from './ShopBottomButton';
 import ShopHeader from './ShopHeader';
 import ShopTopSection from './ShopTopSection';
 
-const ShopCheckOutScreen = observer(() => {
+const ShopCheckOutScreen = () => {
   const screenHeight = Dimensions.get('screen').height;
 
   return (
@@ -36,7 +35,7 @@ const ShopCheckOutScreen = observer(() => {
       <ShopBottomButton />
     </View>
   );
-});
+};
 
 export default () => (
   <MagicScroll.SmartScrollView>

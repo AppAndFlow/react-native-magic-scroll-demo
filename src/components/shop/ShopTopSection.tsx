@@ -16,7 +16,6 @@ const Separator = ({ style }: { style?: ViewStyle }) => {
   return (
     <View
       style={{
-        width: '100%',
         height: 1,
         backgroundColor: colors.darkGrey,
         marginVertical: 12,
@@ -26,7 +25,7 @@ const Separator = ({ style }: { style?: ViewStyle }) => {
   );
 };
 
-const ShopTopSection = observer(() => {
+const ShopTopSection = () => {
   const uiStore = useUiStore();
 
   const screenHeight = Dimensions.get('screen').height;
@@ -81,6 +80,6 @@ const ShopTopSection = observer(() => {
       />
     </View>
   );
-});
+};
 
 export default ShopTopSection;

@@ -6,12 +6,11 @@ import { Text16Normal600 } from '../common/typography';
 
 const ShopBottomButton = () => {
   const screenHeight = Dimensions.get('screen').height;
-  const screenWidth = Dimensions.get('screen').width;
+
   return (
     <View
       style={{
         height: screenHeight * 0.14,
-        width: screenWidth,
         backgroundColor: colors.black,
         borderTopWidth: 1,
         borderTopColor: colors.darkGrey,
@@ -22,13 +21,12 @@ const ShopBottomButton = () => {
         onPress={() => Alert.alert('Payment successful!')}
         style={{
           height: 48,
-          width: '100%',
           backgroundColor: colors.shopPurple,
           borderRadius: 12,
           flexDirection: 'row',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: 14,
+          paddingHorizontal: 14,
         }}
       >
         <Text16Normal600 style={{ color: colors.white }}>
