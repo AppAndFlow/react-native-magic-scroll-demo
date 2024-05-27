@@ -13,11 +13,11 @@ import {
   Text14Normal600,
   Text16Normal400,
   Text18Normal500,
-  Text20Normal600,
   Text22Normal600,
 } from '../common/typography';
 import colors from '../../constants/colors';
 import ShopTextInput from './ShopTextInput';
+import SummmaryRow from './SummaryRow';
 
 const OrderSummarySection = () => {
   const screenWidth = Dimensions.get('screen').width;
@@ -171,39 +171,11 @@ const OrderSummarySection = () => {
           </Text18Normal500>
         </TouchableOpacity>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text16Normal400 style={{ marginBottom: 8 }}>Subtotal</Text16Normal400>
-        <Text16Normal400 style={{ color: 'white' }}>$ 4.99</Text16Normal400>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginBottom: 8,
-        }}
-      >
-        <Text16Normal400>Shipping</Text16Normal400>
-        <Text16Normal400>$ 5.00</Text16Normal400>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          marginBottom: 12,
-        }}
-      >
-        <Text16Normal400>Estimated taxes</Text16Normal400>
-        <Text16Normal400>$ 0.76</Text16Normal400>
-      </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-        <Text20Normal600>Total</Text20Normal600>
-        <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
-          <Text14Normal600 style={{ color: colors.grey, marginRight: 6 }}>
-            CAD
-          </Text14Normal600>
-          <Text20Normal600>$ 10.75</Text20Normal600>
-        </View>
-      </View>
+
+      <SummmaryRow text="Subtotal" amount="4.99" />
+      <SummmaryRow text="Shipping" amount="5.00" />
+      <SummmaryRow text="Estimated taxes" amount="0.76" />
+      <SummmaryRow text="Total" amount="10.75" totalLine />
     </View>
   );
 };

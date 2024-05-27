@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Dimensions, TouchableOpacity, View, ViewStyle } from 'react-native';
-import { observer } from 'mobx-react';
 
 import {
   Text16Normal400,
