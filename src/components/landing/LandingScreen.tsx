@@ -6,30 +6,36 @@ import { Text40Asap700 } from '../common/typography';
 import TextBackground from './TextBackground';
 import AppButton from './AppButton';
 import colors from '../../constants/colors';
+import AppHeader from './AppHeader';
 
 const LandingScreen = () => {
   const navigation = useNavigation<NavigationProp<any, any>>();
 
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor: colors.twitchPurple,
-        paddingTop: 140,
-      }}
-    >
-      <TextBackground />
-      <Text40Asap700
-        numberOfLines={2}
+    <View style={{ flex: 1, backgroundColor: colors.twitchPurple }}>
+      <AppHeader
+        title="Landing Screen"
+        bgColor={colors.twitchPurple}
+        hamburgerButton
+      />
+      <View
         style={{
-          marginLeft: 64,
-          marginRight: 20,
-          fontSize: 34,
-          textAlign: 'left',
+          paddingTop: 100,
         }}
       >
-        There is something for everyone here
-      </Text40Asap700>
+        <TextBackground />
+        <Text40Asap700
+          numberOfLines={2}
+          style={{
+            marginLeft: 64,
+            marginRight: 20,
+            fontSize: 34,
+            textAlign: 'left',
+          }}
+        >
+          There is something for everyone here
+        </Text40Asap700>
+      </View>
       <View
         style={{
           flexDirection: 'row',

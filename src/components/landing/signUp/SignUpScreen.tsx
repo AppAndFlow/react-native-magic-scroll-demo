@@ -17,7 +17,7 @@ const SignUpScreen = observer(() => {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <AppHeader title="Sign Up" />
+      <AppHeader title="Sign Up" backButton bgColor="black" borderBottom />
       <SignUpForm setIsButtonEnabled={setIsButtonEnabled} />
       <View
         style={{

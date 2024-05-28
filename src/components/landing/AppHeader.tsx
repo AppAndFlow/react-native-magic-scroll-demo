@@ -1,33 +1,68 @@
 import * as React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-import { NavigationProp, useNavigation } from '@react-navigation/native';
+import {
+  DrawerActions,
+  NavigationProp,
+  useNavigation,
+} from '@react-navigation/native';
+import { SimpleLineIcons } from '@expo/vector-icons';
 
 import { Text18Asap400 } from '../common/typography';
+import colors from '../../constants/colors';
 
-const AppHeader = ({ title }: { title: string }) => {
+const AppHeader = ({
+  title,
+  backButton,
+  hamburgerButton,
+  bgColor,
+  borderBottom,
+}: {
+  title: string;
+  backButton?: boolean;
+  hamburgerButton?: boolean;
+  bgColor: string;
+  borderBottom?: boolean;
+}) => {
   const navigation = useNavigation<NavigationProp<any, any>>();
+
+  const leftButton = () => {
+    if (backButton) {
+      return (
+        <TouchableOpacity onPress={navigation.goBack} style={{}}>
+          <Entypo name="chevron-left" size={24} color="white" />
+        </TouchableOpacity>
+      );
+    } else if (hamburgerButton) {
+      return (
+        <TouchableOpacity
+          onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+        >
+          <SimpleLineIcons name="menu" size={20} color="white" />
+        </TouchableOpacity>
+      );
+    }
+  };
+
   return (
     <View
       style={{
         flexDirection: 'row',
-        paddingHorizontal: 10,
-        paddingTop: 64,
+        paddingHorizontal: 20,
+        paddingTop: 60,
+        paddingBottom: 10,
         alignItems: 'center',
-        justifyContent: 'center',
+        backgroundColor: bgColor,
+        borderBottomWidth: borderBottom ? 1 : 0,
+        borderBottomColor: colors.darkGrey,
       }}
     >
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={{ position: 'absolute', top: 65, left: 0 }}
-      >
-        <Entypo name="chevron-left" size={24} color="white" />
-      </TouchableOpacity>
+      {leftButton()}
       <Text18Asap400
         style={{
           textAlign: 'center',
           color: 'white',
-
+          marginLeft: 8,
           fontSize: 20,
         }}
       >

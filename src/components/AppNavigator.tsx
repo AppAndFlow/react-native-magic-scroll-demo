@@ -3,7 +3,6 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import LandingScreen from './landing/LandingScreen';
-import WelcomeScreen from './welcome/WelcomeScreen';
 import LoginScreen from './landing/LoginScreen';
 import SignUpScreen from './landing/signUp/SignUpScreen';
 import ShopCheckOutScreen from './shop/ShopCheckOutScreen';
@@ -13,14 +12,22 @@ const Drawer = createDrawerNavigator();
 const AppNavigator = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="Welcome"
+      initialRouteName="Landing Screen"
       screenOptions={{
         headerShown: false,
+        drawerContentContainerStyle: {
+          backgroundColor: 'black',
+          height: '100%',
+        },
+        drawerLabelStyle: {
+          color: 'white',
+        },
       }}
     >
-      <Drawer.Screen name="Welcome" component={WelcomeScreen} />
-      <Drawer.Screen name="Twitch" component={TwitchExample} />
-      <Drawer.Screen name="Shop" component={ShopExample} />
+      <Drawer.Screen name="Landing Screen" component={TwitchExample} />
+      <Drawer.Screen name="Log In" component={LoginScreen} />
+      <Drawer.Screen name="Sign Up" component={SignUpScreen} />
+      <Drawer.Screen name="Check Out" component={ShopExample} />
     </Drawer.Navigator>
   );
 };

@@ -27,7 +27,7 @@ const LoginScreen = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
-      <AppHeader title="Log In" />
+      <AppHeader title="Log In" bgColor="black" backButton borderBottom />
 
       <MagicScroll.ScrollView
         scollViewProps={{
