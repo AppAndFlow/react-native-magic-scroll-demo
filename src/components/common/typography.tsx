@@ -84,7 +84,6 @@ export const Text40Playfair700 = ({ children, style, ...rest }: P) => (
       {
         fontSize: 40,
         fontFamily: fonts.playfairDisplayBold,
-        fontWeight: '700',
       },
       style,
     ]}
@@ -93,37 +92,6 @@ export const Text40Playfair700 = ({ children, style, ...rest }: P) => (
   </BasicText>
 );
 
-export const Text60PlayFair900 = ({ children, style, ...rest }: P) => (
-  <BasicText
-    {...rest}
-    style={[
-      {
-        fontSize: 60,
-        fontFamily: fonts.playfairDisplayExtraBold,
-        fontWeight: '900',
-      },
-      style,
-    ]}
-  >
-    {children}
-  </BasicText>
-);
-
-export const Text16PlayFair400 = ({ children, style, ...rest }: P) => (
-  <BasicText
-    {...rest}
-    style={[
-      {
-        fontSize: 16,
-        fontFamily: fonts.playfairDisplayRegular,
-        fontWeight: '400',
-      },
-      style,
-    ]}
-  >
-    {children}
-  </BasicText>
-);
 export const Text40Asap700 = ({ children, style, ...rest }: P) => (
   <BasicText
     {...rest}
@@ -131,7 +99,6 @@ export const Text40Asap700 = ({ children, style, ...rest }: P) => (
       {
         fontSize: 40,
         fontFamily: fonts.asapCondensedExtraBold,
-        fontWeight: '700',
       },
       style,
     ]}
@@ -147,7 +114,6 @@ export const Text18Asap400 = ({ children, style, ...rest }: P) => (
       {
         fontSize: 18,
         fontFamily: fonts.asapSemiBold,
-        fontWeight: '400',
       },
       style,
     ]}
@@ -162,7 +128,6 @@ export const Text16Asap400 = ({ children, style, ...rest }: P) => (
       {
         fontSize: 16,
         fontFamily: fonts.asapRegular,
-        fontWeight: '400',
       },
       style,
     ]}
