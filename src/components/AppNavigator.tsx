@@ -14,7 +14,9 @@ const AppNavigator = () => {
   return (
     <Drawer.Navigator
       initialRouteName="Welcome"
-      screenOptions={{ headerShown: false }}
+      screenOptions={{
+        headerShown: false,
+      }}
     >
       <Drawer.Screen name="Welcome" component={WelcomeScreen} />
       <Drawer.Screen name="Twitch" component={TwitchExample} />

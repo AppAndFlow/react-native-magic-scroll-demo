@@ -100,8 +100,11 @@ const BottomSheet = observer(() => {
       <BottomSheetGorhom
         ref={bottomSheetRef}
         snapPoints={uiStore.bottomSheetSnapPoints.slice()}
-        enablePanDownToClose={true}
-        enableHandlePanningGesture={Platform.OS === 'android' && 'ios'}
+        enablePanDownToClose={false}
+        // enableHandlePanningGesture={Platform.OS === 'android' && 'ios'}
+        enableContentPanningGesture={false}
+        enableHandlePanningGesture={false}
+        // android_keyboardInputMode="adjustPan"
         index={0}
         bottomInset={bottomInset}
         handleStyle={{

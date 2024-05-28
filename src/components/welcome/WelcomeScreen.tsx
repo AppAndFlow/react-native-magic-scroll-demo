@@ -2,8 +2,12 @@ import React from 'react';
 import { View } from 'react-native';
 
 import { Text40Playfair700 } from '../common/typography';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { DrawerActions, useNavigation } from '@react-navigation/native';
 
 const WelcomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -22,6 +26,11 @@ const WelcomeScreen = () => {
       >
         Welcome
       </Text40Playfair700>
+      <TouchableOpacity
+        onPress={() => navigation.dispatch(DrawerActions.openDrawer())}
+      >
+        <Text40Playfair700>Drawer</Text40Playfair700>
+      </TouchableOpacity>
     </View>
   );
 };

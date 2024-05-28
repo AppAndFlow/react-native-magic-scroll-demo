@@ -3,8 +3,18 @@ import Animated from 'react-native-reanimated';
 import { format } from 'date-fns';
 import { observer } from 'mobx-react';
 import { MagicScroll } from '@appandflow/rn-magic-scroll';
-import { Dimensions, Keyboard, TouchableOpacity, View } from 'react-native';
+import {
+  Dimensions,
+  Keyboard,
+  Platform,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import { Feather } from '@expo/vector-icons';
+import {
+  DateTimePickerAndroid,
+  DateTimePickerEvent,
+} from '@react-native-community/datetimepicker';
 
 import metrics from '../../../constants/metrics';
 import { useUiStore } from '../../../stores/ui';
@@ -32,6 +42,8 @@ const SignUpForm = observer(
     const [birthdate, setBirthdate] = React.useState(new Date() || undefined);
 
     const [isFocused, setIsFocused] = React.useState(false);
+
+    const isAndroid = Platform.OS === 'android';
 
     const buttonEnabled = () => {
       if (
@@ -123,6 +135,7 @@ const SignUpForm = observer(
                 animated: true,
               });
               setIsFocused(true);
+
               uiStore.openBottomSheet({
                 bottomSheetStyle: { backgroundColor: colors.twitchGrey },
                 snapPoints: [1, 280 + metrics.safeBottomDistance],
@@ -162,29 +175,46 @@ const SignUpForm = observer(
             }}
             onPress={() => {
               setIsFocused(true);
-              scrollRef.current?.scrollTo({
-                x: 0,
-                y: 120,
-                animated: true,
-              });
-              uiStore.openBottomSheet({
-                snapPoints: [1, 280 + metrics.safeBottomDistance],
-                renderContent: () => (
-                  <DateTimePickerBottomSheet
-                    birthdate={birthdate}
-                    setBirthdate={(e) => setBirthdate(e)}
-                    onPressDone={() => {
-                      uiStore.closeBottomSheet();
-                      scrollRef.current?.scrollTo({
-                        x: 0,
-                        y: 0,
-                        animated: true,
-                      });
+
+              if (isAndroid) {
+                DateTimePickerAndroid.open({
+                  value: birthdate,
+                  onChange: (e: DateTimePickerEvent, date?: Date) => {
+                    if (date) {
+                      setBirthdate(new Date(date));
                       setIsFocused(false);
-                    }}
-                  />
-                ),
-              });
+                    }
+                  },
+                  display: 'spinner',
+                  mode: 'date',
+                  minimumDate: new Date(1900, 0, 1),
+                  maximumDate: new Date(2012, 0, 1),
+                });
+              } else {
+                scrollRef.current?.scrollTo({
+                  x: 0,
+                  y: 120,
+                  animated: true,
+                });
+                uiStore.openBottomSheet({
+                  snapPoints: [1, 280 + metrics.safeBottomDistance],
+                  renderContent: () => (
+                    <DateTimePickerBottomSheet
+                      birthdate={birthdate}
+                      setBirthdate={(e) => setBirthdate(e)}
+                      onPressDone={() => {
+                        uiStore.closeBottomSheet();
+                        scrollRef.current?.scrollTo({
+                          x: 0,
+                          y: 0,
+                          animated: true,
+                        });
+                        setIsFocused(false);
+                      }}
+                    />
+                  ),
+                });
+              }
             }}
           >
             {birthdate < new Date(2012, 0, 1) ? (
