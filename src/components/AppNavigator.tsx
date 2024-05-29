@@ -12,7 +12,7 @@ const Drawer = createDrawerNavigator();
 const AppNavigator = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="Landing Screen"
+      initialRouteName="LandingScreen"
       screenOptions={{
         headerShown: false,
         drawerContentContainerStyle: {
@@ -24,10 +24,8 @@ const AppNavigator = () => {
         },
       }}
     >
-      <Drawer.Screen name="Landing Screen" component={TwitchExample} />
-      <Drawer.Screen name="Log In" component={LoginScreen} />
-      <Drawer.Screen name="Sign Up" component={SignUpScreen} />
-      <Drawer.Screen name="Check Out" component={ShopExample} />
+      <Drawer.Screen name="Authentication" component={TwitchExample} />
+      <Drawer.Screen name="CheckOut" component={ShopExample} />
     </Drawer.Navigator>
   );
 };

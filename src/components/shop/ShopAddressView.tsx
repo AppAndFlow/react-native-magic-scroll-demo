@@ -86,7 +86,7 @@ const ShopAddressView = () => {
           onSubmit={() => chainInput('LastName')}
           tiProps={{
             placeholder: 'First name',
-            autoComplete: 'name',
+            autoComplete: 'given-name',
             value: firstName,
             onChangeText: (val) => setFirstName(val),
           }}

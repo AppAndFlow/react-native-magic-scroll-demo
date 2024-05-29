@@ -31,8 +31,10 @@ const LoginScreen = () => {
 
       <MagicScroll.ScrollView
         scollViewProps={{
-          contentContainerStyle: { paddingHorizontal: 20 },
-          style: { paddingTop: screenHeight * 0.33 },
+          contentContainerStyle: {
+            paddingHorizontal: 20,
+            paddingTop: screenHeight * 0.33,
+          },
         }}
       >
         <IndependantTI

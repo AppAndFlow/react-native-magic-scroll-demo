@@ -7,7 +7,7 @@ import Reanimated, {
   useSharedValue,
   interpolate,
 } from 'react-native-reanimated';
-import { Dimensions, Platform, View } from 'react-native';
+import { Dimensions, View } from 'react-native';
 import { toJS } from 'mobx';
 
 import { useUiStore } from '../../stores/ui';

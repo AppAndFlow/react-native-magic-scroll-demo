@@ -13,11 +13,7 @@ const LandingScreen = () => {
 
   return (
     <View style={{ flex: 1, backgroundColor: colors.twitchPurple }}>
-      <AppHeader
-        title="Landing Screen"
-        bgColor={colors.twitchPurple}
-        hamburgerButton
-      />
+      <AppHeader title=" " bgColor={colors.twitchPurple} hamburgerButton />
       <View
         style={{
           paddingTop: 100,

@@ -3,7 +3,6 @@ import { View } from 'react-native';
 
 import { Text40Asap700 } from '../common/typography';
 import colors from '../../constants/colors';
-import AppHeader from './AppHeader';
 
 const firstRowTexts = [
   {
