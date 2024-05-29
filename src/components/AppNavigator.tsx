@@ -25,7 +25,7 @@ const AppNavigator = () => {
       }}
     >
       <Drawer.Screen name="Authentication" component={TwitchExample} />
-      <Drawer.Screen name="CheckOut" component={ShopExample} />
+      <Drawer.Screen name="Checkout" component={ShopExample} />
     </Drawer.Navigator>
   );
 };
