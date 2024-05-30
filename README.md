@@ -1,4 +1,5 @@
-# template-expo-managed-flow
+![image](https://github.com/AppAndFlow/react-native-magic-scroll-demo/assets/129197567/b1d03e8a-e002-4375-a417-b5c81962ad66)
+
 
 ## Template for starting apps.
 
