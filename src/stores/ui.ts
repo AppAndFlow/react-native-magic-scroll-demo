@@ -1,4 +1,4 @@
-import { action, makeAutoObservable, observable } from 'mobx';
+import { action, makeAutoObservable } from 'mobx';
 import { Keyboard, ViewStyle } from 'react-native';
 import { AnimatedStyle, SharedValue } from 'react-native-reanimated';
 import metrics from '../constants/metrics';
@@ -33,38 +33,32 @@ export interface UiStore {
 class UiClass {
   // ---------------- BottomSheet ----------------
   bottomSheetContentRenderer: UiStore['bottomSheetContentRenderer'];
-  @observable bottomSheetDebouncedDelay = false;
-  @observable bottomSheetBottomInset = 0;
-  @observable isBottomSheetOpen: UiStore['isBottomSheetOpen'] = false;
+  bottomSheetDebouncedDelay = false;
+  bottomSheetBottomInset = 0;
+  isBottomSheetOpen: UiStore['isBottomSheetOpen'] = false;
 
-  @observable bottomSheetSharedValue: UiStore['bottomSheetSharedValue'] =
-    undefined;
+  bottomSheetSharedValue: UiStore['bottomSheetSharedValue'] = undefined;
 
-  @observable bottomSheetSnapPoints: UiStore['bottomSheetSnapPoints'] =
+  bottomSheetSnapPoints: UiStore['bottomSheetSnapPoints'] =
     DEFAULT_BOTTOM_SHEET_SNAP_POINTS;
-  @observable containerStyle: UiStore['containerStyle'] = {};
-  @observable bottomSheetGorhomProps: UiStore['bottomSheetGorhomProps'] = {};
-  @observable bottomSheetStyle: OpenBottomSheetOps['bottomSheetStyle'] =
-    undefined;
+  containerStyle: UiStore['containerStyle'] = {};
+  bottomSheetGorhomProps: UiStore['bottomSheetGorhomProps'] = {};
+  bottomSheetStyle: OpenBottomSheetOps['bottomSheetStyle'] = undefined;
 
-  @action
-  setBottomSheetSharedValue: UiStore['setBottomSheetSharedValue'] = (
-    sharedValue,
-  ) => {
-    this.bottomSheetSharedValue = sharedValue;
-  };
+  setBottomSheetSharedValue: UiStore['setBottomSheetSharedValue'] = action(
+    (sharedValue) => {
+      this.bottomSheetSharedValue = sharedValue;
+    },
+  );
 
-  @observable
   bottomSheetTargetSharedValue: UiStore['bottomSheetTargetSharedValue'] = 0;
 
-  @action
   setBottomSheetTargetSharedValue: UiStore['setBottomSheetTargetSharedValue'] =
-    (targetSharedValue) => {
+    action((targetSharedValue) => {
       this.bottomSheetTargetSharedValue = targetSharedValue;
-    };
+    });
 
-  @action
-  openBottomSheet: UiStore['openBottomSheet'] = (options) => {
+  openBottomSheet: UiStore['openBottomSheet'] = action((options) => {
     if (!this.isBottomSheetOpen && !this.bottomSheetDebouncedDelay) {
       Keyboard.dismiss();
       this.bottomSheetDebouncedDelay = true;
@@ -86,10 +80,9 @@ class UiClass {
 
       this.isBottomSheetOpen = true;
     }
-  };
+  });
 
-  @action
-  closeBottomSheet: UiStore['closeBottomSheet'] = () => {
+  closeBottomSheet: UiStore['closeBottomSheet'] = action(() => {
     if (this.isBottomSheetOpen) {
       this.isBottomSheetOpen = false;
 
@@ -106,7 +99,7 @@ class UiClass {
         this.bottomSheetBottomInset = 0;
       }, BOTTOM_SHEET_POPUP_ANIMATION_TIME + 350);
     }
-  };
+  });
 
   // ---------------- ----------------
 
