@@ -1,6 +1,5 @@
 import * as React from 'react';
 import BottomSheetGorhom from '@gorhom/bottom-sheet';
-import { Box } from 'react-native-design-utility';
 import { observer } from 'mobx-react';
 import Reanimated, {
   useAnimatedStyle,
@@ -111,7 +110,7 @@ const BottomSheet = observer(() => {
           backgroundColor: colors.twitchGrey,
         }}
         handleComponent={() => (
-          <Box
+          <View
             style={{
               marginTop: 8,
               marginBottom: 16,
@@ -147,9 +146,11 @@ const BottomSheet = observer(() => {
         }}
         {...bottomSheetGorhomProps}
       >
-        <Box flex={1} opacity={1} bg={colors.twitchGrey}>
+        <View
+          style={{ flex: 1, opacity: 1, backgroundColor: colors.twitchGrey }}
+        >
           {uiStore.bottomSheetContentRenderer?.()}
-        </Box>
+        </View>
       </BottomSheetGorhom>
     </>
   );

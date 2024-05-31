@@ -2,13 +2,13 @@ import React from 'react';
 import * as Font from 'expo-font';
 import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
-import { Box } from 'react-native-design-utility';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { configure } from 'mobx';
 
 import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
+import { View } from 'react-native';
 
 configure({
   enforceActions: 'never',
@@ -45,7 +45,7 @@ const App = () => {
       </NavigationContainer>
     </StoreContext.Provider>
   ) : (
-    <Box bg="#103829" f={1} />
+    <View style={{ flex: 1 }} />
   );
 };
 
