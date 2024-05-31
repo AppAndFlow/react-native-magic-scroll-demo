@@ -22,6 +22,7 @@ const ShopPaymentView = () => {
   const onPressSave = () => {
     if (cardNumber && expirationDate && securityCode && name !== '') {
       Alert.alert('Card saved successfully!');
+      uiStore.closeBottomSheet();
     } else {
       Alert.alert('Information missing.');
     }

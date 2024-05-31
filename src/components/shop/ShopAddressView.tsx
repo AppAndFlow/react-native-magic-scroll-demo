@@ -34,6 +34,7 @@ const ShopAddressView = () => {
       country !== ''
     ) {
       Alert.alert('Address saved successfully!');
+      uiStore.closeBottomSheet();
     } else {
       Alert.alert('Information missing.');
     }
