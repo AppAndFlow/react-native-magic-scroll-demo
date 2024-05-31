@@ -4,10 +4,8 @@
 
 ## This is a demo app for App & Flow's <a href= "https://github.com/AppAndFlow/react-native-magic-scroll">**react-native-magic-scroll**</a> library.
 
-<video src="/assets/demo1.mov" height="500px"></video>
-
-<video src="/assets/demo2.mov" height="500px"></video>
-
+<video src="https://github.com/AppAndFlow/react-native-magic-scroll-demo/assets/129197567/c1e2b9f4-f66d-4aaf-a57d-9eb4b89400e9" height="500px"></video>
+<video src="https://github.com/AppAndFlow/react-native-magic-scroll-demo/assets/129197567/4d1a23f2-c55e-414f-a564-4883dfc2c3aa" height="500px"></video>
 
 Feel free to download this repository and play around with our app. 
 
