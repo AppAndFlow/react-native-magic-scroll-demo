@@ -4,11 +4,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import * as SplashScreen from 'expo-splash-screen';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { configure } from 'mobx';
+import { View } from 'react-native';
 
 import { fontsMap } from '../constants/fonts';
 import { rootStore } from '../stores';
 import AppContent from './AppContent';
-import { View } from 'react-native';
 
 configure({
   enforceActions: 'never',

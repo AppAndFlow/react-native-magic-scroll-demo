@@ -1,8 +1,8 @@
 import * as React from 'react';
+import { View } from 'react-native';
 
 import AppNavigator from './AppNavigator';
 import BottomSheet from './common/BottomSheet';
-import { View } from 'react-native';
 
 /**
  * This is where we add anything related to the content of the App
