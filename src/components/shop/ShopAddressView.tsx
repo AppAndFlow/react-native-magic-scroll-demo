@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 import { Alert, Keyboard, View } from 'react-native';
 
 import ShopTextInput from './ShopTextInput';
@@ -212,8 +212,4 @@ const ShopAddressView = () => {
   );
 };
 
-export default () => (
-  <MagicScroll.SmartScrollView>
-    <ShopAddressView />
-  </MagicScroll.SmartScrollView>
-);
+export default ShopAddressView;

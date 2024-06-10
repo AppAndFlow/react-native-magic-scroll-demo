@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View } from 'react-native';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 
 import OrderSummarySection from './OrderSummarySection';
 import colors from '../../constants/colors';
@@ -40,8 +40,4 @@ const ShopCheckOutScreen = () => {
   );
 };
 
-export default () => (
-  <MagicScroll.SmartScrollView>
-    <ShopCheckOutScreen />
-  </MagicScroll.SmartScrollView>
-);
+export default ShopCheckOutScreen;

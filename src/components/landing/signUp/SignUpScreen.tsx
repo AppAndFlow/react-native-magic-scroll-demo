@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
 import { View, Dimensions, Alert } from 'react-native';
 import { observer } from 'mobx-react';
 
@@ -47,8 +46,4 @@ const SignUpScreen = observer(() => {
   );
 });
 
-export default () => (
-  <MagicScroll.SmartScrollView>
-    <SignUpScreen />
-  </MagicScroll.SmartScrollView>
-);
+export default SignUpScreen;

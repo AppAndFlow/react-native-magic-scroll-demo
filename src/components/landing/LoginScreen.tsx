@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Alert, Dimensions, Keyboard, View } from 'react-native';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 
 import { Text16Asap400 } from '../common/typography';
 import IndependantTI from './IndependantTI';
@@ -71,6 +71,7 @@ const LoginScreen = () => {
           Trouble logging in?
         </Text16Asap400>
       </MagicScroll.ScrollView>
+
       <AppButton
         style={{
           width: screenWidth - 40,
@@ -91,8 +92,4 @@ const LoginScreen = () => {
   );
 };
 
-export default () => (
-  <MagicScroll.SmartScrollView>
-    <LoginScreen />
-  </MagicScroll.SmartScrollView>
-);
+export default LoginScreen;
