@@ -2,8 +2,8 @@ import { action, makeAutoObservable } from 'mobx';
 import { Keyboard, ViewStyle } from 'react-native';
 import { AnimatedStyle, SharedValue } from 'react-native-reanimated';
 import metrics from '../constants/metrics';
-import { useStores } from './useStores';
-import { BOTTOM_SHEET_POPUP_ANIMATION_TIME } from '../components/common/BottomSheet';
+
+export const BOTTOM_SHEET_POPUP_ANIMATION_TIME = 250;
 
 const DEFAULT_BOTTOM_SHEET_SNAP_POINTS = [1, 300 + metrics.safeBottomDistance];
 interface OpenBottomSheetOps {
@@ -39,8 +39,7 @@ class UiClass {
 
   bottomSheetSharedValue: UiStore['bottomSheetSharedValue'] = undefined;
 
-  bottomSheetSnapPoints: UiStore['bottomSheetSnapPoints'] =
-    DEFAULT_BOTTOM_SHEET_SNAP_POINTS;
+  bottomSheetSnapPoints: UiStore['bottomSheetSnapPoints'] = DEFAULT_BOTTOM_SHEET_SNAP_POINTS;
   containerStyle: UiStore['containerStyle'] = {};
   bottomSheetGorhomProps: UiStore['bottomSheetGorhomProps'] = {};
   bottomSheetStyle: OpenBottomSheetOps['bottomSheetStyle'] = undefined;
@@ -53,10 +52,11 @@ class UiClass {
 
   bottomSheetTargetSharedValue: UiStore['bottomSheetTargetSharedValue'] = 0;
 
-  setBottomSheetTargetSharedValue: UiStore['setBottomSheetTargetSharedValue'] =
-    action((targetSharedValue) => {
+  setBottomSheetTargetSharedValue: UiStore['setBottomSheetTargetSharedValue'] = action(
+    (targetSharedValue) => {
       this.bottomSheetTargetSharedValue = targetSharedValue;
-    });
+    },
+  );
 
   openBottomSheet: UiStore['openBottomSheet'] = action((options) => {
     if (!this.isBottomSheetOpen && !this.bottomSheetDebouncedDelay) {
@@ -106,10 +106,6 @@ class UiClass {
   constructor() {
     makeAutoObservable(this);
   }
-}
-
-export function useUiStore() {
-  return useStores().ui;
 }
 
 export default UiClass;

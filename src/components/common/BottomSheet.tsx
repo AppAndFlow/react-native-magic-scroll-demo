@@ -9,10 +9,8 @@ import Reanimated, {
 import { Dimensions, View } from 'react-native';
 import { toJS } from 'mobx';
 
-import { useUiStore } from '../../stores/ui';
 import colors from '../../constants/colors';
-
-export const BOTTOM_SHEET_POPUP_ANIMATION_TIME = 250;
+import { useUiStore } from '../../stores';
 
 // Centralized props used to style the top section of the BottomSheetGorhom.
 export const greenBottomSheetGorhomProps = {
