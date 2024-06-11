@@ -9,7 +9,7 @@ import {
 import colors from '../../constants/colors';
 import ShopAddressView from './ShopAddressView';
 import ShopPaymentView from './ShopPaymentView';
-import { useUiStore } from '../../stores/ui';
+import { useUiStore } from '../../stores';
 
 const Separator = ({ style }: { style?: ViewStyle }) => {
   return (

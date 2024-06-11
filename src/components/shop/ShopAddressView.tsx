@@ -4,10 +4,10 @@ import { Alert, Keyboard, View } from 'react-native';
 
 import ShopTextInput from './ShopTextInput';
 import { Text22Normal600 } from '../common/typography';
-import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';
 import ShopButton from './ShopButton';
+import { useUiStore } from '../../stores';
 
 const ShopAddressView = () => {
   const uiStore = useUiStore();

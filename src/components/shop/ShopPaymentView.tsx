@@ -4,10 +4,10 @@ import { Alert, Keyboard, View } from 'react-native';
 
 import { Text14Normal600, Text22Normal600 } from '../common/typography';
 import ShopTextInput from './ShopTextInput';
-import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';
 import ShopButton from './ShopButton';
+import { useUiStore } from '../../stores';
 
 const ShopPaymentView = () => {
   const uiStore = useUiStore();
