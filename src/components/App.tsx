@@ -7,14 +7,12 @@ import { configure } from 'mobx';
 import { View } from 'react-native';
 
 import { fontsMap } from '../constants/fonts';
-import { rootStore } from '../stores';
+import { StoreContext, rootStore } from '../stores';
 import AppContent from './AppContent';
 
 configure({
   enforceActions: 'never',
 });
-
-export const StoreContext = React.createContext<typeof rootStore>(rootStore);
 
 /**
  * This is the app entry Point.
