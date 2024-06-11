@@ -17,11 +17,11 @@ import {
 } from '@react-native-community/datetimepicker';
 
 import metrics from '../../../constants/metrics';
-import { useUiStore } from '../../../stores/ui';
 import IndependantTI from '../IndependantTI';
 import { Text16Asap400, Text18Asap400 } from '../../common/typography';
 import DateTimePickerBottomSheet from './DateTimePickerBottomSheet';
 import colors from '../../../constants/colors';
+import { useUiStore } from '../../../stores';
 
 const SignUpForm = observer(
   ({ setIsButtonEnabled }: { setIsButtonEnabled: (val: boolean) => void }) => {
