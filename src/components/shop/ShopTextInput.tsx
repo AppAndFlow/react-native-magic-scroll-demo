@@ -40,7 +40,7 @@ const ShopTextInput = ({
     color?: string;
   };
 }) => {
-  const [isFocused, setIsFocued] = React.useState(false);
+  const [isFocused, setIsFocused] = React.useState(false);
 
   const renderRightExpoVectorIcon = () => {
     if (rightExpoVectorIcon?.name && rightExpoVectorIcon?.family) {
@@ -81,11 +81,11 @@ const ShopTextInput = ({
           ...style,
         }}
         textInputProps={{
-          onFocus: () => setIsFocued(true),
+          onFocus: () => setIsFocused(true),
           keyboardAppearance: 'dark',
           autoCapitalize: 'none',
           onSubmitEditing: onSubmit,
-          onBlur: () => setIsFocued(false),
+          onBlur: () => setIsFocused(false),
           returnKeyType: returnKeyType,
           placeholderTextColor: colors.lightGrey,
           style: {
