@@ -1,4 +1,4 @@
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 import * as React from 'react';
 import { Alert, Keyboard, View } from 'react-native';
 
@@ -157,8 +157,4 @@ const ShopPaymentView = () => {
   );
 };
 
-export default () => (
-  <MagicScroll.SmartScrollView>
-    <ShopPaymentView />
-  </MagicScroll.SmartScrollView>
-);
+export default ShopPaymentView;

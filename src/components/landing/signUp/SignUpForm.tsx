@@ -2,7 +2,7 @@ import * as React from 'react';
 import Animated from 'react-native-reanimated';
 import { format } from 'date-fns';
 import { observer } from 'mobx-react';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 import {
   Dimensions,
   Keyboard,

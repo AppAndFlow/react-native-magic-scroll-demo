@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MagicScroll } from '@appandflow/rn-magic-scroll';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 import { ReturnKeyTypeOptions, TextInputProps, ViewStyle } from 'react-native';
 import Animated, { Easing, FadeInUp, FadeOutUp } from 'react-native-reanimated';
 
