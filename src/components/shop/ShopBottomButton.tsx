@@ -1,20 +1,25 @@
 import * as React from 'react';
-import { Alert, Dimensions, TouchableOpacity, View } from 'react-native';
+import { Alert, TouchableOpacity, View } from 'react-native';
 
 import colors from '../../constants/colors';
 import { Text16Normal600 } from '../common/typography';
 
 const ShopBottomButton = () => {
-  const screenHeight = Dimensions.get('screen').height;
-
   return (
     <View
       style={{
-        height: screenHeight * 0.14,
+        flex: 1,
+        width: '100%',
+
         backgroundColor: colors.black,
         borderTopWidth: 1,
         borderTopColor: colors.darkGrey,
-        padding: 20,
+        paddingHorizontal: 20,
+        paddingTop: 14,
+        paddingBottom: 34,
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
       }}
     >
       <TouchableOpacity

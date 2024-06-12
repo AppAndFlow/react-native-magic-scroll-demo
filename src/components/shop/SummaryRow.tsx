@@ -18,10 +18,16 @@ const SummmaryRow = ({
   totalLine?: boolean;
 }) => {
   return (
-    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+    <View
+      style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginBottom: 8,
+      }}
+    >
       <Text16Normal400
         style={{
-          marginBottom: 8,
           fontSize: totalLine ? 20 : 16,
           fontWeight: totalLine ? '600' : '400',
         }}

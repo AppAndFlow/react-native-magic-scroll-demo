@@ -31,9 +31,8 @@ const OrderSummarySection = () => {
       Alert.alert('No code entered.');
     }
   };
-
   return (
-    <View style={{ paddingBottom: 46 }}>
+    <View>
       <Text22Normal600
         style={{
           fontSize: 24,
@@ -131,7 +130,6 @@ const OrderSummarySection = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: 26,
         }}
       >
         <ShopTextInput
