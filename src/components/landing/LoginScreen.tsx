@@ -12,8 +12,6 @@ const LoginScreen = () => {
   const screenWidth = Dimensions.get('screen').width;
   const screenHeight = Dimensions.get('screen').height;
 
-  const { chainInput } = MagicScroll.useFormSmartScroll();
-
   const [username, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
@@ -38,7 +36,7 @@ const LoginScreen = () => {
         }}
       >
         <IndependantTI
-          onSubmit={() => chainInput('Password')}
+          chainable="Password"
           name="Username"
           label="Username"
           returnKeyType="next"

@@ -14,6 +14,7 @@ const IndependantTI = ({
   style,
   tiProps,
   bottomText,
+  chainable
 }: {
   name: string;
   onSubmit?: () => void;
@@ -22,12 +23,14 @@ const IndependantTI = ({
   style?: ViewStyle;
   tiProps?: TextInputProps;
   bottomText?: string;
+  chainable?: string
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
 
   return (
     <MagicScroll.TextInput
       name={name}
+      chainable={chainable}
       containerStyle={{
         marginBottom: 10,
         ...style,

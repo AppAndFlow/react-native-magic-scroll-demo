@@ -4,14 +4,13 @@ import { Alert, Keyboard, View } from 'react-native';
 
 import { Text14Normal600, Text22Normal600 } from '../common/typography';
 import ShopTextInput from './ShopTextInput';
-import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';
 import ShopButton from './ShopButton';
+import { useUiStore } from '../../stores';
 
 const ShopPaymentView = () => {
   const uiStore = useUiStore();
-  const { chainInput } = MagicScroll.useFormSmartScroll();
 
   const [cardNumber, setCardNumber] = React.useState('');
   const [expirationDate, setExpirationDate] = React.useState('');
@@ -59,8 +58,8 @@ const ShopPaymentView = () => {
       >
         <ShopTextInput
           name="CardNumber"
+          chainable="ExpirationDate"
           returnKeyType="done"
-          onSubmit={() => chainInput('ExpirationDate')}
           rightExpoVectorIcon={{
             family: 'Feather',
             name: 'lock',
@@ -76,7 +75,7 @@ const ShopPaymentView = () => {
         <ShopTextInput
           name="ExpirationDate"
           returnKeyType="done"
-          onSubmit={() => chainInput('SecurityCode')}
+          chainable="SecurityCode"
           tiProps={{
             keyboardType: 'decimal-pad',
             placeholder: 'Expiration date (MM/YY)',
@@ -93,7 +92,7 @@ const ShopPaymentView = () => {
             name: 'question',
             size: 18,
           }}
-          onSubmit={() => chainInput('NameOnCard')}
+          chainable="NameOnCard"
           tiProps={{
             keyboardType: 'decimal-pad',
             placeholder: 'Security code',
@@ -105,7 +104,7 @@ const ShopPaymentView = () => {
         <ShopTextInput
           name="NameOnCard"
           returnKeyType="next"
-          onSubmit={() => chainInput('Nickname')}
+          chainable="Nickname"
           tiProps={{
             keyboardType: 'default',
             placeholder: 'Name on card',

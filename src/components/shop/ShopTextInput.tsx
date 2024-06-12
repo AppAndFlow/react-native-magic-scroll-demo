@@ -26,6 +26,7 @@ const ShopTextInput = ({
   style,
   tiProps,
   rightExpoVectorIcon,
+  chainable
 }: {
   name: string;
   onSubmit?: () => void;
@@ -39,6 +40,7 @@ const ShopTextInput = ({
     style?: ViewStyle;
     color?: string;
   };
+  chainable?: string
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
 
@@ -73,6 +75,7 @@ const ShopTextInput = ({
     >
       <MagicScroll.TextInput
         name={name}
+        chainable={chainable}
         containerStyle={{
           height: 46,
           width: rightExpoVectorIcon ? '86%' : '100%',

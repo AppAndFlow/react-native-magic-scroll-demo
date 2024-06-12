@@ -12,7 +12,7 @@
     "lint": "npx eslint --ignore-path .gitignore './src/**/*.ts[x]' './*.js' --fix"
   },
   "dependencies": {
-    "@appandflow/react-native-magic-scroll": "^0.1.15",
+    "@appandflow/react-native-magic-scroll": "^0.1.16",
     "@gorhom/bottom-sheet": "^4.6.1",
     "@react-native-community/datetimepicker": "8.0.1",
     "@react-navigation/drawer": "^6.6.15",

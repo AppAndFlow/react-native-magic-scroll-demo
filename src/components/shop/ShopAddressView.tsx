@@ -4,14 +4,13 @@ import { Alert, Keyboard, View } from 'react-native';
 
 import ShopTextInput from './ShopTextInput';
 import { Text22Normal600 } from '../common/typography';
-import { useUiStore } from '../../stores/ui';
 import HeaderFade from '../common/HeaderFade';
 import colors from '../../constants/colors';
 import ShopButton from './ShopButton';
+import { useUiStore } from '../../stores';
 
 const ShopAddressView = () => {
   const uiStore = useUiStore();
-  const { chainInput } = MagicScroll.useFormSmartScroll();
 
   const [firstName, setFirstName] = React.useState('');
   const [lastName, setLastName] = React.useState('');
@@ -84,7 +83,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="FirstName"
           returnKeyType="next"
-          onSubmit={() => chainInput('LastName')}
+          chainable="LastName"
           tiProps={{
             placeholder: 'First name',
             autoComplete: 'given-name',
@@ -95,7 +94,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="LastName"
           returnKeyType="next"
-          onSubmit={() => chainInput('Address')}
+          chainable="Address"
           tiProps={{
             placeholder: 'Last name',
             autoComplete: 'family-name',
@@ -111,7 +110,7 @@ const ShopAddressView = () => {
             name: 'search-sharp',
             size: 20,
           }}
-          onSubmit={() => chainInput('Appt')}
+          chainable="Appt"
           tiProps={{
             placeholder: 'Address',
             autoComplete: 'address-line1',
@@ -122,7 +121,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="Appt"
           returnKeyType="next"
-          onSubmit={() => chainInput('City')}
+          chainable="City"
           tiProps={{
             placeholder: 'Appartment, suite, etc. (optional)',
             autoComplete: 'address-line2',
@@ -133,7 +132,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="City"
           returnKeyType="next"
-          onSubmit={() => chainInput('Province')}
+          chainable="Province"
           tiProps={{
             placeholder: 'City',
             autoComplete: 'postal-address-locality',
@@ -144,7 +143,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="Province"
           returnKeyType="next"
-          onSubmit={() => chainInput('PostalCode')}
+          chainable="PostalCode"
           tiProps={{
             placeholder: 'Province',
             autoComplete: 'postal-address-region',
@@ -155,7 +154,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="PostalCode"
           returnKeyType="next"
-          onSubmit={() => chainInput('Country')}
+          chainable="Country"
           tiProps={{
             placeholder: 'Postal code',
             autoComplete: 'postal-code',
@@ -166,7 +165,7 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="Country"
           returnKeyType="next"
-          onSubmit={() => chainInput('Phone')}
+          chainable='Phone'
           tiProps={{
             placeholder: 'Country/Region',
             autoComplete: 'postal-address-country',
