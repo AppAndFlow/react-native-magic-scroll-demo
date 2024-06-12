@@ -7,6 +7,7 @@ import AppHeader from '../AppHeader';
 import SignUpForm from './SignUpForm';
 import TOSSection from './TOSSection';
 import colors from '../../../constants/colors';
+import { MagicScroll } from '@appandflow/react-native-magic-scroll';
 
 const SignUpScreen = observer(() => {
   const screenHeight = Dimensions.get('screen').height;
@@ -17,21 +18,21 @@ const SignUpScreen = observer(() => {
   return (
     <View style={{ flex: 1, backgroundColor: 'black' }}>
       <AppHeader title="Sign Up" backButton bgColor="black" borderBottom />
+
       <SignUpForm setIsButtonEnabled={setIsButtonEnabled} />
+
       <View
         style={{
-          paddingHorizontal: 20,
-          marginBottom: screenHeight * 0.16,
+          gap: 6,
+          position: 'absolute',
+          left: 20,
+          bottom: screenHeight * 0.16,
+          width: screenWidth - 40,
         }}
       >
         <TOSSection />
         <AppButton
-          style={{
-            position: 'absolute',
-            left: 20,
-            top: 46,
-            width: screenWidth - 40,
-          }}
+          style={{}}
           onPressButton={
             isButtonEnabled
               ? () => Alert.alert('You have successfully signed up!')
