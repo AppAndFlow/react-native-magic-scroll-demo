@@ -49,6 +49,7 @@ const SignUpForm = observer(
     return (
       <MagicScroll.ScrollView
         scollViewProps={{
+          bounces: false,
           showsVerticalScrollIndicator: false,
           contentContainerStyle: {
             paddingTop: 60,
@@ -62,7 +63,7 @@ const SignUpForm = observer(
           bottomText="You'll need to verify that you own this email account."
           name="PhoneNumber"
           returnKeyType="next"
-          onSubmit={() => chainInput('Username')}
+          chainable="Username"
           tiProps={{
             value: email,
             onChangeText: (val) => setEmail(val),
@@ -90,7 +91,7 @@ const SignUpForm = observer(
           label="Username"
           name="Username"
           returnKeyType="next"
-          onSubmit={() => chainInput('Password')}
+          chainable="Password"
           tiProps={{
             keyboardType: 'default',
             textContentType: 'username',

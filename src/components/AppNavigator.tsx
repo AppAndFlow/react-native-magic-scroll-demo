@@ -15,9 +15,10 @@ const AppNavigator = () => {
       initialRouteName="LandingScreen"
       screenOptions={{
         headerShown: false,
+        drawerActiveTintColor: 'white',
+        drawerContentStyle: { backgroundColor: 'black' },
         drawerContentContainerStyle: {
           backgroundColor: 'black',
-          height: '100%',
         },
         drawerLabelStyle: {
           color: 'white',

@@ -29,6 +29,7 @@ const LoginScreen = () => {
 
       <MagicScroll.ScrollView
         scollViewProps={{
+          bounces: false,
           contentContainerStyle: {
             paddingHorizontal: 20,
             paddingTop: screenHeight * 0.33,
