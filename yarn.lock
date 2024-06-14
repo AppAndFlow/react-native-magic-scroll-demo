@@ -15,10 +15,10 @@
     "@jridgewell/gen-mapping" "^0.3.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@appandflow/react-native-magic-scroll@^0.1.17":
-  version "0.1.17"
-  resolved "https://registry.npmjs.org/@appandflow/react-native-magic-scroll/-/react-native-magic-scroll-0.1.17.tgz"
-  integrity sha512-qswPYoNpnXcSDC40/ayAzveXEWdtlOx6b1LB6ZMktL9fbD03ownuwyCPwyK8o+DayIkx4RGUz/QObAq4P7oWGA==
+"@appandflow/react-native-magic-scroll@^0.1.18":
+  version "0.1.18"
+  resolved "https://registry.npmjs.org/@appandflow/react-native-magic-scroll/-/react-native-magic-scroll-0.1.18.tgz"
+  integrity sha512-CHvZ2vxz5C16lp+LL9+Z3uo9bS37NrvupI5P/h1c5HcnYf5h6XAUIYOIH3VJ9bTqbwhmC5EmjWFrc18yZ+D1aQ==
   dependencies:
     jotai "^2.8.0"
 

@@ -112,7 +112,7 @@ const OrderSummarySection = () => {
               fontWeight: '500',
             }}
           >
-            to earn and redeem
+            to earn and redeem{' '}
           </Text14Normal600>
           <Text14Normal600
             style={{
