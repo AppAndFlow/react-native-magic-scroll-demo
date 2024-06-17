@@ -44,7 +44,7 @@ const LoginScreen = () => {
           tiProps={{
             value: username,
             onChangeText: (val) => setUsername(val),
-            textContentType: 'username',
+            autoComplete: 'username',
           }}
         />
         <IndependantTI
@@ -54,7 +54,7 @@ const LoginScreen = () => {
             value: password,
             onChangeText: (val) => setPassword(val),
             secureTextEntry: true,
-            textContentType: 'password',
+            autoComplete: 'password',
           }}
           returnKeyType="done"
           onSubmit={Keyboard.dismiss}
@@ -63,7 +63,6 @@ const LoginScreen = () => {
         <Text16Asap400
           style={{
             color: colors.twitchLightPurple,
-
             fontSize: 18,
           }}
         >

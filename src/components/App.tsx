@@ -9,6 +9,7 @@ import { View } from 'react-native';
 import { fontsMap } from '../constants/fonts';
 import { StoreContext, rootStore } from '../stores';
 import AppContent from './AppContent';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 configure({
   enforceActions: 'never',
@@ -35,13 +36,15 @@ const App = () => {
   };
 
   return ready ? (
-    <StoreContext.Provider value={rootStore}>
-      <NavigationContainer>
-        <GestureHandlerRootView>
-          <AppContent />
-        </GestureHandlerRootView>
-      </NavigationContainer>
-    </StoreContext.Provider>
+    <SafeAreaProvider>
+      <StoreContext.Provider value={rootStore}>
+        <NavigationContainer>
+          <GestureHandlerRootView>
+            <AppContent />
+          </GestureHandlerRootView>
+        </NavigationContainer>
+      </StoreContext.Provider>
+    </SafeAreaProvider>
   ) : (
     <View style={{ flex: 1 }} />
   );

@@ -140,6 +140,7 @@ const OrderSummarySection = () => {
           tiProps={{
             value: discountCode,
             keyboardType: 'default',
+
             onChangeText: (val) => setDiscountCode(val),
             placeholder: 'Discount or gift card',
             style: { color: 'white' },
