@@ -53,6 +53,10 @@ const ShopAddressView = () => {
     setPhoneNumber('');
   };
 
+  if (!uiStore.isBottomSheetOpen) {
+    Keyboard.dismiss();
+  }
+
   return (
     <View
       style={{
@@ -86,7 +90,8 @@ const ShopAddressView = () => {
           chainable="LastName"
           tiProps={{
             placeholder: 'First name',
-            autoComplete: 'given-name',
+            autoComplete: 'name',
+            keyboardType: 'default',
             value: firstName,
             onChangeText: (val) => setFirstName(val),
           }}
@@ -98,6 +103,7 @@ const ShopAddressView = () => {
           tiProps={{
             placeholder: 'Last name',
             autoComplete: 'family-name',
+            keyboardType: 'default',
             value: lastName,
             onChangeText: (val) => setLastName(val),
           }}
@@ -114,6 +120,7 @@ const ShopAddressView = () => {
           tiProps={{
             placeholder: 'Address',
             autoComplete: 'address-line1',
+            keyboardType: 'default',
             value: address,
             onChangeText: (val) => setAddress(val),
           }}
@@ -125,6 +132,7 @@ const ShopAddressView = () => {
           tiProps={{
             placeholder: 'Appartment, suite, etc. (optional)',
             autoComplete: 'address-line2',
+            keyboardType: 'default',
             value: appartment,
             onChangeText: (val) => setAppartment(val),
           }}
@@ -135,7 +143,8 @@ const ShopAddressView = () => {
           chainable="Province"
           tiProps={{
             placeholder: 'City',
-            autoComplete: 'postal-address-locality',
+            autoComplete: 'off',
+            keyboardType: 'default',
             value: city,
             onChangeText: (val) => setCity(val),
           }}
@@ -146,7 +155,8 @@ const ShopAddressView = () => {
           chainable="PostalCode"
           tiProps={{
             placeholder: 'Province',
-            autoComplete: 'postal-address-region',
+            autoComplete: 'off',
+            keyboardType: 'default',
             value: province,
             onChangeText: (val) => setProvince(val),
           }}
@@ -158,6 +168,7 @@ const ShopAddressView = () => {
           tiProps={{
             placeholder: 'Postal code',
             autoComplete: 'postal-code',
+            keyboardType: 'default',
             value: postalCode,
             onChangeText: (val) => setPostalCode(val),
           }}
@@ -165,10 +176,11 @@ const ShopAddressView = () => {
         <ShopTextInput
           name="Country"
           returnKeyType="next"
-          chainable='Phone'
+          chainable="Phone"
           tiProps={{
             placeholder: 'Country/Region',
-            autoComplete: 'postal-address-country',
+            autoComplete: 'country',
+            keyboardType: 'default',
             value: country,
             onChangeText: (val) => setCountry(val),
           }}

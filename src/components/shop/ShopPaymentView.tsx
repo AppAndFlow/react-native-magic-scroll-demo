@@ -36,6 +36,10 @@ const ShopPaymentView = () => {
     setNickname('');
   };
 
+  if (!uiStore.isBottomSheetOpen) {
+    Keyboard.dismiss();
+  }
+
   return (
     <View
       style={{
@@ -118,9 +122,9 @@ const ShopPaymentView = () => {
           returnKeyType="done"
           onSubmit={Keyboard.dismiss}
           tiProps={{
-            keyboardType: 'default',
             placeholder: 'Nickname (optional)',
-            autoComplete: 'nickname',
+            autoComplete: 'given-name',
+            keyboardType: 'default',
             value: nickname,
             onChangeText: (val) => setNickname(val),
           }}
