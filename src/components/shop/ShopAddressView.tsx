@@ -76,7 +76,7 @@ const ShopAddressView = () => {
       </View>
       <HeaderFade style={{ position: 'absolute', top: 32, zIndex: 99 }} />
       <MagicScroll.ScrollView
-        scollViewProps={{
+        scrollViewProps={{
           showsVerticalScrollIndicator: false,
           style: {
             paddingHorizontal: 20,

@@ -53,7 +53,7 @@ const ShopPaymentView = () => {
       </View>
       <HeaderFade style={{ position: 'absolute', top: 32, zIndex: 99 }} />
       <MagicScroll.ScrollView
-        scollViewProps={{
+        scrollViewProps={{
           bounces: true,
           style: {
             paddingTop: 8,

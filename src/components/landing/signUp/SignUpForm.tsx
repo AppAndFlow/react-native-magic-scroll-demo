@@ -48,7 +48,7 @@ const SignUpForm = observer(
 
     return (
       <MagicScroll.ScrollView
-        scollViewProps={{
+        scrollViewProps={{
           bounces: false,
           showsVerticalScrollIndicator: false,
           contentContainerStyle: {

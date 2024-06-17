@@ -28,7 +28,7 @@ const LoginScreen = () => {
       <AppHeader title="Log In" bgColor="black" backButton borderBottom />
 
       <MagicScroll.ScrollView
-        scollViewProps={{
+        scrollViewProps={{
           bounces: false,
           contentContainerStyle: {
             paddingHorizontal: 20,

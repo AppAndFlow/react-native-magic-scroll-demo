@@ -24,7 +24,7 @@ const ShopCheckOutScreen = () => {
       />
 
       <MagicScroll.ScrollView
-        scollViewProps={{
+        scrollViewProps={{
           showsVerticalScrollIndicator: false,
           contentContainerStyle: { paddingBottom: 120 },
           style: {
