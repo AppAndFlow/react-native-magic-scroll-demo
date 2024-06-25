@@ -14,7 +14,7 @@ const IndependantTI = ({
   style,
   tiProps,
   bottomText,
-  chainable
+  chainable,
 }: {
   name: string;
   onSubmit?: () => void;
@@ -23,7 +23,7 @@ const IndependantTI = ({
   style?: ViewStyle;
   tiProps?: TextInputProps;
   bottomText?: string;
-  chainable?: string
+  chainable?: string;
 }) => {
   const [isFocused, setIsFocused] = React.useState(false);
 
